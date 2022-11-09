@@ -11,17 +11,18 @@ DROP TABLE IF EXISTS center;
 CREATE TABLE IF NOT EXISTS center (
                          center_id UUID NOT NULL,
                          center_activation_token CHAR(32),
-                         center_address VARCHAR(32) NOT NULL UNIQUE,
+                         center_address VARCHAR(128) UNIQUE,
                          center_contact_email VARCHAR(128) NOT NULL UNIQUE,
                          center_contact_name VARCHAR(64) NOT NULL,
                          center_contact_phone VARCHAR(32) NOT NULL,
-                         center_directory_image_url VARCHAR(128),
+                         center_directory_img_url VARCHAR(128),
                          center_hash CHAR(97) NOT NULL,
-                         center_lat VARCHAR (16) NOT NULL,
-                         center_lng VARCHAR (16) NOT NULL,
+                         center_lat VARCHAR (16),
+                         center_lng VARCHAR (16),
                          center_name VARCHAR (64) NOT NULL,
-                         center_profile_img_url VARCHAR (128),
-                         center_website_url VARCHAR (128) NOT NULL,
+                         center_phone VARCHAR (32),
+                         center_profile_img_url VARCHAR (255),
+                         center_website_url VARCHAR (128),
                          PRIMARY KEY(center_id)
 );
 CREATE TABLE IF NOT EXISTS restaurant (
