@@ -45,7 +45,7 @@ export async function selectPartialCenterByCenterId(centerId: string): Promise<C
 }
 
 export async function selectCenterByCenterActivationToken (centerActivationToken: string): Promise<Center|null> {
-    const result = <Center[]>await sql`SELECT center_id, center_activation_token, center_address, center_hash, center_directory_img_url, center_lat, center_lng, center_name, center_phone, center_website_url FROM center WHERE center_activation_token = ${centerActivationToken}`
+    const result = <Center[]>await sql`SELECT center_id, center_activation_token, center_address, center_contact_email, center_contact_name, center_contact_phone, center_hash, center_directory_img_url, center_lat, center_lng, center_name, center_phone, center_profile_img_url, center_website_url FROM center WHERE center_activation_token = ${centerActivationToken}`
     return result?.length === 1 ? result[0] : null
 }
 
@@ -60,7 +60,8 @@ export async function selectWholeCenterByCenterId (centerId: string): Promise<Ce
 }
 
 export async function updateCenter (center: Center): Promise<string> {
-    const {centerId, centerActivationToken, centerAddress, centerContactEmail, centerContactName, centerContactPhone, centerDirectoryImgUrl, centerHash, centerLat, centerLng, centerName, centerPhone, centerProfileImgUrl, centerWebsiteUrl} = center
-    await sql `UPDATE center SET center_activation_token = ${centerActivationToken}, center_address = ${centerAddress}, center_contact_email = ${centerContactEmail}, center_contact_name = ${centerContactName},center_contact_phone = ${centerContactPhone}, center_directory_img_url = ${centerDirectoryImgUrl}, center_hash = ${centerHash}, center_lat = ${centerLat}, center_lng = ${centerLng}, center_name = ${centerName},center_phone = ${centerPhone}, center_profile_img_url = ${centerProfileImgUrl}, center_website_url = ${centerWebsiteUrl} WHERE center_id = ${centerId}`
+    console.log(center.centerContactEmail)
+    const {centerId, centerActivationToken, centerAddress, centerContactEmail, centerContactName, centerContactPhone, centerDirectoryImgUrl, centerLat, centerLng, centerName, centerPhone, centerProfileImgUrl, centerWebsiteUrl} = center
+    await sql `UPDATE center SET center_activation_token = ${centerActivationToken}, center_address = ${centerAddress}, center_contact_email = ${centerContactEmail}, center_contact_name = ${centerContactName},center_contact_phone = ${centerContactPhone}, center_directory_img_url = ${centerDirectoryImgUrl}, center_lat = ${centerLat}, center_lng = ${centerLng}, center_name = ${centerName},center_phone = ${centerPhone}, center_profile_img_url = ${centerProfileImgUrl}, center_website_url = ${centerWebsiteUrl} WHERE center_id = ${centerId}`
     return 'Profile successfully updated'
 }

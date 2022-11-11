@@ -23,7 +23,7 @@ export async function restaurantSignUpController(request: Request, response: Res
             subject: 'One step closer to Sticky Head -- Account Activation',
             html: message
         }
-const center: Center = {
+const restaurant: Restaurant = {
     centerId: null,
     centerActivationToken:,
     centerContactName,

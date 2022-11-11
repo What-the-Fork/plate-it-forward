@@ -12,7 +12,7 @@ export async function signUpController(request:Request, response:Response): Prom
         const {centerAddress, centerContactEmail, centerContactName, centerContactPhone, centerName, centerPassword} = request.body
         const centerHash = await setHash(centerPassword)
         const centerActivationToken = setActivationToken()
-        const basePath: string = `${request.protocol}://${request.hostname}/${request.originalUrl}/activation/${centerActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${centerActivationToken}`
         console.log(basePath)
         const message = `<h2>Welcome to Plate It Forward</h2>
 Please sign up to create your partnership.

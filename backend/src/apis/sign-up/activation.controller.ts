@@ -25,6 +25,7 @@ export async function activationController (request: Request, response: Response
 
         return (center !== null) ? await activationSucceeded(center) : activationFailed()
     } catch (error: any) {
+        console.log(error)
         return response.json({
             status: 500,
             data: null,
