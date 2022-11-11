@@ -55,7 +55,7 @@ export async function selectCenterByCenterContactEmail (centerContactEmail: stri
 }
 
 export async function selectWholeCenterByCenterId (centerId: string): Promise<Center|null> {
-    const result = <Center[]>await sql`SELECT center_id, center_activation_token, center_address, center_hash, center_directory_img_url, center_lat, center_lng, center_name, center_phone, center_website_url FROM center WHERE center_id = ${centerId}`
+    const result = <Center[]>await sql`SELECT center_id, center_activation_token, center_address, center_hash, center_directory_img_url, center_lat, center_lng, center_name, center_phone, center_profile_img_url, center_website_url FROM center WHERE center_id = ${centerId}`
     return result?.length === 1 ? result[0] : null
 }
 

@@ -1,8 +1,10 @@
 import { App } from './App'
 import {Center} from "./utils/models/Center";
+import {Restaurant} from "./utils/models/Restaurant";
 declare module 'express-session' {
   export interface SessionData {
     center: Center | undefined
+    restaurant: Restaurant | undefined
     signature: string | undefined
     jwt: string | undefined
   }

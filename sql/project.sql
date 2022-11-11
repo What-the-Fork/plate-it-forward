@@ -28,14 +28,14 @@ CREATE TABLE IF NOT EXISTS center (
 CREATE TABLE IF NOT EXISTS restaurant (
                        restaurant_id UUID NOT NULL,
                        restaurant_activation_token CHAR (32),
-                       restaurant_address VARCHAR(32) NOT NULL UNIQUE,
+                       restaurant_address VARCHAR(128) NOT NULL UNIQUE,
                        restaurant_contact_email VARCHAR(128) NOT NULL UNIQUE,
                        restaurant_contact_name VARCHAR(64) NOT NULL,
                        restaurant_contact_phone VARCHAR(32) NOT NULL,
                        restaurant_hash CHAR(97) NOT NULL,
                        restaurant_name VARCHAR (64) NOT NULL,
                        restaurant_name_url VARCHAR (128),
-                       restaurant_profile_img_url VARCHAR (128) NOT NULL,
+                       restaurant_profile_img_url VARCHAR (255) NOT NULL,
                        PRIMARY KEY(restaurant_id)
 );
 CREATE TABLE IF NOT EXISTS donation (

@@ -1,11 +1,12 @@
 import {Request, Response} from "express";
 import Mailgun from "mailgun.js";
 import formData from 'form-data'
+import Client from 'mailgun.js/dist/lib/client'
 import {setActivationToken, setHash} from "../../utils/auth.utils";
 import {insertCenter, Center} from "../../utils/models/Center";
 
 
-export async function signUpController(request:Request, response:Response): Promise<Response | undefined> {
+export async function centerSignUpController(request:Request, response:Response): Promise<Response | undefined> {
     try {
         const mailGun = new Mailgun(formData)
         const mailGunClient = mailGun.client({username:'api', key:process.env.MAILGUN_API_KEY as string})

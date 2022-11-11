@@ -1,14 +1,14 @@
 import {Schema} from "express-validator";
 
-export const restaurantSignUpValidator: Schema = {
-    restaurantAddress: {
+export const centerSignUpValidator: Schema = {
+    centerAddress: {
         isLength: {
             errorMessage: 'Please provide an address',
             options: {min: 1, max: 128}
         },
         trim: true
     },
-    restaurantContactEmail: {
+    centerContactEmail: {
         isEmail: {
             errorMessage: 'please provide a valid email'
         },
@@ -17,26 +17,26 @@ export const restaurantSignUpValidator: Schema = {
             options: {min: 1, max: 128}
         }
     },
-    restaurantContactName: {
+    centerContactName: {
         escape: true,
         trim: true,
         isLength: {
-            errorMessage: 'restaurant contact name must be between 0 to 64 characters',
+            errorMessage: 'Center contact name must be between 0 to 64 characters',
             options: {min: 1, max: 64}
         },
     },
-    restaurantContactPhone: {
+    centerContactPhone: {
         isNumeric: true,
         isLength: {
             errorMessage: 'Please provide a valid phone number',
             options: {min: 1, max: 32}
         },
     },
-    restaurantName: {
+    centerName: {
         escape: true,
         trim: true,
         isLength: {
-            errorMessage: 'restaurant Name must be between 0 to 64 characters',
+            errorMessage: 'Center Name must be between 0 to 64 characters',
             options: {min: 1, max: 64}
         },
         optional: {
@@ -45,14 +45,14 @@ export const restaurantSignUpValidator: Schema = {
             }
         }
     },
-    restaurantPassword: {
+    centerPassword: {
         isLength: {
             errorMessage: 'Password must be at least eight characters',
             options: { min: 8, max: 200 }
         }
 
     },
-    restaurantPasswordConfirm: {
+    centerPasswordConfirm: {
         isLength: {
             errorMessage: 'Confirm password must be at least eight characters',
             options: { min: 8, max: 200 }
@@ -60,7 +60,7 @@ export const restaurantSignUpValidator: Schema = {
         custom: {
             errorMessage: 'Password confirmation does not match password',
             options: (value, { req, location, path }) => {
-                if (value !== req.body.restaurantPassword) {
+                if (value !== req.body.centerPassword) {
                     throw new Error('Password confirmation does not match password')
                 }
 
@@ -69,7 +69,7 @@ export const restaurantSignUpValidator: Schema = {
             }
         }
     },
-    restaurantProfileImgUrl: {
+    centerProfileImgUrl: {
         isURL: true,
         optional: {
             options: {
