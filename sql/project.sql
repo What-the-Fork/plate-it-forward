@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS restaurant (
                        restaurant_hash CHAR(97) NOT NULL,
                        restaurant_name VARCHAR (64) NOT NULL,
                        restaurant_name_url VARCHAR (128),
-                       restaurant_profile_img_url VARCHAR (255) NOT NULL,
+                       restaurant_profile_img_url VARCHAR (255),
                        PRIMARY KEY(restaurant_id)
 );
 CREATE TABLE IF NOT EXISTS donation (
