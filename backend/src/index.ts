@@ -1,5 +1,12 @@
 import { App } from './App'
-
+import {Center} from "./utils/models/Center";
+declare module 'express-session' {
+  export interface SessionData {
+    center: Center | undefined
+    signature: string | undefined
+    jwt: string | undefined
+  }
+}
 // instantiate new app and pass it a port as an argument to start with (4200)
 async function main (): Promise<void> {
   try {
