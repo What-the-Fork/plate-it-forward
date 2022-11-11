@@ -1,7 +1,7 @@
 import {Schema} from "express-validator";
 
-export const centerSignInValidator: Schema = {
-    centerPassword: {
+export const restaurantSignInValidator: Schema = {
+    restaurantPassword: {
         isLength: {
             errorMessage: 'Password must be at least eight characters',
             options: { min: 8 }
@@ -9,12 +9,12 @@ export const centerSignInValidator: Schema = {
         trim: true,
         escape: true
     },
-    centerContactEmail: {
+    restaurantContactEmail: {
         isEmail: {
             errorMessage: 'Please provide a valid email'
         },
         // Uncomment the next line to sanitize email, but it removes +1 from testing email addresses.
-        //normalizeEmail: true,
+       //normalizeEmail: true,
         trim: true
     }
 }
