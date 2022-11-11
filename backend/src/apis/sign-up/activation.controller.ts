@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
-import { Center, selectCenterByCenterActivationToken} from '../../utils/models/Center'
-import { Status } from
-import {ResolveOptions} from "dns"; xxxxxxxxxx
+import { Center, selectCenterByCenterActivationToken, updateCenter} from '../../utils/models/Center'
+import {Status} from "../../utils/interfaces/Status";
 
 export async function activationController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
