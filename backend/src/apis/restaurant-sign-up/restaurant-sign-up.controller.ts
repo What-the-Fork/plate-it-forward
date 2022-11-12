@@ -13,7 +13,7 @@ export async function restaurantSignUpController(request: Request, response: Res
         const {restaurantAddress, restaurantContactEmail, restaurantContactName, restaurantContactPhone, restaurantName, restaurantPassword} = request.body
         const restaurantHash = await setHash(restaurantPassword)
         const restaurantActivationToken = setActivationToken()
-        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}activation/${restaurantActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${restaurantActivationToken}`
         const message = `<h2>Welcome to Plate It Forward</h2> 
         Please click the link to verify your account.
         <a href="${basePath}">${basePath}</a>`
