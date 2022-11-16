@@ -65,3 +65,8 @@ export async function updateCenter (center: Center): Promise<string> {
     await sql `UPDATE center SET center_activation_token = ${centerActivationToken}, center_address = ${centerAddress}, center_contact_email = ${centerContactEmail}, center_contact_name = ${centerContactName},center_contact_phone = ${centerContactPhone}, center_directory_img_url = ${centerDirectoryImgUrl}, center_lat = ${centerLat}, center_lng = ${centerLng}, center_name = ${centerName},center_phone = ${centerPhone}, center_profile_img_url = ${centerProfileImgUrl}, center_website_url = ${centerWebsiteUrl} WHERE center_id = ${centerId}`
     return 'Profile successfully updated'
 }
+
+export async function selectCenterByDonationRestaurantId (donationRestaurantId: string): Promise<Center|null> {
+    const result = await sql<Center[]>`SELECT center_id FROM center INNER JOIN partnership ON center.center_id = partnership.partnership_center_id WHERE partnership_restaurant_id = ${donationRestaurantId} AND partnership_approved = true`
+    return result?.length === 1 ? result[0] : null
+}

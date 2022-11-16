@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS donation (
                        donation_center_id UUID NOT NULL,
                        donation_restaurant_id UUID NOT NULL,
                        donation_date DATE NOT NULL,
-                       donation_number_of_meals_donated VARCHAR (8) NOT NULL,
-                       donation_number_of_meals_served VARCHAR (8) NOT NULL,
-                       donation_serve_date DATE NOT NULL,
+                       donation_number_of_meals_donated smallint NOT NULL,
+                       donation_number_of_meals_served smallint,
+                       donation_serve_date DATE,
                        FOREIGN KEY(donation_center_id) REFERENCES center(center_id),
                        FOREIGN KEY(donation_restaurant_id) REFERENCES restaurant(restaurant_id),
                        PRIMARY KEY (donation_id)
@@ -56,7 +56,7 @@ CREATE INDEX ON donation (donation_restaurant_id);
 CREATE TABLE IF NOT EXISTS partnership (
                         partnership_center_id UUID NOT NULL,
                         partnership_restaurant_id UUID NOT NULL,
-                        partnership_approved VARCHAR (8) NOT NULL,
+                        partnership_approved BOOLEAN NOT NULL,
                         FOREIGN KEY (partnership_center_id) REFERENCES center (center_id),
                         FOREIGN KEY (partnership_restaurant_id) REFERENCES restaurant (restaurant_id),
                         PRIMARY KEY(partnership_center_id, partnership_restaurant_id)

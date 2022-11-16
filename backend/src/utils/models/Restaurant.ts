@@ -56,3 +56,4 @@ export async function updateRestaurant (restaurant: Restaurant): Promise<string>
     await sql `UPDATE restaurant SET restaurant_activation_token = ${restaurantActivationToken}, restaurant_address = ${restaurantAddress}, restaurant_contact_email = ${restaurantContactEmail}, restaurant_contact_name = ${restaurantContactName},restaurant_contact_phone = ${restaurantContactPhone}, restaurant_name = ${restaurantName}, restaurant_name_url = ${restaurantNameUrl}, restaurant_profile_img_url = ${restaurantProfileImgUrl} WHERE restaurant_id = ${restaurantId}`
     return 'Profile successfully updated'
 }
+

@@ -5,42 +5,39 @@ import { Center } from '../models/Center'
 import { Restaurant } from '../models/Restaurant'
 import { IncomingHttpHeaders } from 'http'
 
-export function isLoggedIn (request: Request, response: Response, next: NextFunction): any {
-    const status: Status = { status: 400, message: 'Please login', data: null }
-
-    const sessionCenter = (request: Request): Center | undefined => request.session?.center ?? undefined
-    console.log(request.sessionID)
-    const sessionRestaurant = (request: Request): Restaurant | undefined => request.session?.restaurant ?? undefined
-    console.log(request.sessionID)
-
-    const signature = (request: Request): string => request.session?.signature ?? 'no signature'
-
-    const isCenterSessionActive = (isCenterActive: Center | undefined): boolean => (isCenterActive !== undefined)
-
-    const isRestaurantSessionActive = (isRestaurantActive: Restaurant | undefined): boolean => (isRestaurantActive !== undefined)
-
-    const getJwtTokenFromHeader = (headers: IncomingHttpHeaders): string | undefined => {
-    return headers.authorization
-    }
-
-    const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers)
-
-    const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
-        if (unverifiedJwtToken === undefined) {
-            return false
+export function isLoggedIn (userType: 'restaurant' | 'center'): any {
+    return function (request: Request, response: Response, next: NextFunction): any {
+        const status: Status = { status: 400, message: 'Please login', data: null }
+        const sessionProfile = (request: Request): Restaurant | Center | undefined => request.session[userType] ?? undefined
+        const signature = (request: Request): string => request.session?.signature ?? 'no signature'
+        const isSessionActive = (isProfileActive: Restaurant | Center | undefined): boolean => (isProfileActive !== undefined)
+        const getJwtTokenFromHeader = (headers: IncomingHttpHeaders): string | undefined => {
+            return headers.authorization
         }
-        const result: unknown = verify (
-            unverifiedJwtToken,
-            signature(request),
-            { maxAge: '3hr' },
-            (error: VerifyErrors | null): boolean => error == null
-        ) as unknown
-
-        return result as boolean
+        const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers)
+        // const isJwtValid: boolean|void = unverifiedJwtToken
+        //   ? verify(
+        //         unverifiedJwtToken,
+        //         signature(request),
+        //         {maxAge: "3hr"},
+        //
+        //     )
+        //   : false;
+        const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
+            if (unverifiedJwtToken === undefined) {
+                return false
+            }
+            const result: unknown = verify(
+                unverifiedJwtToken,
+                signature(request),
+                { maxAge: '3hr' },
+                (error: VerifyErrors | null): boolean => error == null
+            ) as unknown
+            return result as boolean
+        }
+        if (isJwtValid(unverifiedJwtToken) && isSessionActive(sessionProfile(request))) {
+            return next()
+        }
+        isJwtValid(unverifiedJwtToken) && isSessionActive(sessionProfile(request)) ? next() : response.json(status)
     }
-
-    if (isJwtValid(unverifiedJwtToken) && isCenterSessionActive(sessionCenter(request) || isRestaurantSessionActive(sessionRestaurant(request)))) {
-        return next()
-    }
-    isJwtValid(unverifiedJwtToken) && isCenterSessionActive(sessionCenter(request) || isRestaurantSessionActive(sessionRestaurant(request))) ? next() : response.json(status)
 }
