@@ -18,9 +18,11 @@ export async function insertPartnership (partnership: Partnership): Promise<stri
 
 export async function updatePartnership (partnership: Partnership): Promise<string|null> {
     const {partnershipCenterId, partnershipRestaurantId, partnershipApproved} = partnership
-    await sql`UPDATE partnership SET partnership_center_id = ${partnershipCenterId}, partnership_restaurant_id = ${partnershipRestaurantId}, partnership_approved = ${partnershipApproved} WHERE partnership_center_id = ${partnershipCenterId}`
-
-    // ASK GEORGIEST ABOUT PRIMARY KEY MASH
-
+    await sql`UPDATE partnership SET partnership_center_id = ${partnershipCenterId}, partnership_restaurant_id = ${partnershipRestaurantId}, partnership_approved = ${partnershipApproved} WHERE partnership_center_id = ${partnershipCenterId} AND partnership_restaurant_id = ${partnershipRestaurantId}`
     return 'partnership approved'
+}
+
+export async function selectPartnershipByCenterId (partnershipCenterId: string):  Promise<Partnership|null> {
+    const result = <Partnership[]> await sql `SELECT partnership_center_id, partnership_restaurant_id, partnership_approved FROM partnership WHERE partnership_center_id = ${partnershipCenterId}`
+    return result?.length === 1 ? result[0] : null
 }

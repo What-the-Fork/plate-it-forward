@@ -3,6 +3,7 @@ import { Router } from 'express'
 import { asyncValidatorController} from "../../utils/controllers/async-validator.controller";
 import { check, checkSchema} from "express-validator";
 import { restaurantValidator} from "./restaurant.validator";
+import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 export const RestaurantRoute: Router = Router()
 RestaurantRoute.route('/')

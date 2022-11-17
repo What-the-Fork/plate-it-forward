@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import {
     getAllNumberOfMealsDonatedController,
-    submitRestaurantDonation
+    postDonation
 } from './donation.controller'
 import {asyncValidatorController} from '../../utils/controllers/async-validator.controller'
 import {check, checkSchema} from 'express-validator'
@@ -17,6 +17,6 @@ router.route('/:donationId').get(asyncValidatorController([
 router.route('/')
     .get(getAllNumberOfMealsDonatedController)
     .get(selectCenterByDonationRestaurantId)
-    .post(isLoggedIn("restaurant"), asyncValidatorController(checkSchema(donationValidator)), submitRestaurantDonation)
+    .post(isLoggedIn("restaurant"), asyncValidatorController(checkSchema(donationValidator)), postDonation)
 
 export default router
