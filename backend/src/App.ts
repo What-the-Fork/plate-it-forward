@@ -11,6 +11,8 @@ import {centerSignInRouter} from "./apis/center-sign-in/center-sign-in.route";
 import {restaurantSignInRouter} from "./apis/restaurant-sign-in/restaurant-sign-in.route";
 import {centerSignOutRoute} from "./apis/center-sign-out/center-sign-out.route";
 import {restaurantSignOutRoute} from "./apis/restaurant-sign-out/restaurant-sign-out.route";
+import donationRoute from "./apis/donation/donation.route";
+import partnershipRoute from "./apis/partnership/partnership.route";
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
@@ -58,6 +60,8 @@ export class App {
     this.app.use("/apis/restaurant-sign-in", restaurantSignInRouter)
     this.app.use("/apis/center-sign-out", centerSignOutRoute)
     this.app.use("/apis/restaurant-sign-out", restaurantSignOutRoute)
+    this.app.use("/apis/donation", donationRoute)
+    this.app.use("/apis/partnership", partnershipRoute)
   }
 
   // starts the server and tells the terminal to post a message that the server is running and on what port

@@ -11,22 +11,12 @@ import {
 
 export async function postPartnership(request: Request, response: Response): Promise<Response<Status>> {
     try {
-
-        const { partnershipApproved } = request.body
+        const {partnershipCenterId} = request.body
         if (request.session.restaurant === undefined) {
             throw new Error('you are not logged in')
         }
         const restaurant: Restaurant = request.session.restaurant
         const partnershipRestaurantId: string = restaurant.restaurantId as string
-        const center: Center = request.session.center
-        const partnershipCenterId: string = center.centerId as string
-
-
-
-        if (partnership?.partnershipRestaurantId !== null) {
-            throw new Error('unable to process donation no approved partnerships')
-        }
-        const partnershipCenterId = center.centerId
 
 
         const partnership: Partnership = {

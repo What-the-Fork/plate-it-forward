@@ -52,7 +52,7 @@ function centerSignInSuccessful(request: Request, response: Response, center: Ce
         centerWebsiteUrl
     }, signature)
 
-    request.session.profile = center
+    request.session.center = center
     request.session.jwt = authorization
     request.session.signature = signature
 
