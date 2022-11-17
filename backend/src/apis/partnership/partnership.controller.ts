@@ -2,36 +2,39 @@ import { NextFunction, Request, Response} from "express"
 import { Status } from '../../utils/interfaces/Status'
 import {Center, selectCenterByDonationRestaurantId} from '../../utils/models/Center'
 import { Restaurant} from "../../utils/models/Restaurant"
-import { insertPartnership, updatePartnership} from "../../utils/models/Partnership"
-import {Donation, insertDonation, selectDonationByDonationId, updateDonation} from "../../utils/models/Donation";
+import {
+    insertPartnership,
+    Partnership,
+    selectPartnershipByCenterId,
+    updatePartnership
+} from "../../utils/models/Partnership"
 
 export async function postPartnership(request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { partnershipCenterId, partnershipRestaurantId } = request.body
+
+        const { partnershipApproved } = request.body
         if (request.session.restaurant === undefined) {
             throw new Error('you are not logged in')
         }
         const restaurant: Restaurant = request.session.restaurant
         const partnershipRestaurantId: string = restaurant.restaurantId as string
+        const center: Center = request.session.center
+        const partnershipCenterId: string = center.centerId as string
 
-        const center = await selectCenterByDonationRestaurantId(partnershipRestaurantId)
 
-        if (center?.centerId !== null) {
+
+        if (partnership?.partnershipRestaurantId !== null) {
             throw new Error('unable to process donation no approved partnerships')
         }
-        const donationCenterId = center.centerId
+        const partnershipCenterId = center.centerId
 
 
-        const donation: Donation = {
-            donationId: null,
-            donationRestaurantId,
-            donationCenterId,
-            donationNumberOfMealsDonated,
-            donationDate: null,
-            donationServeDate: null,
-            donationNumberOfMealsServed: null
+        const partnership: Partnership = {
+            partnershipCenterId: null,
+            partnershipRestaurantId: null,
+            partnershipApproved: null
         }
-        const result = await insertDonation(donation)
+        const result = await insertPartnership(partnership)
         const status: Status = {
             status: 200,
             message: result,
@@ -54,19 +57,19 @@ export async function putPartnership (request: Request, response: Response): Pro
         const center = request.session.center as Center
         const centerIdFromSession = center.centerId as string
 
-        const previousDonation = await selectDonationByDonationId(donationId)
+        const previousPartnership = await selectPartnershipByCenterId(partnershipCenterId)
         // if donationByDonationId does not exist
-        if (previousDonation === null) {
-            return response.json({status: 404, data: null, message: 'this donation does not exist'})
+        if (previousPartnership === null) {
+            return response.json({status: 404, data: null, message: 'this partnership does not exist'})
         }
         // if donationCenterId does not match centerIdFromSession
-        if (previousDonation.donationCenterId !== centerIdFromSession) {
+        if (previousPartnership.partnershipCenterId !== centerIdFromSession) {
             return response.json({status: 400, data: null, message: 'you are not allowed to perform this action'})
         }
         // from previousDonation - updates donationServeDate and donationNumberOfMealsServed
-        const newDonation: Donation = {...previousDonation, donationServeDate, donationNumberOfMealsServed}
-        await updateDonation(newDonation)
-        return response.json({status: 200, data: null, message: 'Donation successfully updated'})
+        const newPartnership: Partnership = {...previousPartnership, partnershipApproved }
+        await updatePartnership(newPartnership)
+        return response.json({status: 200, data: null, message: 'Partnership successfully approved'})
 
     } catch (error: any) {
         return response.json({status: 400, data: null, message: error.message})
