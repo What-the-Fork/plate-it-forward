@@ -89,6 +89,7 @@ export async function getPartnershipByPartnershipCenterId (request: Request, res
     }
 }
 
+console.log('hi')
 export async function getPartnershipByPartnershipRestaurantId (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
         const { partnershipRestaurantId } = request.params
@@ -102,3 +103,4 @@ export async function getPartnershipByPartnershipRestaurantId (request: Request,
         })
     }
 }
+console.log('bye')

@@ -1,6 +1,4 @@
 import {sql} from "../database.utils"
-import {Restaurant} from "./Restaurant";
-import {Center} from "./Center";
 
 export interface Partnership {
     partnershipCenterId: string | null,

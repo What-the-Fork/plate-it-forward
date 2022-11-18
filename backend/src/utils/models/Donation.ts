@@ -52,5 +52,31 @@ export async function selectDonationByDonationId(donationId: string): Promise<Do
     return result?.length === 1 ? result[0] : null
 }
 
+//so centers can see their meals served
+export async function selectDonationsByCenterId(donationCenterId: string): Promise<Donation[]> {
+    return <Donation[]>await sql`SELECT donation_id,
+                                                donation_center_id,
+                                                donation_restaurant_id,
+                                                donation_date,
+                                                donation_number_of_meals_donated,
+                                                donation_number_of_meals_served,
+                                                donation_serve_date
+                                         FROM donation
+                                         WHERE donation_center_id = ${donationCenterId}`
+}
+
+// so restaurants can see their donations
+export async function selectDonationsByRestaurantId(donationRestaurantId: string): Promise<Donation[]> {
+    return <Donation[]>await sql`SELECT donation_id,
+                                                donation_center_id,
+                                                donation_restaurant_id,
+                                                donation_date,
+                                                donation_number_of_meals_donated,
+                                                donation_number_of_meals_served,
+                                                donation_serve_date
+                                         FROM donation
+                                         WHERE donation_restaurant_id = ${donationRestaurantId}`
+}
+
 
 

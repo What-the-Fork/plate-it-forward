@@ -1,10 +1,10 @@
-import {Request, Response} from 'express'
+import {NextFunction, Request, Response} from 'express'
 
 import {
     insertDonation,
     updateDonation,
     selectDonationByDonationId,
-    Donation
+    Donation, selectDonationsByRestaurantId, selectDonationsByCenterId
 } from '../../utils/models/Donation'
 
 import {Status} from '../../utils/interfaces/Status'
@@ -12,7 +12,7 @@ import {Restaurant} from "../../utils/models/Restaurant";
 import { Center } from "../../utils/models/Center";
 
 
-export async function getAllNumberOfMealsDonatedController(request: Request, response: Response): Promise<Response<Status>> {
+export async function getAllDonationsController(request: Request, response: Response): Promise<Response<Status>> {
     try {
         const {donationRestaurantId} = request.params
 
@@ -96,6 +96,37 @@ export async function postDonation(request: Request, response: Response): Promis
             status: 500,
             message: error.message,
             data: null
+        })
+    }
+}
+
+
+export async function getDonationsByRestaurantId (request:Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+    try {
+        const { donationRestaurantId } = request.params
+        const data = await selectDonationsByRestaurantId(donationRestaurantId)
+        return response.json({ status: 200, message: null, data })
+    } catch (error) {
+        console.log(error)
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+
+export async function getDonationsByCenterId (request:Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+    try {
+        const { donationCenterId } = request.params
+        const data = await selectDonationsByCenterId(donationCenterId)
+        return response.json({ status: 200, message: null, data })
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
         })
     }
 }
