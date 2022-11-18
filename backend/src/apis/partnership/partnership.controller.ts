@@ -34,6 +34,7 @@ export async function postPartnership(request: Request, response: Response): Pro
         }
         return response.json(status)
     } catch (error: any) {
+        console.log('rooobbbbbbbb')
         return response.json({
             status: 500,
             message: error.message,
@@ -90,10 +91,12 @@ export async function getPartnershipByPartnershipCenterId (request: Request, res
 }
 
 console.log('hi')
-export async function getPartnershipByPartnershipRestaurantId (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+export async function getPartnershipByPartnershipRestaurantId
+(request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+    console.log('hello')
     try {
-        const { partnershipRestaurantId } = request.params
-        const data = await selectPartnershipByPartnershipRestaurantId(partnershipRestaurantId)
+        const { partnershipByRestaurantId } = request.params
+        const data = await selectPartnershipByPartnershipRestaurantId(partnershipByRestaurantId)
         return response.json({status: 200, message: null, data})
     } catch (error) {
         return response.json({

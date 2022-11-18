@@ -19,8 +19,9 @@ router.route('/')
     .post(isLoggedIn("restaurant"), asyncValidatorController(checkSchema(partnershipValidator)), postPartnership)
     .put(isLoggedIn("center"), asyncValidatorController(checkSchema(partnershipValidator)), putPartnership)
 
-router.route('/partnershipRestaurantId/:partnershipRestaurantId').get(asyncValidatorController([check('partnershipRestaurantId', 'please provide a valid restaurantId ').isUUID()
-]), getPartnershipByPartnershipRestaurantId)
+router.route('/partnershipByRestaurantId/:partnershipByRestaurantId').get(
+    asyncValidatorController([check('partnershipByRestaurantId', 'please provide a valid restaurantId ').isUUID()]),
+    getPartnershipByPartnershipRestaurantId)
 
 router.route('/partnershipCenterId/:partnershipCenterId').get(asyncValidatorController([check('partnershipCenterId', 'please provide a valid centerId ').isUUID()
 ]), getPartnershipByPartnershipCenterId)
