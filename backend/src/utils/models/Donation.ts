@@ -4,8 +4,8 @@ export interface Donation {
     donationId: string | null,
     donationCenterId: string | null,
     donationRestaurantId: string | null,
-    donationDate: Date,
-    donationNumberOfMealsDonated: number,
+    donationDate: Date | null,
+    donationNumberOfMealsDonated: number | null,
     donationNumberOfMealsServed: number | null,
     donationServeDate: Date | null
 }

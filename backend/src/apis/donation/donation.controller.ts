@@ -9,7 +9,7 @@ import {
 
 import {Status} from '../../utils/interfaces/Status'
 import {Restaurant} from "../../utils/models/Restaurant";
-import {Center, selectCenterByDonationRestaurantId} from "../../utils/models/Center";
+import { Center } from "../../utils/models/Center";
 
 
 export async function getAllNumberOfMealsDonatedController(request: Request, response: Response): Promise<Response<Status>> {
@@ -27,8 +27,12 @@ export async function getAllNumberOfMealsDonatedController(request: Request, res
 
 export async function putDonation(request: Request, response: Response): Promise<Response> {
     try {
-        const {donationId} = request.params
+        const {donationId} = request.body
         const {
+            donationCenterId,
+            donationRestaurantId,
+            donationDate,
+            donationNumberOfMealsDonated,
             donationNumberOfMealsServed,
             donationServeDate
         } = request.body
@@ -45,8 +49,16 @@ export async function putDonation(request: Request, response: Response): Promise
             return response.json({status: 400, data: null, message: 'you are not allowed to perform this action'})
         }
         // from previousDonation - updates donationServeDate and donationNumberOfMealsServed
-        const newDonation: Donation = {...previousDonation, donationServeDate, donationNumberOfMealsServed}
+        const newDonation: Donation = {...previousDonation, donationCenterId,
+            donationRestaurantId,
+            donationDate,
+            donationNumberOfMealsDonated,
+            donationNumberOfMealsServed,
+            donationServeDate}
+
+        console.log(newDonation)
         await updateDonation(newDonation)
+        console.log(updateDonation)
         return response.json({status: 200, data: null, message: 'Donation successfully updated'})
 
     } catch (error: any) {
