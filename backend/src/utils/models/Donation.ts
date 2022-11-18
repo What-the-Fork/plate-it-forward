@@ -4,9 +4,9 @@ export interface Donation {
     donationId: string | null,
     donationCenterId: string | null,
     donationRestaurantId: string | null,
-    donationDate: Date | null,
-    donationNumberOfMealsDonated: string,
-    donationNumberOfMealsServed: string | null,
+    donationDate: Date,
+    donationNumberOfMealsDonated: number,
+    donationNumberOfMealsServed: number | null,
     donationServeDate: Date | null
 }
 
@@ -31,7 +31,7 @@ export async function insertDonation(donation: Donation): Promise<string> {
 export async function updateDonation (donation: Donation): Promise<string> {
     const {donationId, donationDate, donationNumberOfMealsDonated, donationNumberOfMealsServed, donationServeDate} = donation
     await sql`UPDATE donation
-              SET donation_date                    = ${donationDate},
+              SET donation_date = ${donationDate},
                   donation_number_of_meals_donated = ${donationNumberOfMealsDonated},
                   donation_number_of_meals_served = ${donationNumberOfMealsServed},
                   donation_serve_date = ${donationServeDate}

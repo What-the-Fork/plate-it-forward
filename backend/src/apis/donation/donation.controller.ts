@@ -56,27 +56,19 @@ export async function putDonation(request: Request, response: Response): Promise
 
 export async function postDonation(request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const {donationNumberOfMealsDonated} = request.body
+        const {donationId, donationCenterId, donationNumberOfMealsDonated, donationDate} = request.body
         if (request.session.restaurant === undefined) {
             throw new Error('you are not logged in')
         }
         const restaurant: Restaurant = request.session.restaurant
         const donationRestaurantId: string = restaurant.restaurantId as string
 
-        const center = await selectCenterByDonationRestaurantId(donationRestaurantId)
-
-        if (center?.centerId !== null) {
-            throw new Error('unable to process donation no approved partnerships')
-        }
-        const donationCenterId = center.centerId
-
-
         const donation: Donation = {
-            donationId: null,
-            donationRestaurantId,
+            donationId,
             donationCenterId,
+            donationRestaurantId,
             donationNumberOfMealsDonated,
-            donationDate: null,
+            donationDate,
             donationServeDate: null,
             donationNumberOfMealsServed: null
         }
@@ -95,3 +87,13 @@ export async function postDonation(request: Request, response: Response): Promis
         })
     }
 }
+
+        // const center = await selectCenterByDonationRestaurantId(donationRestaurantId)
+        //
+        // if (center?.centerId !== null) {
+        //     throw new Error('unable to process donation no approved partnerships')
+        // }
+        // const donationCenterId = center.centerId
+
+
+

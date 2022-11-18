@@ -3,12 +3,12 @@ import { Schema } from 'express-validator'
 export const partnershipValidator: Schema = {
     partnershipCenterId: {
         isUUID: {
-            errorMessage: 'please provide a valid donationCenterId'
+            errorMessage: 'please provide a valid partnershipCenterId'
         }
     },
     partnershipRestaurantId: {
         isUUID: {
-            errorMessage: 'please provide a valid donationRestaurantId'
+            errorMessage: 'please provide a valid partnershipRestaurantId'
         }
     },
     partnershipApproved: {

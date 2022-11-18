@@ -25,7 +25,7 @@ export async function putCenterController(request: Request, response: Response):
             centerProfileImgUrl,
             centerWebsiteUrl
         } = request.body
-        const center = request.session.profile as Center
+        const center = request.session.center as Center
         const centerIdFromSession = center.centerId as string
 
         const performUpdate = async (partialCenter: PartialCenter): Promise<Response> => {
