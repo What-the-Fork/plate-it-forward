@@ -33,6 +33,7 @@ export async function insertRestaurant(restaurant: Restaurant): Promise<string> 
 
 export async function selectPartialRestaurantByRestaurantId(restaurantId: string): Promise<Restaurant|null> {
     const result = <Restaurant[]>await sql`SELECT restaurant_id, restaurant_address, restaurant_contact_email, restaurant_contact_name, restaurant_contact_phone, restaurant_name, restaurant_name_url, restaurant_profile_img_url FROM restaurant WHERE restaurant_id = ${restaurantId}`
+    // one to one relationship - must return 1 object or nothing
     return result?.length === 1 ? result[0] : null
 }
 

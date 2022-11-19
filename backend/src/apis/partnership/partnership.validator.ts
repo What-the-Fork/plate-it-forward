@@ -1,5 +1,6 @@
 import { Schema } from 'express-validator'
 
+// blueprint for partnership entity
 export const partnershipValidator: Schema = {
     partnershipCenterId: {
         isUUID: {
@@ -12,6 +13,7 @@ export const partnershipValidator: Schema = {
         }
     },
     partnershipApproved: {
+        // boolean is either true or false, error spit out if invalid
         isBoolean: true,
         errorMessage: 'partnership not valid',
     }

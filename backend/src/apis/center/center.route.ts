@@ -6,9 +6,11 @@ import { centerValidator } from "./center.validator";
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 export const CenterRoute: Router = Router()
+// '/' prefix directs to center profile
 CenterRoute.route('/')
     .post(putCenterController)
 
+    // (/:) directs to specific center profile when centerId is provided
 CenterRoute.route('/:centerId')
     .get(
         asyncValidatorController([

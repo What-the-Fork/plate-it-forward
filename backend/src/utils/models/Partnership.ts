@@ -33,6 +33,7 @@ export async function selectPartnershipByPartnershipCenterId (partnershipCenterI
 
 export async function selectPartnershipByPartnershipRestaurantId (partnershipRestaurantId: string): Promise<Partnership|null> {
     const result = <Partnership[]> await sql`SELECT partnership_center_id, partnership_restaurant_id, partnership_approved FROM partnership WHERE partnership_restaurant_id = ${partnershipRestaurantId}`
+    // one to one relationship - must return 1 object or nothing
     return result?.length === 1 ? result[0] : null
 }
 

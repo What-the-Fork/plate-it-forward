@@ -11,11 +11,10 @@ import {Status} from '../../utils/interfaces/Status'
 import {Restaurant} from "../../utils/models/Restaurant";
 import { Center } from "../../utils/models/Center";
 
-
 export async function getAllDonationsController(request: Request, response: Response): Promise<Response<Status>> {
     try {
+        // for backend to grab donations for front end stats display
         const {donationRestaurantId} = request.params
-
         const postgresResult = await selectDonationByDonationId(donationRestaurantId)
         const data = postgresResult ?? null
         const status: Status = {status: 200, data, message: null}
@@ -27,6 +26,7 @@ export async function getAllDonationsController(request: Request, response: Resp
 
 export async function putDonation(request: Request, response: Response): Promise<Response> {
     try {
+        // how center updates donation with serve date and amount served
         const {donationId} = request.body
         const {
             donationCenterId,
@@ -56,9 +56,7 @@ export async function putDonation(request: Request, response: Response): Promise
             donationNumberOfMealsServed,
             donationServeDate}
 
-        console.log(newDonation)
         await updateDonation(newDonation)
-        console.log(updateDonation)
         return response.json({status: 200, data: null, message: 'Donation successfully updated'})
 
     } catch (error: any) {
@@ -100,7 +98,7 @@ export async function postDonation(request: Request, response: Response): Promis
     }
 }
 
-
+// for restaurant to see their own donations
 export async function getDonationsByRestaurantId (request:Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
         const { donationRestaurantId } = request.params
@@ -116,7 +114,7 @@ export async function getDonationsByRestaurantId (request:Request, response: Res
     }
 }
 
-
+// all donations by center id
 export async function getDonationsByCenterId (request:Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
         const { donationCenterId } = request.params
@@ -130,13 +128,3 @@ export async function getDonationsByCenterId (request:Request, response: Respons
         })
     }
 }
-
-        // const center = await selectCenterByDonationRestaurantId(donationRestaurantId)
-        //
-        // if (center?.centerId !== null) {
-        //     throw new Error('unable to process donation no approved partnerships')
-        // }
-        // const donationCenterId = center.centerId
-
-
-

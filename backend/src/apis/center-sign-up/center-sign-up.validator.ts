@@ -1,11 +1,13 @@
 import {Schema} from "express-validator";
 
+// blueprint for center sign up
 export const centerSignUpValidator: Schema = {
     centerAddress: {
         isLength: {
             errorMessage: 'Please provide an address',
             options: {min: 1, max: 128}
         },
+        // trim prevents empty characters for security
         trim: true
     },
     centerContactEmail: {
@@ -18,6 +20,7 @@ export const centerSignUpValidator: Schema = {
         }
     },
     centerContactName: {
+        // escape - prevents smiley face of doom/ any malicious code being inserted
         escape: true,
         trim: true,
         isLength: {

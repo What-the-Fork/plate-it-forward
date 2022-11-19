@@ -8,6 +8,7 @@ import {insertRestaurant, Restaurant} from "../../utils/models/Restaurant";
 
 export async function restaurantSignUpController(request: Request, response: Response): Promise<Response | undefined> {
     try {
+        // handles email distribution for sign up
         const mailgun = new Mailgun(formData)
         const mailgunClient = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY as string})
         const {restaurantAddress, restaurantContactEmail, restaurantContactName, restaurantContactPhone, restaurantName, restaurantPassword} = request.body
@@ -35,6 +36,7 @@ const restaurant: Restaurant = {
     restaurantAddress,
     restaurantContactPhone,
 }
+        // success message awaits successful sign up/activation token
         const successMessage = await insertRestaurant(restaurant)
         await mailgunClient.messages.create(process.env.MAILGUN_DOMAIN as string, mailgunMessage)
         return response.json({status: 200, message: successMessage})

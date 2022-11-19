@@ -1,12 +1,13 @@
 import { NextFunction, Request, Response } from 'express'
 import { Center, selectCenterByCenterActivationToken, updateCenter} from '../../utils/models/Center'
 import {Status} from "../../utils/interfaces/Status";
+import { token } from 'morgan';
 
 export async function centerActivationController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
+        // activation link grabs activation token to either activate or confirm existing account
         const { activation } = request.params
         const center = await selectCenterByCenterActivationToken(activation)
-        console.log(center)
 
         const activationFailed = (): Response => response.json({
             status: 400,
@@ -15,7 +16,6 @@ export async function centerActivationController (request: Request, response: Re
 
         const activationSucceeded = async (center: Center): Promise<Response> => {
             const updatedCenter = { ...center, centerActivationToken: null }
-            console.log(updatedCenter)
             await updateCenter(updatedCenter)
             return response.json({
                 status: 200,
@@ -25,7 +25,6 @@ export async function centerActivationController (request: Request, response: Re
 
         return (center !== null) ? await activationSucceeded(center) : activationFailed()
     } catch (error: any) {
-        console.log(error)
         return response.json({
             status: 500,
             data: null,

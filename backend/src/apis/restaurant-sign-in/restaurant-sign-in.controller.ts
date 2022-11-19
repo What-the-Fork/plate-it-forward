@@ -6,6 +6,7 @@ import {Restaurant, selectRestaurantByRestaurantContactEmail} from "../../utils/
 
 export async function restaurantSignInController(request: Request, response: Response): Promise<Response> {
     try {
+        // request json must have contact email/password to sign in
         const {restaurantContactEmail, restaurantPassword} = request.body
         const restaurant: Restaurant | null = await selectRestaurantByRestaurantContactEmail(restaurantContactEmail)
 
@@ -32,6 +33,7 @@ function restaurantSignInSuccessful(request: Request, response: Response, restau
         restaurantNameUrl,
         restaurantProfileImgUrl
     } = restaurant
+    // signature validates sign in using uuid
     const signature: string = uuid()
     const authorization: string = generateJwt({
         restaurantId,

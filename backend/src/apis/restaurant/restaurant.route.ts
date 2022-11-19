@@ -6,9 +6,11 @@ import { restaurantValidator} from "./restaurant.validator";
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 export const RestaurantRoute: Router = Router()
+// '/' prefix directs to restaurant profile
 RestaurantRoute.route('/')
     .post(putRestaurantController)
 
+// (/:) directs to specific restaurant profile when restaurantId is provided
 RestaurantRoute.route('/:restaurantId')
     .get(
         asyncValidatorController([

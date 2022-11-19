@@ -1,5 +1,6 @@
 import {Schema} from "express-validator";
 
+// blueprint for center entity
 export const centerValidator: Schema = {
     centerId: {
         isUUID: {
@@ -11,6 +12,7 @@ export const centerValidator: Schema = {
             errorMessage: 'Please provide an address',
             options: {min: 1, max: 128}
         },
+        // trim prevents empty characters for security
         trim: true
     },
     centerContactEmail: {
@@ -23,6 +25,7 @@ export const centerValidator: Schema = {
         }
     },
     centerContactName: {
+        // escape - prevents smiley face of doom/ any malicious code being inserted
         escape: true,
         trim: true,
         isLength: {

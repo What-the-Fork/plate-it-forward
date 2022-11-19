@@ -12,6 +12,7 @@ import {isLoggedIn} from '../../utils/controllers/isLoggedIn.controller'
 import {donationValidator} from './donation.validator'
 
 const router = Router()
+// (/:) directs to specific donation when donationId is provided
 router.route('/:donationId').get(asyncValidatorController([
     check('donationId', 'please provide a valid ').isUUID()
 ]), getAllDonationsController)
@@ -22,10 +23,12 @@ router.route('/')
     // .get(putDonation)
     .put(isLoggedIn("center"), asyncValidatorController(checkSchema(donationValidator)), putDonation)
 
+// restaurant seeing their own donations
 router.route('/donationRestaurantId/:donationRestaurantId').get(asyncValidatorController([
     check('donationRestaurantId', 'please provide a valid restaurantId ').isUUID()
 ]), getDonationsByRestaurantId)
 
+// all donations by centerId
 router.route('/donationCenterId/:donationCenterId').get(asyncValidatorController([check('donationCenterId', 'please provide a valid centerId ').isUUID()
 ]), getDonationsByCenterId)
 

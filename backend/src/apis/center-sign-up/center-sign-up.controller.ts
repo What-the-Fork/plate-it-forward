@@ -8,13 +8,13 @@ import {insertCenter, Center} from "../../utils/models/Center";
 
 export async function centerSignUpController(request:Request, response:Response): Promise<Response | undefined> {
     try {
+        // handles email distribution for sign up
         const mailGun = new Mailgun(formData)
         const mailGunClient = mailGun.client({username:'api', key:process.env.MAILGUN_API_KEY as string})
         const {centerAddress, centerContactEmail, centerContactName, centerContactPhone, centerName, centerPassword} = request.body
         const centerHash = await setHash(centerPassword)
         const centerActivationToken = setActivationToken()
-        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}activation/${centerActivationToken}`
-        console.log(basePath)
+        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${centerActivationToken}`
         const message = `<h2>Welcome to Plate It Forward</h2>
 Please click the link to verify your account.
 <a href="${basePath}">${basePath}</a>`
@@ -40,7 +40,7 @@ Please click the link to verify your account.
         centerPhone: null,
         centerWebsiteUrl: null
     }
-
+        // success message awaits successful sign up/activation token
         const successMessage = await insertCenter(center)
         await mailGunClient.messages.create(process.env.MAILGUN_DOMAIN as string,mailgunMessage)
         return response.json({status:200, message: successMessage})

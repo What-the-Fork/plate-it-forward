@@ -27,7 +27,6 @@ export async function insertDonation(donation: Donation): Promise<string> {
     return 'donation successfully inserted'
 }
 
-//ask about adding restaurant and center ID
 export async function updateDonation (donation: Donation): Promise<string> {
     const {donationId, donationDate, donationNumberOfMealsDonated, donationNumberOfMealsServed, donationServeDate} = donation
     await sql`UPDATE donation
@@ -49,6 +48,7 @@ export async function selectDonationByDonationId(donationId: string): Promise<Do
                                                 donation_serve_date
                                          FROM donation
                                          WHERE donation_id = ${donationId}`
+    // one to one relationship - must return 1 object or nothing
     return result?.length === 1 ? result[0] : null
 }
 

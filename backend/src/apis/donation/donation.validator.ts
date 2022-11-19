@@ -1,5 +1,6 @@
 import { Schema } from 'express-validator'
 
+// blueprint for donation entity
 export const donationValidator: Schema = {
     donationCenterId: {
         isUUID: {
@@ -25,7 +26,9 @@ export const donationValidator: Schema = {
             errorMessage: 'Please provide number of meals donated',
             options: {min: 1, max: 8}
         },
+        // trim prevents empty characters for security
         trim: true,
+        // escape - prevents smiley face of doom/ any malicious code being inserted
         escape: true
     },
     donationNumberOfMealsServed: {

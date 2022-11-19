@@ -1,5 +1,6 @@
 import {Schema} from "express-validator";
 
+// blueprint for restaurant entity
 export const restaurantValidator: Schema = {
     restaurantId: {
         isUUID: {
@@ -11,6 +12,7 @@ export const restaurantValidator: Schema = {
             errorMessage: 'Please provide an address',
             options: {min: 1, max: 128}
         },
+        // trim prevents empty characters for security
         trim: true
     },
     restaurantContactEmail: {
@@ -23,6 +25,7 @@ export const restaurantValidator: Schema = {
         }
     },
     restaurantContactName: {
+        // escape - prevents smiley face of doom/ any malicious code being inserted
         escape: true,
         trim: true,
         isLength: {

@@ -6,6 +6,7 @@ import {Center, selectCenterByCenterContactEmail} from "../../utils/models/Cente
 
 export async function centerSignInController(request: Request, response: Response): Promise<Response> {
     try {
+        // request json must have contact email/password to sign in
         const {centerContactEmail, centerPassword} = request.body
         const center: Center | null = await selectCenterByCenterContactEmail(centerContactEmail)
 
@@ -36,6 +37,7 @@ function centerSignInSuccessful(request: Request, response: Response, center: Ce
         centerProfileImgUrl,
         centerWebsiteUrl
     } = center
+    // signature validates sign in using uuid
     const signature: string = uuid()
     const authorization: string = generateJwt({
         centerId,

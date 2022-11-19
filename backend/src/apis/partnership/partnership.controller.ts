@@ -13,7 +13,9 @@ import {
 
 export async function postPartnership(request: Request, response: Response): Promise<Response<Status>> {
     try {
+        // restaurant selects center by its id to request partnership
         const {partnershipCenterId} = request.body
+        // restaurant must be signed in
         if (request.session.restaurant === undefined) {
             throw new Error('you are not logged in')
         }
@@ -24,8 +26,10 @@ export async function postPartnership(request: Request, response: Response): Pro
         const partnership: Partnership = {
             partnershipCenterId,
             partnershipRestaurantId,
+            // center approves partnership
             partnershipApproved: true
         }
+        // result awaits center approval
         const result = await insertPartnership(partnership)
         const status: Status = {
             status: 200,
@@ -34,7 +38,6 @@ export async function postPartnership(request: Request, response: Response): Pro
         }
         return response.json(status)
     } catch (error: any) {
-        console.log('rooobbbbbbbb')
         return response.json({
             status: 500,
             message: error.message,
@@ -44,17 +47,14 @@ export async function postPartnership(request: Request, response: Response): Pro
 }
 
 export async function putPartnership (request: Request, response: Response): Promise<Response> {
-    console.log(putPartnership)
     try {
+        // how center sees/approves partnership
         const {partnershipCenterId} = request.body
         const {partnershipRestaurantId} = request.body
         const { partnershipApproved } = request.body
         const center = request.session.center as Center
         const centerIdFromSession = center.centerId as string
-        // const restaurant = request.session.restaurant as Restaurant
-        // const restaurantIdFromSession = restaurant.restaurantId as string
         const previousPartnership = await selectPartnershipByPrimaryKey(partnershipCenterId, partnershipRestaurantId)
-        console.log('hello world')
         if (previousPartnership === null) {
             return response.json({status: 404, data: null, message: 'this partnership does not exist'})
         }
@@ -62,12 +62,8 @@ export async function putPartnership (request: Request, response: Response): Pro
         if (previousPartnership.partnershipCenterId !== centerIdFromSession) {
             return response.json({status: 400, data: null, message: 'you are not allowed to perform this action'})
         }
-
-        // if (previousPartnership.partnershipRestaurantId !== restaurantIdFromSession) {
-        //     return response.json({status: 400, data: null, message: 'you are not allowed to perform this action'})
-        // }
+        // updates partnership approve entity/ says a ok thumbs up
         const newPartnership: Partnership = {...previousPartnership, partnershipApproved}
-        console.log(newPartnership)
         await updatePartnership(newPartnership)
         return response.json({status: 200, data: null, message: 'Partnership successfully approved'})
 
@@ -76,6 +72,7 @@ export async function putPartnership (request: Request, response: Response): Pro
     }
 }
 
+    // for center to see what restaurants they are partnered with
 export async function getPartnershipByPartnershipCenterId (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
         const { partnershipCenterId } = request.params
@@ -90,10 +87,9 @@ export async function getPartnershipByPartnershipCenterId (request: Request, res
     }
 }
 
-console.log('hi')
+// for restaurant to see what center they are partnered with
 export async function getPartnershipByPartnershipRestaurantId
 (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
-    console.log('hello')
     try {
         const { partnershipByRestaurantId } = request.params
         const data = await selectPartnershipByPartnershipRestaurantId(partnershipByRestaurantId)
@@ -106,4 +102,3 @@ export async function getPartnershipByPartnershipRestaurantId
         })
     }
 }
-console.log('bye')
