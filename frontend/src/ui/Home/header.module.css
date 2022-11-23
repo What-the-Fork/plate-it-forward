@@ -1,3 +1,14 @@
 .header {
-
+    background-image: url('https://i.ibb.co/Krwm4FW/Untitled-design-3.png');
+    height: 65vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
 }
+
+/*.header h1, p {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    position: relative;*/
+/*}*/

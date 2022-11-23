@@ -8,7 +8,7 @@ export function AboutUs() {
                 <Container>
                     <Row className={'gx-md-5 gy-5'}>
                         <Col md={6} className={'text-center'}>
-                            <Image className={'img-fluid'} src={'https://ucarecdn.com/fb898616-d15b-4ac0-90b0-ad5570352fd5/-/crop/466x467/0,20/-/preview/-/progressive/yes/-/format/auto/'} alt={'headshot of GOB Bluth wearing magenta velvet suit'}/>
+                            <Image className={'img-fluid'} src={'https://www.placecage.com/c/450/450'} alt={'Nick Cage doing Nick Cage things'}/>
                         </Col>
                         <Col md={6} className={'fs-5'}>
                             <h3>What We Do</h3>
