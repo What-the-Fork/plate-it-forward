@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 export function Navigation () {
     return (
-        <Navbar bg={'light'} expand={'lg'} variant={'light'}>
+        <Navbar bg={'light'} expand={'lg'} variant={'light'} sticky={'top'}>
             <Container fluid>
                 {/* PUT LOGO HERE WHEN READY */}
                 <Navbar.Brand><Link to={'/'}>PIF</Link></Navbar.Brand>
