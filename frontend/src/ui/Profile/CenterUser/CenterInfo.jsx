@@ -11,11 +11,11 @@ export function CenterInfo() {
                             <Image fluid={true} className={'rounded rounded-circle'} src={'https://www.placecage.com/c/200/200'} alt={'Nick Cage doing Nick Cage things'}/>
                         </Col>
                         <Col md={6} className={'fs-5 order-lg-1'}>
-                            <h3>What We Do</h3>
-                            <p>Name</p>
-                            <p>Email</p>
-                            <p>Phone</p>
-                            <p>Address</p>
+                            <h3>Jackie Daytona Volleyball Comm. Center</h3>
+                            <p>Laszlo Cravensworth</p>
+                            <p>communityrelations@jdcommcenter.com</p>
+                            <p>(717) 309-3793</p>
+                            <p>137 New Holland Ave, Lancaster, PA 17602</p>
                         </Col>
                     </Row>
                 </Container>

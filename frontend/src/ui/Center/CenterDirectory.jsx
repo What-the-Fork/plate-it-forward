@@ -13,13 +13,51 @@ export function CenterDirectory () {
                             <Image className={'img-fluid'} src={'https://www.placecage.com/c/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
                         </Col>
                         <Col md={7} className={'fs-5'}>
-                            <h3>Comm Center A</h3>
-                            <p>Center Address</p>
-                            <p>Center Phone</p>
-                            <p>URL</p>
+                            <h3>Jackie Daytona Volleyball Comm. Center</h3>
+                            <p>137 New Holland Ave, Lancaster, PA 17602</p>
+                            <p>(717) 793-3039</p>
+                            <p>jdcommcenter.com</p>
+                        </Col>
+                        <Col md={12} className={'d-flex justify-content-evenly fs-5'}>
+                            <p className={' p-2 bg-light text white'}>Nadja</p>
+                            <p className={' p-2 bg-light text white'}>Nandor's</p>
+                            <p className={' p-2 bg-light text white'}>Guillermo's</p>
                         </Col>
                     </Row>
 
+                    <Row className={'gx-md-5 gy-5'}>
+                        <Col md={5} className={'text-center'}>
+                            <Image className={'img-fluid'} src={'https://www.placecage.com/c/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
+                        </Col>
+                        <Col md={7} className={'fs-5'}>
+                            <h3>Jackie Daytona Volleyball Comm. Center</h3>
+                            <p>137 New Holland Ave, Lancaster, PA 17602</p>
+                            <p>(717) 793-3039</p>
+                            <p>jdcommcenter.com</p>
+                        </Col>
+                        <Col md={12} className={'d-flex justify-content-evenly fs-5'}>
+                            <p className={' p-2 bg-light text white'}>Nadja</p>
+                            <p className={' p-2 bg-light text white'}>Nandor's</p>
+                            <p className={' p-2 bg-light text white'}>Guillermo's</p>
+                        </Col>
+                    </Row>
+
+                    <Row className={'gx-md-5 gy-5'}>
+                        <Col md={5} className={'text-center'}>
+                            <Image className={'img-fluid'} src={'https://www.placecage.com/c/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
+                        </Col>
+                        <Col md={7} className={'fs-5'}>
+                            <h3>Jackie Daytona Volleyball Comm. Center</h3>
+                            <p>137 New Holland Ave, Lancaster, PA 17602</p>
+                            <p>(717) 793-3039</p>
+                            <p>jdcommcenter.com</p>
+                        </Col>
+                        <Col md={12} className={'d-flex justify-content-evenly fs-5'}>
+                            <p className={' p-2 bg-light text white'}>Nadja</p>
+                            <p className={' p-2 bg-light text white'}>Nandor's</p>
+                            <p className={' p-2 bg-light text white'}>Guillermo's</p>
+                        </Col>
+                    </Row>
                 </Container>
             </section>
         </>

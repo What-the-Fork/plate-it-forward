@@ -8,14 +8,14 @@ export function PartnershipAccept() {
                 <h4>A new restaurant wants to partner with you!</h4>
                 <Row className={'gx-md-5 gy-5'}>
                     <Col>
-                        <p>Marty's Back Alley Meats</p>
+                        <h5>Marty's Back Alley Meats</h5>
                     </Col>
-                    <Col>
+                    <Col className={'d-flex justify-content-evenly'}>
                         <Button variant={'info'}>
-                            Slime
+                            Accept
                         </Button>
                         <Button variant={'info'}>
-                            Slime
+                            Deny
                         </Button>
                     </Col>
                 </Row>
