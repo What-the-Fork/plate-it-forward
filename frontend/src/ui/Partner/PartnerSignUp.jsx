@@ -17,13 +17,13 @@ export function PartnerSignup() {
                     {/* CENTER OR RESTAURANT NAME */}
                     <Form.Group className="mb-3" controlId="formCenterOrRestaurantName">
                         <Form.Label>Community Center or Restaurant Name</Form.Label>
-                        <Form.Control type="text" placeholder="Community Center A or Restaurant 1" />
+                        <Form.Control type="text" placeholder="Center A or Restaurant 1" />
                     </Form.Group>
 
                     {/* CENTER OR RESTAURANT ADDRESS */}
                     <Form.Group className="mb-3" controlId="formCenterOrRestaurantAddress">
                         <Form.Label>Community Center or Restaurant Address</Form.Label>
-                        <Form.Control type="address" placeholder="1234 Example Blvd SE Albuquerque, NM 87102" />
+                        <Form.Control type="address" placeholder="123 Example Blvd SE Albuquerque, NM 87102" />
                     </Form.Group>
 
                     {/* CONTACT NAME */}
