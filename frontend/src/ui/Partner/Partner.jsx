@@ -24,12 +24,8 @@ export function Partner() {
                             <p>Ribeye jowl rump, swine shoulder ball tip picanha fatback chuck filet mignon sirloin kevin porchetta. Capicola short ribs sirloin, filet mignon corned beef ham rump hamburger. Tail t-bone leberkas shankle buffalo swine ball tip bresaola drumstick sirloin pastrami porchetta.</p>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
-                            {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                            <Button className={'p-4 mx-auto d-flex justify-content-center mb-5'}>Become a partner today!</Button>
-                        </Col>
-                    </Row>
+                    {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
+                    <Button className={'p-4 mx-auto d-flex justify-content-center my-5'}>Become a partner today!</Button>
             </Container>
         </>
     )

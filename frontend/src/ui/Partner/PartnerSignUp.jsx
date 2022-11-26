@@ -6,49 +6,52 @@ import {Container} from "react-bootstrap";
 export function PartnerSignup() {
     return (
         <>
-        <h1>henlo</h1>
-            <Container className={'bg-secondary'}>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+            <Container>
+                <h1 className={'display-3 text-center mb-5'}>Become a Partner Today</h1>
+            </Container>
+            <Container className={'bg-light border border-dark p-5 mb-5'}>
+                {/* CONDITIONAL RENDERING OF SAME FORM OR TWO SEPARATE FORMS (ONE CENTER, ONE RESTAURANT)???*/}
+                <Form>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
+                    {/* CENTER OR RESTAURANT NAME */}
+                    <Form.Group className="mb-3" controlId="formCenterOrRestaurantName">
+                        <Form.Label>Community Center or Restaurant Name</Form.Label>
+                        <Form.Control type="text" placeholder="Community Center A or Restaurant 1" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+                    {/* CENTER OR RESTAURANT ADDRESS */}
+                    <Form.Group className="mb-3" controlId="formCenterOrRestaurantAddress">
+                        <Form.Label>Community Center or Restaurant Address</Form.Label>
+                        <Form.Control type="address" placeholder="1234 Example Blvd SE Albuquerque, NM 87102" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+                    {/* CONTACT NAME */}
+                    <Form.Group className="mb-3" controlId="formContactName">
+                        <Form.Label>Contact Name</Form.Label>
+                        <Form.Control type="text" placeholder="Jane Doe" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
+                    {/* CONTACT EMAIL */}
+                    <Form.Group className="mb-3" controlId="formContactEmail">
+                        <Form.Label>Contact Email</Form.Label>
+                        <Form.Control type="email" placeholder="example@example.com" />
+                        {/*<Form.Text className="text-muted">*/}
+                        {/*    We'll never share your email with anyone else.*/}
+                        {/*</Form.Text>*/}
+                    </Form.Group>
+
+                    {/* CONTACT PHONE */}
+                    <Form.Group className="mb-5" controlId="formContactPhone">
+                        <Form.Label>Contact Phone</Form.Label>
+                        <Form.Control type="phone" placeholder="505-555-5555" />
+                        {/*<Form.Text className="text-muted">*/}
+                        {/*    We'll never share your number with anyone else.*/}
+                        {/*</Form.Text>*/}
+                    </Form.Group>
+
+                    {/* SUBMIT BUTTON */}
+                    <Button variant="primary" type="submit" className={'ms-auto d-flex justify-content-end'}>Submit</Button>
+                </Form>
             </Container>
         </>
     )
