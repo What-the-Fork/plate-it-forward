@@ -23,7 +23,7 @@ export function Donations() {
                 <input type="text" className="form-control mb-2 mr-sm-2"
                        placeholder="MM/DD/YYYY"></input></div>
                     <div className="col-auto">
-                        <Button type="submit" className="btn btn-primary align-middle">Submit</Button></div>
+                        <Button type="submit" className="btn btn-primary text-center align-self-center">Submit</Button></div>
                 </Row>
                 </Container>
             </Form>
