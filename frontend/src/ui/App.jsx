@@ -6,7 +6,7 @@ import { FourOhFour } from './FourOhFour.jsx'
 import {Navigation} from "./Shared/Components/Navigation";
 import {Footer} from "./Shared/Components/Footer";
 import {Center} from "./Center/Center";
-import "mapbox-gl/dist/mapbox-gl.css";
+// import "mapbox-gl/dist/mapbox-gl.css";
 import {Partner} from "./Partner/Partner.jsx";
 import {PartnerSignup} from "./Partner/PartnerSignUp";
 import {ProfileCenter} from "./Profile/CenterUser/ProfileCenter.jsx";
