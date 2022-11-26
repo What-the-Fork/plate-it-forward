@@ -4,8 +4,8 @@ import { Col, Container, Row } from "react-bootstrap";
 export function PartnershipRequest() {
     return (
         <>
-            <Container fluid={true} className={'bg-secondary py-5'}>
-                <h4>A new restaurant wants to partner with you!</h4>
+            <Container fluid={true} className={'bg-light py-5'}>
+                <h5 className={'text-center'}>Partner with a Community Center</h5>
                 <Row className={'gx-md-5 gy-5'}>
                     <Col>
 

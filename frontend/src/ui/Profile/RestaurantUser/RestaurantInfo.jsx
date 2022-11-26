@@ -4,14 +4,14 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 export function RestaurantInfo() {
     return (
         <>
-            <section className={'py-5'}>
-                <Container>
-                    <Row className={'gx-md-5 gy-5'}>
-                        <Col md={6} className={'text-center order-lg-2'}>
-                            <Image fluid={true} className={'rounded rounded-circle'} src={'https://www.placecage.com/c/200/200'} alt={'Nick Cage doing Nick Cage things'}/>
+            <section className={'p-5'}>
+                <Container className={''}>
+                    <Row className={'justify-content-center'}>
+                        <Col md={2} className={'order-lg-2'}>
+                            <Image fluid={true} className={'rounded-circle'} src={'https://www.placecage.com/c/200/200'} alt={'Nick Cage doing Nick Cage things'}/>
                         </Col>
-                        <Col md={6} className={'fs-5 order-lg-1'}>
-                            <h3>What We Do</h3>
+                        <Col md={6} className={'order-lg-1'}>
+                            <h3>Restaurant A</h3>
                             <p>Name</p>
                             <p>Email</p>
                             <p>Phone</p>
