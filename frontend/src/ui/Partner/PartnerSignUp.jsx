@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Container} from "react-bootstrap";
+// import styles from './partner.module.css'
 
 export function PartnerSignup() {
     return (
@@ -9,9 +10,9 @@ export function PartnerSignup() {
             <Container>
                 <h1 className={'display-3 text-center mb-5'}>Become a Partner Today</h1>
             </Container>
-            <Container className={'bg-light border border-dark p-5 mb-5'}>
-                {/* CONDITIONAL RENDERING OF SAME FORM OR TWO SEPARATE FORMS (ONE CENTER, ONE RESTAURANT)???*/}
-                <Form>
+            <Container className={'bg-light border border-dark p-5 mb-5'} /*className={styles.partner} id={'formFields'}*/ >
+                {/* CONDITIONAL RENDERING OF SAME FORM OR TWO SEPARATE FORMS (ONE CENTER, ONE RESTAURANT)??? */}
+                <Form /*id={'formContainer'}*/>
 
                     {/* CENTER OR RESTAURANT NAME */}
                     <Form.Group className="mb-3" controlId="formCenterOrRestaurantName">
