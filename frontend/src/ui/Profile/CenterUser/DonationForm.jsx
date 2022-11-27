@@ -5,7 +5,7 @@ export function DonationForm() {
         {served: '', date: '' }
     ])
     return (
-        <form>
+        <Form>
             {inputFields.map((input, index) => {
                 return (
                     <div key={index}>
@@ -20,6 +20,6 @@ export function DonationForm() {
                     </div>
                 )
             })}
-        </form>
+        </Form>
     );
 }
