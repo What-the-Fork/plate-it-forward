@@ -4,7 +4,7 @@ import {Button, Col, Container, Image, Row} from "react-bootstrap";
 export function Partner() {
     return(
         <>
-            <Container>
+            <Container lg={3}>
                 <h1 className={'display-1 text-center mb-5'}>Partner with Us</h1>
                     <Row className={'gx-md-1 gy-5'}>
                         <Col md={5} className={'text-center'}>

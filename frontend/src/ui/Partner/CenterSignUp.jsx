@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import {Container} from "react-bootstrap";
 import styles from './partner.module.css'
 
-export function PartnerSignup() {
+export function CenterSignUp() {
     return (
         <>
             <Container>

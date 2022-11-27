@@ -16,7 +16,8 @@ export function Navigation () {
                     <Nav className={'ms-auto'}>
                         <Link to={'/community-center'} className={'nav-link'}>Community Centers</Link>
                         <Link to={'/partner-with-us'} className={'nav-link'}>Partner with Us</Link>
-                        <Link to={'/partner-signup'} className={'nav-link'}>Partner Portal</Link>
+                        <Link to={'/center-signup'} className={'nav-link'}>Partner Portal</Link>
+                        <Link to={'/restaurant-signup'} className={'nav-link'}>Restaurant SignUp</Link>
                     </Nav>
                 </NavbarCollapse>
             </Container>
