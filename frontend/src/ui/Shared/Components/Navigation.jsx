@@ -3,7 +3,7 @@ import {Container, Image, Nav, Navbar} from "react-bootstrap";
 import NavbarToggle from "react-bootstrap/NavbarToggle";
 import NavbarCollapse from "react-bootstrap/NavbarCollapse";
 import {Link} from "react-router-dom";
-import styles from "./navbar.module.css"
+import styles from "./components.module.css"
 
 export function Navigation () {
     return (
