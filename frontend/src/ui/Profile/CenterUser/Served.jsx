@@ -12,14 +12,32 @@ export function Served() {
             <Form className={'mb-5'}>
                 <Row className="mb-3">
                     <h5>Marty's Back Alley Meats</h5>
-                    <Form.Group as={Col} controlId="formGridServe">
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
                         <Form.Label>Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter meals served..." />
+                        <Form.Control type="input" placeholder="Meals served" />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridServeDate">
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServeDate" xs={12} md={6}>
                         <Form.Label>Date Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter serve date..." />
+                        <Form.Control type="input" placeholder="Serve date" />
+                    </Form.Group>
+                </Row>
+                <Row className="mb-5">
+                    <Form.Group className={'mb-3'} id="formGridCheckbox">
+                        <Form.Check type="checkbox" label="Did not receive donation" />
+                    </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                    <h5>Marty's Back Alley Meats</h5>
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
+                        <Form.Label>Served</Form.Label>
+                        <Form.Control type="input" placeholder="Meals served" />
+                    </Form.Group>
+
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServeDate" xs={12} md={6}>
+                        <Form.Label>Date Served</Form.Label>
+                        <Form.Control type="input" placeholder="Serve date" />
                     </Form.Group>
                 </Row>
                 <Row className="mb-5">
@@ -30,14 +48,14 @@ export function Served() {
 
                 <Row className="mb-3">
                     <h5>Marty's Back Alley Meats</h5>
-                    <Form.Group as={Col} controlId="formGridServe">
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
                         <Form.Label>Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter meals served..." />
+                        <Form.Control type="input" placeholder="Meals served" />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridServeDate">
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServeDate" xs={12} md={6}>
                         <Form.Label>Date Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter serve date..." />
+                        <Form.Control type="input" placeholder="Serve date" />
                     </Form.Group>
                 </Row>
                 <Row className="mb-5">
@@ -48,32 +66,14 @@ export function Served() {
 
                 <Row className="mb-3">
                     <h5>Marty's Back Alley Meats</h5>
-                    <Form.Group as={Col} controlId="formGridServe">
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
                         <Form.Label>Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter meals served..." />
+                        <Form.Control type="input" placeholder="Meals served" />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridServeDate">
+                    <Form.Group className={'mb-3'} as={Col} controlId="formGridServeDate" xs={12} md={6}>
                         <Form.Label>Date Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter serve date..." />
-                    </Form.Group>
-                </Row>
-                <Row className="mb-5">
-                    <Form.Group className="mb-1" id="formGridCheckbox">
-                        <Form.Check type="checkbox" label="Did not receive donation" />
-                    </Form.Group>
-                </Row>
-
-                <Row className="mb-3">
-                    <h5>Marty's Back Alley Meats</h5>
-                    <Form.Group as={Col} controlId="formGridServe">
-                        <Form.Label>Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter meals served..." />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridServeDate">
-                        <Form.Label>Date Served</Form.Label>
-                        <Form.Control type="input" placeholder="Enter serve date..." />
+                        <Form.Control type="input" placeholder="Serve date" />
                     </Form.Group>
                 </Row>
                 <Row className="mb-5">
