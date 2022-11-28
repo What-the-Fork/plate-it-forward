@@ -4,7 +4,10 @@ import Form from 'react-bootstrap/Form';
 import {render} from "react-dom";
 
 export function DropdownTest () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> frontend-restaurant
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <a
         href=""

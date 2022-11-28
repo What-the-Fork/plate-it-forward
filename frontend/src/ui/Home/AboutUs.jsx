@@ -8,7 +8,7 @@ export function AboutUs() {
                 <Container>
                     <Row className={'gx-md-5 gy-5'}>
                         <Col md={6} className={'text-center'}>
-                            <Image className={'img-fluid'} src={'https://www.placecage.com/c/450/450'} alt={'Nick Cage doing Nick Cage things'}/>
+                            <Image className={'img-fluid rounded'} src={'https://www.placecage.com/c/450/450'} alt={'Nick Cage doing Nick Cage things'}/>
                         </Col>
                         <Col md={6} className={'fs-5'}>
                             <h3>What We Do</h3>
