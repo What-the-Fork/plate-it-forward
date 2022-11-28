@@ -15,48 +15,48 @@ export function RestaurantSignUp() {
             <Container className={styles.formContainer}>
                 <Form className={'border border-dark bg-light my-5 p-5'}>
 
-                    <h4>Your Information</h4>
+                    <h4 className={'mb-3'}>Your Information</h4>
 
-                    <Row className="mb-3">
+                    <Row>
                         {/* EMAIL */}
-                        <Form.Group as={Col} controlId="formRestaurantContactEmail">
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantContactEmail" className={'mb-3'}>
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />
                         </Form.Group>
 
                         {/* PASSWORD */}
-                        <Form.Group as={Col} controlId="formRestaurantContactPassword">
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantContactPassword" className={'mb-3'}>
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
                     </Row>
 
-                    <Row className={'mb-3'}>
+                    <Row>
                         {/* CONTACT NAME */}
-                        <Form.Group as={Col} controlId="formRestaurantContactName">
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantContactName" className={'mb-3'}>
                             <Form.Label>Contact Name</Form.Label>
                             <Form.Control placeholder="Jane Doe" />
                         </Form.Group>
 
                         {/* CONTACT PHONE */}
-                        <Form.Group as={Col} controlId="formRestaurantContactPhone">
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantContactPhone" className={'mb-3'}>
                             <Form.Label>Contact Phone</Form.Label>
                             <Form.Control type="phone" placeholder="505-555-5555" />
                         </Form.Group>
                     </Row>
 
-                    <h4 className={'mt-5'}>Restaurant Information</h4>
+                    <h4 className={'mt-4 mb-3'}>Restaurant Information</h4>
 
-                    <Row className="mb-3">
+                    <Row>
                         {/* RESTAURANT NAME */}
-                        <Form.Group as={Col} controlId="formRestaurantName">
-                            <Form.Label>Restaurant Name</Form.Label>
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantName" className={'mb-3'}>
+                            <Form.Label>Name</Form.Label>
                             <Form.Control placeholder="Restaurant A" />
                         </Form.Group>
 
                         {/* STREET */}
-                        <Form.Group as={Col} controlId="formRestaurantAddress">
-                            <Form.Label>Restaurant Address</Form.Label>
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantAddress" className={'mb-3'}>
+                            <Form.Label>Address</Form.Label>
                             <Form.Control placeholder="1234 Main St" />
                         </Form.Group>
                     </Row>
@@ -67,14 +67,14 @@ export function RestaurantSignUp() {
                     {/*</Form.Group>*/}
 
                     {/* CITY */}
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formRestaurantCity">
+                    <Row>
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantCity" className={'mb-3'}>
                             <Form.Label>City</Form.Label>
                             <Form.Control />
                         </Form.Group>
 
                         {/* STATE */}
-                        <Form.Group as={Col} controlId="formRestaurantState">
+                        <Form.Group as={Col} controlId="formRestaurantState" className={'mb-3'}>
                             <Form.Label>State</Form.Label>
                             <Form.Select defaultValue='NM'>
                                 {/*<option>Choose...</option>*/}
@@ -83,14 +83,14 @@ export function RestaurantSignUp() {
                         </Form.Group>
 
                         {/* ZIP */}
-                        <Form.Group as={Col} controlId="formRestaurantZip">
+                        <Form.Group as={Col} controlId="formRestaurantZip" className={'mb-3'}>
                             <Form.Label>Zip</Form.Label>
                             <Form.Control />
                         </Form.Group>
                     </Row>
 
                     {/* CHECKBOX ... DO WE WANT?? */}
-                    <Form.Group className={'mt-5 mb-3'} id="formRestaurantCheckbox">
+                    <Form.Group className={'mt-4 mb-4'} id="formRestaurantCheckbox">
                         <Form.Check type="checkbox" label="I confirm all information above is correct." />
                     </Form.Group>
 
