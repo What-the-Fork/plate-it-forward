@@ -1,0 +1,10 @@
+.formContainer {
+    width: 70%;
+}
+
+/* media query for mobile layout -- trying to make input fields as large as possible */
+@media screen and (max-width: 684px) {
+    .formContainer {
+        width: 97%;
+    }
+}
