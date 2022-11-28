@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import {render} from "react-dom";
+
 export function DropdownTest () {
-    return (
-        <>
-
-
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <a
         href=""
@@ -68,6 +65,5 @@ render(
     </Dropdown>,
 );
 
-        </>
     )
 }

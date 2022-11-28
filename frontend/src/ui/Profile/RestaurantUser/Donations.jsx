@@ -13,17 +13,21 @@ export function Donations() {
                     <div className="col-auto">
                 <Form.Label className="sr-only" htmlFor="inlineFormInputName2">Restaurant Name</Form.Label>
                 <input type="text" className="form-control mb-2 mr-sm-2"
-                       placeholder="Restaurant A"></input></div>
+                       placeholder="Restaurant A"></input>
+                    </div>
                     <div className="col-auto">
                 <Form.Label className="sr-only" htmlFor="inlineFormInputName2">Number of Meals Donated</Form.Label>
                 <input type="text" className="form-control mb-2 mr-sm-2"
-                       placeholder="45"></input></div>
+                       placeholder="45"></input>
+                    </div>
                     <div className="col-auto">
                 <Form.Label className="sr-only" htmlFor="inlineFormInputName2">Donation Date</Form.Label>
                 <input type="text" className="form-control mb-2 mr-sm-2"
-                       placeholder="MM/DD/YYYY"></input></div>
+                       placeholder="MM/DD/YYYY"></input>
+                    </div>
                     <div className="col-auto">
-                        <Button type="submit" className="btn btn-primary text-center align-self-center">Submit</Button></div>
+                        <Button type="submit" className="btn btn-primary text-center align-self-center">Submit</Button>
+                    </div>
                 </Row>
                 </Container>
             </Form>
