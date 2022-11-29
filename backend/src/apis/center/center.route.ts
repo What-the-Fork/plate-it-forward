@@ -1,4 +1,4 @@
-import { getCenterByCenterId, putCenterController} from "./center.controller";
+import {getAllCenters, getCenterByCenterId, putCenterController} from "./center.controller";
 import { Router } from 'express'
 import { asyncValidatorController} from "../../utils/controllers/async-validator.controller";
 import { check, checkSchema} from "express-validator";
@@ -9,8 +9,10 @@ export const CenterRoute: Router = Router()
 // '/' prefix directs to center profile
 CenterRoute.route('/')
     .post(putCenterController)
+    .get(getAllCenters)
 
-    // (/:) directs to specific center profile when centerId is provided
+
+// (/:) directs to specific center profile when centerId is provided
 CenterRoute.route('/:centerId')
     .get(
         asyncValidatorController([

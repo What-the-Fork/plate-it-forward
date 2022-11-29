@@ -66,6 +66,28 @@ export async function updateCenter (center: Center): Promise<string> {
     return 'Profile successfully updated'
 }
 
+// export async function selectAllPartialCenters (): Promise<Center[]> {
+//     // @ts-ignore
+//     return <Center[]> await sql `SELECT center_id, center_address, center_contact_email, center_contact_name, center_contact_phone, center_directory_img_url, center_lat, center_lng, center_name, center_phone, center_profile_img_url, center_website_url FROM center ORDER BY center_name DESC`
+// }
+
+export async function selectAllPartialCenters (): Promise<PartialCenter[]> {
+    return <PartialCenter[]><unknown>await sql`SELECT center_id,
+                                                      center_address,
+                                                      center_contact_email,
+                                                      center_contact_name,
+                                                      center_contact_phone,
+                                                      center_directory_img_url,
+                                                      center_lat,
+                                                      center_lng,
+                                                      center_name,
+                                                      center_phone,
+                                                      center_profile_img_url,
+                                                      center_website_url
+                                               FROM center
+                                               ORDER BY center_name DESC`
+}
+
 // export async function selectCenterByDonationRestaurantId (donationRestaurantId: string): Promise<Center|null> {
 //     const result = await sql<Center[]>`SELECT center_id FROM center INNER JOIN partnership ON center.center_id = partnership.partnership_center_id WHERE partnership_restaurant_id = ${donationRestaurantId} AND partnership_approved = true`
 //     return result?.length === 1 ? result[0] : null

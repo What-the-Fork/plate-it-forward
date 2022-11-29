@@ -12,15 +12,17 @@ import {CenterSignUp} from "./Partner/CenterSignUp.jsx"
 import {RestaurantSignUp} from "./Partner/RestaurantSignUp.jsx"
 import {ProfileCenter} from "./Profile/CenterUser/ProfileCenter.jsx";
 import {ProfileRestaurant} from "./Profile/RestaurantUser/ProfileRestaurant.jsx";
+import {Provider} from "react-redux";
 
-export function App() {
+export function App({store}) {
     return (
         <>
+            <Provider store={store}>
             <BrowserRouter>
                 <Navigation />
                 <Routes>
                     <Route  path='/' element={<Home />} />
-                    <Route path='/community-center' element={<Center />}/>
+                    <Route path='/center' element={<Center />}/>
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path='/partner-with-us' element={<Partner />} />
                     <Route path='/center-signup' element={<CenterSignUp />} />
@@ -30,6 +32,7 @@ export function App() {
                 </Routes>
                 <Footer />
             </BrowserRouter>
+            </Provider>
         </>
     )
 }

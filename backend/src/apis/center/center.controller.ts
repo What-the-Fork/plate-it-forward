@@ -4,7 +4,7 @@ import {
     Center,
     selectPartialCenterByCenterId,
     selectWholeCenterByCenterId,
-    updateCenter
+    updateCenter, selectAllPartialCenters
 } from '../../utils/models/Center'
 import {Status} from '../../utils/interfaces/Status'
 
@@ -72,5 +72,19 @@ export async function getCenterByCenterId(request: Request, response: Response):
         return response.json(status)
     } catch (error: any) {
         return (response.json({status: 400, data: null, message: error.message}))
+    }
+}
+
+export async function getAllCenters(request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const data = await selectAllPartialCenters()
+        const status: Status = { status: 200, message: null, data }
+        return response.json(status)
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
     }
 }
