@@ -6,7 +6,7 @@ import { FourOhFour } from './FourOhFour.jsx'
 import {Navigation} from "./Shared/Components/Navigation";
 import {Footer} from "./Shared/Components/Footer";
 import {Center} from "./Center/Center";
-// import "mapbox-gl/dist/mapbox-gl.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import {Partner} from "./Partner/Partner.jsx";
 import {CenterSignUp} from "./Partner/CenterSignUp.jsx"
 import {RestaurantSignUp} from "./Partner/RestaurantSignUp.jsx"
@@ -22,7 +22,7 @@ export function App({store}) {
                 <Navigation />
                 <Routes>
                     <Route  path='/' element={<Home />} />
-                    <Route path='/center' element={<Center />}/>
+                    <Route path='/community-center' element={<Center />}/>
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path='/partner-with-us' element={<Partner />} />
                     <Route path='/center-signup' element={<CenterSignUp />} />

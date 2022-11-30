@@ -25,5 +25,4 @@ export function Pin(props) {
             </svg>
         </Marker>
     )
-
 }
