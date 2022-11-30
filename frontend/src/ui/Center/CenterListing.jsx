@@ -1,6 +1,8 @@
 import React from 'react'
 import {Col, Container, Image, Row} from "react-bootstrap";
 
+// serge test
+
 export const CenterListing = (props) => {
     const {center} = props
 console.log(center)
