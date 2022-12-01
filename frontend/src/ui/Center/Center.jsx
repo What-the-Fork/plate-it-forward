@@ -21,7 +21,7 @@ export function Center() {
     return (
         <>
             <CenterHeader />
-            <DirectoryMap/>
+            <DirectoryMap centers={centers}/>
             <CenterDirectory centers={centers}/>
         </>
     )
