@@ -8,7 +8,7 @@ export function RestaurantInfo() {
                 <Container className={''}>
                     <Row className={'justify-content-center'}>
                         <Col md={2} className={'order-lg-2'}>
-                            <Image fluid={true} className={'rounded-circle'} src={'https://www.placecage.com/c/200/200'} alt={'Nick Cage doing Nick Cage things'}/>
+                            <Image fluid={true} className={'rounded-circle'} src={'http://placekitten.com/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
                         </Col>
                         <Col md={6} className={'order-lg-1'}>
                             <h3>Restaurant A</h3>
