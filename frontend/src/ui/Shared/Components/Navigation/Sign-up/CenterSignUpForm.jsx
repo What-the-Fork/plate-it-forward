@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from "yup";
 import {Formik} from "formik";
-import {CenterSignUpFormContent} from "../../../../Partner/CenterSignUpFormContent.jsx";
+import {CenterSignUpFormContent} from "./CenterSignUpFormContent.jsx";
 import {httpConfig} from "../../../../../utils/http-config.js";
 
 export const CenterSignUpForm = () => {

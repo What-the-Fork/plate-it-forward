@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import {httpConfig} from "../../../../../utils/http-config.js";
 import {Formik} from "formik";
 import React from "react";
-import {RestaurantSignUpFormContent} from "../../../../Partner/RestaurantSignUpFormContent";
+import {RestaurantSignUpFormContent} from "./RestaurantSignUpFormContent.jsx";
 
 
 export const RestaurantSignUpForm = () => {
