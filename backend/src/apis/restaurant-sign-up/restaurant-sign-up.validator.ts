@@ -5,7 +5,7 @@ export const restaurantSignUpValidator: Schema = {
     restaurantAddress: {
         isLength: {
             errorMessage: 'Please provide an address',
-            options: {min: 1, max: 128}
+            options: {min: 10, max: 128}
         },
         // trim prevents empty characters for security
         trim: true
@@ -32,7 +32,7 @@ export const restaurantSignUpValidator: Schema = {
         isNumeric: true,
         isLength: {
             errorMessage: 'Please provide a valid phone number',
-            options: {min: 1, max: 32}
+            options: {min: 10, max: 32}
         },
     },
     restaurantName: {
@@ -40,7 +40,7 @@ export const restaurantSignUpValidator: Schema = {
         trim: true,
         isLength: {
             errorMessage: 'restaurant Name must be between 0 to 64 characters',
-            options: {min: 1, max: 64}
+            options: {min: 5, max: 64}
         },
         optional: {
             options: {

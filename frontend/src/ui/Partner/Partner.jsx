@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
+import {SignUpModal} from "../Shared/Components/Navigation/Sign-up/SignUpModal.jsx";
 
 export function Partner() {
     return(
@@ -16,7 +17,9 @@ export function Partner() {
                         </Col>
                     </Row>
                     {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                    <Button className={'p-4 mx-auto d-flex justify-content-center my-5'}>Become a partner today!</Button>
+               <Row>
+                <SignUpModal />
+               </Row>
             </Container>
         </>
     )
