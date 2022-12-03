@@ -85,7 +85,7 @@ export async function selectAllPartialCenters (): Promise<PartialCenter[]> {
                                                       center_profile_img_url,
                                                       center_website_url
                                                FROM center
-                                               ORDER BY center_name DESC`
+                                               ORDER BY center_name`
 }
 
 // export async function selectCenterByDonationRestaurantId (donationRestaurantId: string): Promise<Center|null> {
