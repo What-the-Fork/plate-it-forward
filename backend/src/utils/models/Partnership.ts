@@ -27,7 +27,7 @@ export async function selectPartnershipByPrimaryKey (partnershipCenterId: string
 }
 
 export async function selectPartnershipByPartnershipCenterId (partnershipCenterId: string): Promise<Partnership[]> {
-    return <Partnership[]> await sql`SELECT partnership_center_id, partnership_restaurant_id, partnership_approved FROM partnership WHERE partnership_center_id = ${partnershipCenterId}`
+    return <Partnership[]> await sql`SELECT partnership_center_id, partnership_restaurant_id, partnership_approved FROM partnership WHERE partnership_center_id = ${partnershipCenterId} AND partnership_approved = true`
 }
 
 

@@ -34,7 +34,7 @@ export const SignInFormContent = (props) => {
                             className="form-control"
                             name='contactEmail'
                             type="text"
-                            {/* CAUSING BUG - NOT ABLE TO TYPE IN INPUT FIELD */}
+                            // CAUSING BUG - NOT ABLE TO TYPE IN INPUT FIELD
                             value={values.centerContactEmail || values.restaurantContactEmail}
                             placeholder="Enter email"
                             onChange={handleChange}

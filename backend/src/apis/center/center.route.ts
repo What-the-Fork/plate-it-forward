@@ -4,6 +4,7 @@ import { asyncValidatorController} from "../../utils/controllers/async-validator
 import { check, checkSchema} from "express-validator";
 import { centerValidator } from "./center.validator";
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
+import {getRestaurantsByPartnershipCenterId} from "../restaurant/restaurant.controller";
 
 export const CenterRoute: Router = Router()
 // '/' prefix directs to center profile

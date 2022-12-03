@@ -1,10 +1,23 @@
 import React from 'react'
 import {Col, Container, Image, Row} from "react-bootstrap";
+import {useSelector} from "react-redux";
 
 export const CenterListing = (props) => {
     const {center} = props
     console.log(center)
-    const {centerName, centerAddress, centerPhone, centerWebsiteUrl} = center
+    const {centerId, centerName, centerAddress, centerPhone, centerWebsiteUrl} = center
+    // const {restaurantName} = partner
+
+
+    const partnerRestaurants = useSelector(state => {
+        if (state.partners[centerId] === undefined) {
+            return []
+        } else {
+            return state.partners[centerId]
+        }
+    })
+    console.log(partnerRestaurants)
+
     return (
         <>
             <Container>
@@ -19,12 +32,11 @@ export const CenterListing = (props) => {
                         <p>{centerWebsiteUrl}</p>
                     </Col>
                     <Col md={12} className={'d-flex justify-content-evenly fs-5'}>
-                        <p className={' p-2 bg-light text white'}>Nadja's</p>
-                        <p className={' p-2 bg-light text white'}>Nandor's</p>
-                        <p className={' p-2 bg-light text white'}>Guillermo's</p>
+                        {partnerRestaurants.map(partnerRestaurant =>  <p className={' p-2 bg-light text white'}>{partnerRestaurant.restaurantName}</p>)}
                     </Col>
                 </Row>
             </Container>
         </>
     )
 }
+

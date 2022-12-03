@@ -3,6 +3,7 @@ import {CenterListing} from "./CenterListing.jsx";
 
 export const CenterDirectory = (props) => {
     const {centers} = props
+    // const {partners} = props
 
     return (
         <>

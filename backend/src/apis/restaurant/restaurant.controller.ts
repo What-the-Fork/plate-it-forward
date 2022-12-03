@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import {
     PartialRestaurant,
     Restaurant,
-    selectPartialRestaurantByRestaurantId,
+    selectPartialRestaurantByRestaurantId, selectRestaurantsByPartnershipCenterId,
     selectWholeRestaurantByRestaurantId,
     updateRestaurant
 } from '../../utils/models/Restaurant'
@@ -42,6 +42,19 @@ export async function getRestaurantByRestaurantId (request: Request, response: R
         // grabbing partial restaurant information for front end users
         const { restaurantId } = request.params
         const postgresResult = await selectPartialRestaurantByRestaurantId(restaurantId)
+        const data = postgresResult ?? null
+        const status: Status = { status: 200, data, message: null }
+        return response.json(status)
+    } catch (error: any) {
+        return (response.json({status: 400, data: null, message: error.message }))
+    }
+}
+
+export async function getRestaurantsByPartnershipCenterId (request: Request, response: Response): Promise<Response> {
+    try {
+        const { partnershipCenterId } = request.params
+        const postgresResult = await
+            selectRestaurantsByPartnershipCenterId(partnershipCenterId)
         const data = postgresResult ?? null
         const status: Status = { status: 200, data, message: null }
         return response.json(status)

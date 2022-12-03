@@ -13,6 +13,7 @@ export function Center() {
 
     const initialEffects = () => {
         dispatch(fetchAllCenters())
+
     }
     useEffect(initialEffects, [dispatch])
 
@@ -21,7 +22,7 @@ export function Center() {
     return (
         <>
             <CenterHeader />
-            <DirectoryMap centers={centers}/>
+            <DirectoryMap centers={centers} />
             <CenterDirectory centers={centers}/>
         </>
     )

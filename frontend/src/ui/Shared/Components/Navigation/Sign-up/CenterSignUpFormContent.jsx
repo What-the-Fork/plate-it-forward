@@ -29,6 +29,12 @@ export function CenterSignUpFormContent() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
+
+                        {/* PASSWORD CONFIRM*/}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterContactPassword" className={'mb-3'}>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Confirm Password" />
+                        </Form.Group>
                     </Row>
 
                     <Row>

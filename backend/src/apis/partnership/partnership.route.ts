@@ -9,6 +9,7 @@ import {
     putPartnership
 } from "./partnership.controller";
 import {partnershipValidator} from "./partnership.validator";
+import {getRestaurantsByPartnershipCenterId} from "../restaurant/restaurant.controller";
 
 // restaurant sending partnership request
 const router = Router()
@@ -28,7 +29,9 @@ router.route('/partnershipByRestaurantId/:partnershipByRestaurantId').get(
     getPartnershipByPartnershipRestaurantId)
 
 // center seeing restaurant partnerships
-router.route('/partnershipCenterId/:partnershipCenterId').get(asyncValidatorController([check('partnershipCenterId', 'please provide a valid centerId ').isUUID()
+router.route('/partnershipCenterId/:partnershipCenterId')
+    .get(getRestaurantsByPartnershipCenterId)
+    .get(asyncValidatorController([check('partnershipCenterId', 'please provide a valid centerId ').isUUID()
 ]), getPartnershipByPartnershipCenterId)
 
 export default router
