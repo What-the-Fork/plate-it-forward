@@ -34,10 +34,8 @@ export const restaurantValidator: Schema = {
         },
     },
     restaurantContactPhone: {
-        isNumeric: true,
-        isLength: {
+        isMobilePhone: {
             errorMessage: 'Please provide a valid phone number',
-            options: {min: 1, max: 32}
         },
     },
     restaurantName: {

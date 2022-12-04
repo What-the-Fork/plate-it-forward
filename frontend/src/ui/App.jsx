@@ -9,11 +9,12 @@ import {Center} from "./Center/Center";
 import "mapbox-gl/dist/mapbox-gl.css";
 import {Partner} from "./Partner/Partner.jsx";
 // import {CenterSignUpFormContent} from "./Shared/Components/Navigation/Sign-up/CenterSignUpFormContent.jsx"
-import {RestaurantSignUpFormContent} from "./Shared/Components/Navigation/Sign-up/RestaurantSignUpFormContent.jsx"
+// import {RestaurantSignUpFormContent} from "./Shared/Components/Navigation/Sign-up/RestaurantSignUpFormContent.jsx"
 import {ProfileCenter} from "./Profile/CenterUser/ProfileCenter.jsx";
 import {ProfileRestaurant} from "./Profile/RestaurantUser/ProfileRestaurant.jsx";
 import {Provider} from "react-redux";
 import {CenterSignUpForm} from "./Shared/Components/Navigation/Sign-up/CenterSignUpForm.jsx";
+import {RestaurantSignUpForm} from "./Shared/Components/Navigation/Sign-up/RestaurantSignUpForm.jsx";
 
 export function App({store}) {
     return (
@@ -27,7 +28,7 @@ export function App({store}) {
                     <Route path={"*"} element={<FourOhFour />} />
                     <Route path='/partner-with-us' element={<Partner />} />
                     <Route path='/community-center-signup' element={<CenterSignUpForm />} />
-                    <Route path='/restaurant-signup' element={<RestaurantSignUpFormContent />} />
+                    <Route path='/restaurant-signup' element={<RestaurantSignUpForm />} />
                     <Route path='/profile-center' element={<ProfileCenter />} />
                     <Route path='/profile-restaurant' element={<ProfileRestaurant />} />
                 </Routes>

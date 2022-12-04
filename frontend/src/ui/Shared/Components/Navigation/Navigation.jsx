@@ -50,7 +50,7 @@ export function Navigation () {
                         ) : (
                             isModalOpen() && (
                                 <>
-                                    <SignUpModal />
+                                    {/*<SignUpModal />*/}
                                     <SignInModal show = {show} handleClose = {handleClose} handleShow = {handleShow} />
                                 </>
                             ))}

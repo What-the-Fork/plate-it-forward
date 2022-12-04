@@ -29,10 +29,8 @@ export const centerSignUpValidator: Schema = {
         },
     },
     centerContactPhone: {
-        isNumeric: true,
-        isLength: {
+        isMobilePhone: {
             errorMessage: 'Please provide a valid phone number',
-            options: {min: 10, max: 32}
         },
     },
     centerName: {

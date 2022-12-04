@@ -14,7 +14,7 @@ export async function centerSignUpController(request:Request, response:Response)
         const {centerAddress, centerContactEmail, centerContactName, centerContactPhone, centerName, centerPassword} = request.body
         const centerHash = await setHash(centerPassword)
         const centerActivationToken = setActivationToken()
-        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${centerActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}:8080${request.originalUrl}activation/${centerActivationToken}`
         const message = `<h2>Welcome to Plate It Forward</h2>
 Please click the link to verify your account.
 <a href="${basePath}">${basePath}</a>`

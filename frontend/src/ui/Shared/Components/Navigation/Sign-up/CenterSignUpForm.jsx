@@ -11,6 +11,7 @@ import Col from "react-bootstrap/Col";
 import {DisplayError} from "../../display-error/DisplayError.jsx";
 import Button from "react-bootstrap/Button";
 import {DisplayStatus} from "../../display-status/DisplayStatus.jsx";
+import {FormDebugger} from "../../FormDebugger";
 
 export const CenterSignUpForm = () => {
     const centerSignUp = {
@@ -18,32 +19,33 @@ export const CenterSignUpForm = () => {
         centerCity: '',
         centerState: '',
         centerZip: '',
+        centerAddress: '',
         centerContactEmail: '',
         centerContactName: '',
         centerContactPhone: '',
         centerName: '',
         centerPassword: '',
         centerPasswordConfirm: '',
-        centerProfileImgUrl: '',
+        // centerProfileImgUrl: '',
     };
 
     const centerValidator = Yup.object().shape({
         centerStreet: Yup.string()
             .required('A valid street address is required')
-            .min(10, 'Please provide a valid street address')
-            .max(128, 'This street address exceeds the allotted characters'),
+            .min(5, 'Please provide a valid street address')
+            .max(64, 'This street address exceeds the allotted characters'),
         centerCity: Yup.string()
             .required('A valid city is required')
-            .min(10, 'Please provide a valid city')
-            .max(128, 'This city exceeds the allotted characters'),
+            .min(1, 'Please provide a valid city')
+            .max(32, 'This city exceeds the allotted characters'),
         centerState: Yup.string()
             .required('A valid state is required')
-            .min(10, 'Please provide a valid state')
-            .max(128, 'This state exceeds the allotted characters'),
+            .min(2, 'Please provide a valid state')
+            .max(16, 'This state exceeds the allotted characters'),
         centerZip: Yup.string()
             .required('A valid zip code is required')
-            .min(10, 'Please provide a valid zip code')
-            .max(128, 'This zip code exceeds the allotted characters'),
+            .min(5, 'Please provide a valid zip code')
+            .max(10, 'This zip code exceeds the allotted characters'),
         centerContactEmail: Yup.string()
             .email('Please provide a valid email')
             .required('email is required'),
@@ -70,11 +72,8 @@ export const CenterSignUpForm = () => {
     });
 
     const submitCenterSignUp = (values, {resetForm, setStatus}) => {
-        // CONCATENATE ADDRESS VALUES HERE
-        let centerAddressValues = {centerStreet, centerCity, centerState, centerZip}
-        for(let centerAddressValues of centerSignUp) {
-            return(`${centerSignUp.centerStreet} ${centerSignUp.centerCity}, ${centerSignUp.centerState}, ${centerSignUp.centerZip}`)
-        }
+        // CONCATENATING STREET, CITY, STATE, AND ZIP INTO ADDRESS TO REFLECT WHAT'S IN SQL TABLE
+        values.centerAddress = `${values.centerStreet} ${values.centerCity}, ${values.centerState}, ${values.centerZip}`
         httpConfig.post('/apis/center-sign-up/', values)
             .then(reply => {
                 let {message, type} = reply;
@@ -164,7 +163,7 @@ function CenterSignUpFormContent(props) {
                                 <Form.Control
                                     className={'form-control'}
                                     name={'centerPasswordConfirm'}
-                                    type="text"
+                                    type="password"
                                     value={values.centerPasswordConfirm}
                                     placeholder="Confirm Password"
                                     onChange={handleChange}
@@ -270,7 +269,6 @@ function CenterSignUpFormContent(props) {
                                 />
                             </InputGroup>
                             <DisplayError errors={errors} touched={touched} field={'formCenterCity'} />
-                            <Form.Control />
                         </Form.Group>
 
                         {/* STATE */}
@@ -280,16 +278,16 @@ function CenterSignUpFormContent(props) {
                                 <Form.Control
                                     className={'form-control'}
                                     name={'centerState'}
-                                    type="text"
+                                    type="select"
                                     value={values.centerState}
-                                    placeholder=""
+                                    placeholder="State"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
-                                <Form.Select defaultValue='NM'>
-                                    {/*<option>Choose...</option>*/}
-                                    <option>NM</option>
-                                </Form.Select>
+                                {/*<Form.Select defaultValue='NM'>*/}
+                                {/*    /!*<option>Choose...</option>*!/*/}
+                                {/*    <option>NM</option>*/}
+                                {/*</Form.Select>*/}
                             </InputGroup>
                             <DisplayError errors={errors} touched={touched} field={'formCenterState'} />
                         </Form.Group>
@@ -312,15 +310,22 @@ function CenterSignUpFormContent(props) {
                         </Form.Group>
                     </Row>
 
-                    {/* CHECKBOX ... DO WE WANT?? */}
-                    <Form.Group className={'mt-4 mb-4'} id="formCenterCheckbox">
-                        <Form.Check type="checkbox" label="I confirm all information above is correct." />
-                    </Form.Group>
+                    {/*/!* CHECKBOX ... DO WE WANT?? *!/*/}
+                    {/*<Form.Group className={'mt-4 mb-4'} id="formCenterCheckbox">*/}
+                    {/*    <Form.Check type="checkbox" label="I confirm all information above is correct." />*/}
+                    {/*</Form.Group>*/}
 
                     {/* SUBMIT BUTTON */}
-                    <Button variant="primary" type="submit" className={'ms-auto d-flex justify-content-end'}>
-                        Submit
-                    </Button>
+                    <Form.Group>
+                        <Button
+                            variant="primary"
+                            type="submit"
+                            className={'ms-auto d-flex justify-content-end'}>
+                            Submit
+                        </Button>
+                        {' '}
+                    </Form.Group>
+                    <FormDebugger {...props} />
                 </Form>
                 <DisplayStatus status={status} />
             </Container>
