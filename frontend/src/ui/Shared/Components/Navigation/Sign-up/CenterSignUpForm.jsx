@@ -27,8 +27,6 @@ export const CenterSignUpForm = () => {
         centerProfileImgUrl: '',
     };
 
-    const {centerStreet, centerCity, centerState, centerZip} = centerAddress
-
     const centerValidator = Yup.object().shape({
         centerStreet: Yup.string()
             .required('A valid street address is required')
@@ -73,6 +71,10 @@ export const CenterSignUpForm = () => {
 
     const submitCenterSignUp = (values, {resetForm, setStatus}) => {
         // CONCATENATE ADDRESS VALUES HERE
+        let centerAddressValues = {centerStreet, centerCity, centerState, centerZip}
+        for(let centerAddressValues of centerSignUp) {
+            return(`${centerSignUp.centerStreet} ${centerSignUp.centerCity}, ${centerSignUp.centerState}, ${centerSignUp.centerZip}`)
+        }
         httpConfig.post('/apis/center-sign-up/', values)
             .then(reply => {
                 let {message, type} = reply;
@@ -230,20 +232,20 @@ function CenterSignUpFormContent(props) {
                         </Form.Group>
 
                         {/* STREET */}
-                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterAddress" className={'mb-3'}>
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterStreet" className={'mb-3'}>
                             <Form.Label>Address</Form.Label>
                             <InputGroup>
                                 <Form.Control
                                     className={'form-control'}
-                                    name={'centerAddress'}
+                                    name={'centerStreet'}
                                     type="text"
-                                    value={values.centerAddress}
+                                    value={values.centerStreet}
                                     placeholder="1234 Main St"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
                             </InputGroup>
-                            <DisplayError errors={errors} touched={touched} field={'formCenterAddress'} />
+                            <DisplayError errors={errors} touched={touched} field={'formCenterStreet'} />
                         </Form.Group>
                     </Row>
 
@@ -261,7 +263,7 @@ function CenterSignUpFormContent(props) {
                                     className={'form-control'}
                                     name={'centerCity'}
                                     type="text"
-                                    value={values.centerAddress}
+                                    value={values.centerCity}
                                     placeholder="City"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -279,7 +281,7 @@ function CenterSignUpFormContent(props) {
                                     className={'form-control'}
                                     name={'centerState'}
                                     type="text"
-                                    value={values.centerAddress}
+                                    value={values.centerState}
                                     placeholder=""
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -300,7 +302,7 @@ function CenterSignUpFormContent(props) {
                                     className={'form-control'}
                                     name={'centerZip'}
                                     type="text"
-                                    value={values.centerAddress}
+                                    value={values.centerZip}
                                     placeholder="xxxxx"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
