@@ -1,12 +1,23 @@
 import React from 'react';
 import * as Yup from "yup";
 import {Formik} from "formik";
-import {CenterSignUpFormContent} from "./CenterSignUpFormContent.jsx";
+// import {CenterSignUpFormContent} from "./CenterSignUpFormContent.jsx";
 import {httpConfig} from "../../../../../utils/http-config.js";
+import {Container, InputGroup} from "react-bootstrap";
+import styles from "../../../../Partner/partner.module.css";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import {DisplayError} from "../../display-error/DisplayError.jsx";
+import Button from "react-bootstrap/Button";
+import {DisplayStatus} from "../../display-status/DisplayStatus.jsx";
 
 export const CenterSignUpForm = () => {
     const centerSignUp = {
-        centerAddress: '',
+        centerStreet: '',
+        centerCity: '',
+        centerState: '',
+        centerZip: '',
         centerContactEmail: '',
         centerContactName: '',
         centerContactPhone: '',
@@ -15,22 +26,26 @@ export const CenterSignUpForm = () => {
         centerPasswordConfirm: '',
         centerProfileImgUrl: '',
     };
-    const restaurantSignUp = {
-        restaurantAddress: '',
-        restaurantContactEmail: '',
-        restaurantContactName: '',
-        restaurantContactPhone: '',
-        restaurantName: '',
-        restaurantPassword: '',
-        restaurantPasswordConfirm: '',
-        restaurantProfileImgUrl: '',
-    };
+
+    const {centerStreet, centerCity, centerState, centerZip} = centerAddress
 
     const centerValidator = Yup.object().shape({
-        centerAddress: Yup.string()
-            .required('A valid address is required')
-            .min(10, 'Please provide a valid address')
-            .max(128, 'This address exceeds the allotted characters'),
+        centerStreet: Yup.string()
+            .required('A valid street address is required')
+            .min(10, 'Please provide a valid street address')
+            .max(128, 'This street address exceeds the allotted characters'),
+        centerCity: Yup.string()
+            .required('A valid city is required')
+            .min(10, 'Please provide a valid city')
+            .max(128, 'This city exceeds the allotted characters'),
+        centerState: Yup.string()
+            .required('A valid state is required')
+            .min(10, 'Please provide a valid state')
+            .max(128, 'This state exceeds the allotted characters'),
+        centerZip: Yup.string()
+            .required('A valid zip code is required')
+            .min(10, 'Please provide a valid zip code')
+            .max(128, 'This zip code exceeds the allotted characters'),
         centerContactEmail: Yup.string()
             .email('Please provide a valid email')
             .required('email is required'),
@@ -56,37 +71,8 @@ export const CenterSignUpForm = () => {
             .max(200, 'Password must be fewer than 200 characters'),
     });
 
-    const restaurantValidator = Yup.object().shape({
-        restaurantAddress: Yup.string()
-            .required('A valid address is required')
-            .min(10, 'Please provide a valid address')
-            .max(128, 'This address exceeds the allotted characters'),
-        restaurantContactEmail: Yup.string()
-            .email('Please provide a valid email')
-            .required('email is required'),
-        restaurantContactName: Yup.string()
-            .required('A contact name is required')
-            .min(1, 'Please provide your name')
-            .max(64, 'This name exceeds the allotted characters'),
-        restaurantContactPhone: Yup.string()
-            .required('A valid phone number is required')
-            .min(10, 'Please provide a valid phone number')
-            .max(64, 'This number exceeds the allotted characters'),
-        restaurantName: Yup.string()
-            .required('A restaurant name is required')
-            .min(5, 'Please provide a restaurant name')
-            .max(64, 'This name exceeds the allotted characters'),
-        restaurantPassword: Yup.string()
-            .required('A password is required')
-            .min(8, 'Password must be at least eight characters')
-            .max(200, 'Password must be fewer than 200 characters'),
-        restaurantPasswordConfirm: Yup.string()
-            .required('Passwords must match')
-            .min(8, 'Password must be at least eight characters')
-            .max(200, 'Password must be fewer than 200 characters'),
-    });
-
-    const submitCenterSignUp = (value, {resetForm, setStatus}) => {
+    const submitCenterSignUp = (values, {resetForm, setStatus}) => {
+        // CONCATENATE ADDRESS VALUES HERE
         httpConfig.post('/apis/center-sign-up/', values)
             .then(reply => {
                 let {message, type} = reply;
@@ -96,19 +82,6 @@ export const CenterSignUpForm = () => {
                 }
                 setStatus({message, type});
             });
-    };
-
-    const submitRestaurantSignUp = (value, {resetForm, setStatus}) => {
-        httpConfig.post('/apis/restaurant-sign-up/', values)
-            .then(reply => {
-                    let {message, type} = reply;
-
-                    if (reply.status === 200) {
-                        resetForm();
-                    }
-                    setStatus({message, type});
-                }
-            );
     };
 
     return (
@@ -121,4 +94,234 @@ export const CenterSignUpForm = () => {
             {CenterSignUpFormContent}
         </Formik>
     )
-};
+}
+
+function CenterSignUpFormContent(props) {
+
+    const {
+        status,
+        values,
+        errors,
+        touched,
+        // dirty,
+        // isSubmitting,
+        handleChange,
+        handleBlur,
+        handleSubmit
+        // handleReset
+    } = props
+
+    return (
+        <>
+            <Container>
+                <h1 className={'display-3 text-center mb-5'}>Become a Partner Today</h1>
+            </Container>
+            <Container className={styles.formContainer}>
+                <Form onSubmit={handleSubmit} className={'border border-dark bg-light my-5 p-5'}>
+
+                    <h4 className={'mb-3'}>Your Information</h4>
+                    <Row>
+                        {/* EMAIL */}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterContactEmail" className={'mb-3'}>
+                            <Form.Label>Email</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerContactEmail'}
+                                    type="text"
+                                    value={values.centerContactEmail}
+                                    placeholder="Enter email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterContactEmail'} />
+                        </Form.Group>
+
+                        {/* PASSWORD */}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterPassword" className={'mb-3'}>
+                            <Form.Label>Password</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerPassword'}
+                                    type="password"
+                                    value={values.centerPassword}
+                                    placeholder="Enter password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterPassword'} />
+                        </Form.Group>
+
+                        {/* PASSWORD CONFIRM*/}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterPasswordConfirm" className={'mb-3'}>
+                            <Form.Label>Confirm Password</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerPasswordConfirm'}
+                                    type="text"
+                                    value={values.centerPasswordConfirm}
+                                    placeholder="Confirm Password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterPasswordConfirm'} />
+                        </Form.Group>
+                    </Row>
+
+                    <Row>
+                        {/* CONTACT NAME */}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterContactName" className={'mb-3'}>
+                            <Form.Label>Contact Name</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerContactName'}
+                                    type="text"
+                                    value={values.centerContactName}
+                                    placeholder="Jane Doe"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterContactName'} />
+                        </Form.Group>
+
+                        {/* CONTACT PHONE */}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterContactPhone" className={'mb-3'}>
+                            <Form.Label>Contact Phone</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerContactPhone'}
+                                    type="phone"
+                                    value={values.centerContactPhone}
+                                    placeholder="505-555-5555"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterContactPhone'} />
+                        </Form.Group>
+                    </Row>
+
+                    <h4 className={'mt-4 mb-3'}>Community Center Information</h4>
+
+                    <Row>
+                        {/* CENTER NAME */}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterName" className={'mb-3'}>
+                            <Form.Label>Name</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerName'}
+                                    type="text"
+                                    value={values.centerName}
+                                    placeholder="Community Center A"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterName'} />
+                        </Form.Group>
+
+                        {/* STREET */}
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterAddress" className={'mb-3'}>
+                            <Form.Label>Address</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerAddress'}
+                                    type="text"
+                                    value={values.centerAddress}
+                                    placeholder="1234 Main St"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterAddress'} />
+                        </Form.Group>
+                    </Row>
+
+                    {/*<Form.Group className="mb-3" controlId="formRestaurantAddress2">*/}
+                    {/*    <Form.Label>Address 2</Form.Label>*/}
+                    {/*    <Form.Control placeholder="Apartment, studio, or floor" />*/}
+                    {/*</Form.Group>*/}
+
+                    {/* CITY */}
+                    <Row>
+                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterCity" className={'mb-3'}>
+                            <Form.Label>City</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerCity'}
+                                    type="text"
+                                    value={values.centerAddress}
+                                    placeholder="City"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterCity'} />
+                            <Form.Control />
+                        </Form.Group>
+
+                        {/* STATE */}
+                        <Form.Group as={Col} controlId="formCenterState" className={'mb-3'}>
+                            <Form.Label>State</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerState'}
+                                    type="text"
+                                    value={values.centerAddress}
+                                    placeholder=""
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                                <Form.Select defaultValue='NM'>
+                                    {/*<option>Choose...</option>*/}
+                                    <option>NM</option>
+                                </Form.Select>
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterState'} />
+                        </Form.Group>
+
+                        {/* ZIP */}
+                        <Form.Group as={Col} controlId="formCenterZip" className={'mb-3'}>
+                            <Form.Label>Zip</Form.Label>
+                            <InputGroup>
+                                <Form.Control
+                                    className={'form-control'}
+                                    name={'centerZip'}
+                                    type="text"
+                                    value={values.centerAddress}
+                                    placeholder="xxxxx"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={'formCenterZip'} />
+                        </Form.Group>
+                    </Row>
+
+                    {/* CHECKBOX ... DO WE WANT?? */}
+                    <Form.Group className={'mt-4 mb-4'} id="formCenterCheckbox">
+                        <Form.Check type="checkbox" label="I confirm all information above is correct." />
+                    </Form.Group>
+
+                    {/* SUBMIT BUTTON */}
+                    <Button variant="primary" type="submit" className={'ms-auto d-flex justify-content-end'}>
+                        Submit
+                    </Button>
+                </Form>
+                <DisplayStatus status={status} />
+            </Container>
+        </>
+    );
+}
