@@ -30,8 +30,8 @@ export function App({store}) {
                         <Route path='/partner-with-us' element={<Partner/>}/>
                         <Route path='/community-center-signup' element={<CenterSignUpForm/>}/>
                         <Route path='/restaurant-signup' element={<RestaurantSignUpForm/>}/>
-                        <Route path='/profile-center' element={<ProfileCenter/>}/>
-                        <Route path='/profile-restaurant' element={<ProfileRestaurant/>}/>
+                        <Route path='/profile-center/:centerId' element={<ProfileCenter/>}/>
+                        <Route path='/profile-restaurant/:restaurantId' element={<ProfileRestaurant/>}/>
                         <Route path='/sign-in' element={<SignInLanding/>}/>
                     </Routes>
                     <Footer/>

@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import * as Yup from "yup";
 import {httpConfig} from "../../../../../utils/http-config.js";
 import jwtDecode from "jwt-decode";
-import {getAuth} from "../../../../../store/auth.js";
+import {setAuth} from "../../../../../store/auth.js";
 import {Formik} from "formik";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -41,7 +41,7 @@ export const RestaurantSignInForm = () => {
                     window.localStorage.setItem('authorization', reply.headers['authorization']);
                     resetForm();
                     let jwtToken = jwtDecode(reply.headers['authorization'])
-                    dispatch(getAuth(jwtToken))
+                    dispatch(setAuth(jwtToken))
                 }
                 setStatus({message, type});
             });

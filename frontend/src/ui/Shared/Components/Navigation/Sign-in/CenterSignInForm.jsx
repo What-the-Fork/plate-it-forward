@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import * as Yup from "yup";
 import {httpConfig} from "../../../../../utils/http-config.js";
 import jwtDecode from "jwt-decode";
-import {getAuth} from "../../../../../store/auth.js";
+import {setAuth} from "../../../../../store/auth.js";
 import {Formik} from "formik";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -13,9 +13,11 @@ import Button from "react-bootstrap/Button";
 import {DisplayStatus} from "../../display-status/DisplayStatus.jsx";
 import React from "react";
 import {FormDebugger} from "../../FormDebugger";
+import {useNavigate} from "react-router-dom";
 
 export const CenterSignInForm = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const validator = Yup.object().shape({
         centerContactEmail: Yup.string()
@@ -41,7 +43,8 @@ export const CenterSignInForm = () => {
                     window.localStorage.setItem('authorization', reply.headers['authorization']);
                     resetForm();
                     let jwtToken = jwtDecode(reply.headers['authorization'])
-                    dispatch(getAuth(jwtToken))
+                    dispatch(setAuth(jwtToken))
+                    navigate(`/profile-center/${jwtToken.centerId}`)
                 }
                     setStatus({message, type});
             });

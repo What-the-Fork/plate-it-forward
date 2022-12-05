@@ -44,7 +44,7 @@ export async function selectRestaurantByRestaurantActivationToken (restaurantAct
 }
 
 export async function selectRestaurantByRestaurantContactEmail (restaurantContactEmail: string): Promise<Restaurant|null> {
-    const result = <Restaurant[]>await sql`SELECT restaurant_id, restaurant_activation_token, restaurant_address, restaurant_hash,  restaurant_name, restaurant_name_url FROM restaurant WHERE restaurant_contact_email = ${restaurantContactEmail}`
+    const result = <Restaurant[]>await sql`SELECT restaurant_id, restaurant_address, restaurant_hash,restaurant_name, restaurant_name_url, restaurant_profile_img_url FROM restaurant WHERE restaurant_contact_email = ${restaurantContactEmail}`
     return result?.length === 1 ? result[0] : null
 }
 

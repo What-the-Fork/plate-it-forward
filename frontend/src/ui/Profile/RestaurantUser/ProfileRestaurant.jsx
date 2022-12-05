@@ -7,17 +7,6 @@ import {fetchAllCenters} from "../../../store/centers.js";
 
 export function ProfileRestaurant() {
 
-    const centers = useSelector(state => state.centers ? state.centers : [])
-
-    const dispatch = useDispatch()
-
-    const initialEffects = () => {
-        dispatch(fetchAllCenters())
-    }
-    useEffect(initialEffects, [dispatch])
-
-    console.log(centers)
-
     return (
         <>
             <RestaurantInfo/>
