@@ -97,7 +97,7 @@ function CenterSignInFormContent(props) {
                                 onBlur={handleBlur}
                             />
                         </InputGroup>
-                        <DisplayError errors={errors} touched={touched} field={'contactEmail'} />
+                        <DisplayError errors={errors} touched={touched} field={'centerContactEmail'} />
                     </Form.Group>
 
                     {/* PASSWORD */}
@@ -107,7 +107,7 @@ function CenterSignInFormContent(props) {
                             <Form.Control
                                 className="form-control"
                                 name='centerPassword'
-                                type="text"
+                                type="password"
                                 value={values.centerPassword}
                                 placeholder="Password"
                                 onChange={handleChange}

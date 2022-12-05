@@ -13,9 +13,11 @@ import Button from "react-bootstrap/Button";
 import {DisplayStatus} from "../../display-status/DisplayStatus.jsx";
 import React from "react";
 import {FormDebugger} from "../../FormDebugger";
+import {useNavigate} from "react-router-dom";
 
 export const RestaurantSignInForm = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const validator = Yup.object().shape({
         restaurantContactEmail: Yup.string()
@@ -42,6 +44,7 @@ export const RestaurantSignInForm = () => {
                     resetForm();
                     let jwtToken = jwtDecode(reply.headers['authorization'])
                     dispatch(setAuth(jwtToken))
+                    navigate(`/profile-restaurant/${jwtToken.restaurantId}`)
                 }
                 setStatus({message, type});
             });
@@ -104,7 +107,7 @@ function RestaurantSignInFormContent(props) {
                             <Form.Control
                                 className="form-control"
                                 name='restaurantPassword'
-                                type="text"
+                                type="password"
                                 value={values.restaurantPassword}
                                 placeholder="Password"
                                 onChange={handleChange}
