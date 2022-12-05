@@ -53,6 +53,6 @@ function restaurantSignInSuccessful(request: Request, response: Response, restau
     response.header({
         authorization
     })
-    return response.json({status: 200, message: 'Sign in successful', data: null})
+    return response.json({status: 200, message: 'Sign in successful restaurant', data: null})
 
 }

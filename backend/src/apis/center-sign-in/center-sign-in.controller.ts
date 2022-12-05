@@ -61,6 +61,6 @@ function centerSignInSuccessful(request: Request, response: Response, center: Ce
     response.header({
         authorization
     })
-    return response.json({status: 200, message: 'Sign in successful', data: null})
+    return response.json({status: 200, message: 'Sign in successful center', data: null})
 
 }
