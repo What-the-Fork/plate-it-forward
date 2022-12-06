@@ -14,7 +14,7 @@ export function ProfileRestaurant() {
     const partnerCenter = useSelector(state => state.partnerCenter.length === 1 ? state.partnerCenter[0] : null)
     console.log(centers)
     console.log(restaurant)
-
+    console.log(partnerCenter)
     const dispatch = useDispatch()
 
     const initialEffects = () => {
@@ -22,7 +22,7 @@ export function ProfileRestaurant() {
         if(restaurant !== null) {
             dispatch(fetchCenterByPartnershipRestaurantId(restaurant.restaurantId))
         }
-        // CENTERS IN P REQUEST NOT POPULATING... THINK ITS THIS
+
         dispatch(fetchAllCenters())
 
 
@@ -33,7 +33,7 @@ export function ProfileRestaurant() {
         <>
             {restaurant && <RestaurantInfo restaurant={restaurant}/>}
             {restaurant && <Donations restaurant={restaurant}/>}
-            <PartnershipRequest centers={centers}/>
+            {partnerCenter === null && <PartnershipRequest centers={centers}/>}
         </>
     )
 }

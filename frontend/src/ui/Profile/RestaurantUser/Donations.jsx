@@ -21,9 +21,9 @@ export const Donations = () => {
             .min(1, 'Please provide number of meals donated')
             .max(999, 'Please provide a number between 0 - 999'),
         donationDate: Yup.date()
+            .min(new Date(), 'Date cannot precede current date')
             .required('A valid date is required')
-            .min(1, 'Please provide a valid donation date')
-            .max(32, 'This donation date exceeds the allotted characters'),
+
     })
 
     const submitDonation = (values, {resetForm, setStatus}) => {

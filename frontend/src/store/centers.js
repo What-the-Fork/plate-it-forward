@@ -16,7 +16,7 @@ export default centersSlice.reducer
 
 export function fetchAllCenters () {
     return async function (dispatch) {
-        const {data} = await httpConfig('apis/center')
+        const {data} = await httpConfig('/apis/center')
         dispatch(setAllCenters(data))
         for(let center of data) {
             dispatch (fetchRestaurantsByPartnershipCenterId(center.centerId))
