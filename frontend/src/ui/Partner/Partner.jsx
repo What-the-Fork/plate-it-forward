@@ -20,8 +20,8 @@ export function Partner() {
 
                     </Container>
                     {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                <Container className={'row justify-content-md-center'}>
-                    <Button className={'btn btn-lg'}><SignUpModal /></Button>
+                <Container className={'row justify-content-sm-center'}>
+                    <SignUpModal />
                 </Container>
                 </Container>
         </>
