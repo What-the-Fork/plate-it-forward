@@ -14,7 +14,6 @@ export const RestaurantSignInModal = () => {
             <Button variant="primary" onClick={handleShow} size='sm'>
                 Restaurant Sign In
             </Button>
-
             <Modal show={show} onHide={handleClose} backdrop="static"
                    keyboard={false}>
                 <Modal.Header closeButton>
