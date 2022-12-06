@@ -20,13 +20,10 @@ export function Partner() {
 
                     </Container>
                     {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                <Container className={'row align-content-center'}>
-                <SignUpModal />
+                <Container className={'row justify-content-md-center'}>
+                    <Button className={'btn btn-lg'}><SignUpModal /></Button>
                 </Container>
                 </Container>
         </>
     )
 }
-
-
-
