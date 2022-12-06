@@ -10,6 +10,7 @@ import {
 } from "./partnership.controller";
 import {partnershipValidator} from "./partnership.validator";
 import {getRestaurantsByPartnershipCenterId} from "../restaurant/restaurant.controller";
+import {getCenterByPartnershipRestaurantId} from "../center/center.controller";
 
 // restaurant sending partnership request
 const router = Router()
@@ -24,7 +25,8 @@ router.route('/')
     .put(isLoggedIn("center"), asyncValidatorController(checkSchema(partnershipValidator)), putPartnership)
 
 // restaurant seeing center partnership
-router.route('/partnershipByRestaurantId/:partnershipByRestaurantId').get(
+router.route('/partnershipByRestaurantId/:partnershipByRestaurantId')
+    .get(
     asyncValidatorController([check('partnershipByRestaurantId', 'please provide a valid restaurantId ').isUUID()]),
     getPartnershipByPartnershipRestaurantId)
 
