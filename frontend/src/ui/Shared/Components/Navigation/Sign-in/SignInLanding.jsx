@@ -7,27 +7,30 @@ import {RestaurantSignInModal} from "./RestaurantSignInModal.jsx";
 export function SignInLanding() {
     return(
         <>
-            <Container lg={3}>
-                <h1 className={'display-1 text-center mb-5'}>Partner with Us</h1>
-                <Row className={'gx-md-1 gy-5'}>
-                    <Col md={5} className={'text-center'}>
-                        <Image fluid={true} src={'https://www.placecage.com/c/325/325'} alt={'Nick Cage doing Nick Cage things'}/>
-                    </Col>
-                    <Col md={7} className={'fs-5'}>
-                        <h3>What We Do</h3>
-                        <p>Bacon ipsum dolor amet frankfurter andouille ground round t-bone cupim pork chop. Tail pork cupim porchetta drumstick shoulder chuck salami burgdoggen beef ribs pork belly beef. Flank andouille pork chop, bresaola fatback prosciutto shankle ball tip.</p>
-                    </Col>
-                </Row>
-                {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                <Row>
+            <div className={'row justify-content-md-center'}>
+                <Col xl={4}>
+            <Container className={'text-center'}>
+            <Image fluid={true} className={'p-4'} width={200} src={'https://i.ibb.co/ZJNPsqq/plateit.png'} alt={'Plate Logo'}/>
+            </Container>
+            <Container className={'sm-3 justify-content-center text-center bg-light rounded mt-3 mb-5'}>
+                <Container className={'text-center mb-5 p-5'}>
+                    <h1 className={'display-5'}>Sign In</h1>
+                <p>Select an option to sign in:</p>
+                </Container>
+            <Row sm={12} className={'pb-5 justify-content-center'}>
                     <Col>
-                    <Button><CenterSignInModal/></Button>
+                    <Button className={'btn btn-lg'}><CenterSignInModal/></Button>
                     </Col>
                     <Col>
-                        <Button><RestaurantSignInModal/></Button>
+                        <p className={'align-self-center'}>- OR -</p>
+                    </Col>
+                    <Col>
+                        <Button className={'btn-lg'}><RestaurantSignInModal/></Button>
                     </Col>
                 </Row>
             </Container>
+                </Col>
+            </div>
         </>
     )
 }

@@ -25,17 +25,17 @@ export function Navigation () {
 
 
     return (
-        <Navbar className={'nav'} expand={'lg'} variant={'light shadow p-3'} sticky={'top'}>
+        <Navbar className={'nav'} expand={'lg'} variant={'light shadow p-3 navbar-dark'} sticky={'top'}>
             <Container fluid>
                 {/* PUT LOGO HERE WHEN READY */}
-                <Navbar.Brand><Link to={'/'}><Image width={'80'} src={'https://i.ibb.co/TKbdCPn/whiteplate.png" alt="plateIt'}></Image></Link></Navbar.Brand>
+                <Navbar.Brand><Link to={'/'}><Image width={'80'} src={'https://i.ibb.co/7SKwHPn/whiteplate-logo.png" alt="plateIt'}></Image></Link></Navbar.Brand>
                 <NavbarToggle aria-controls={'navbarScroll'} />
-                <NavbarCollapse id={'navbarScroll'}>
+                <NavbarCollapse id={'navbarScroll bg-light'}>
                     {/* MS AUTO PUSHES LINKS TO RIGHT */}
                     <Nav className={'ms-auto'}>
-                        <Link to={'/community-center'} className={'nav-link'}>Community Centers</Link>
-                        <Link to={'/partner-with-us'} className={'nav-link'}>Partner with Us</Link>
-                        <Link to={'/sign-in'} className={'nav-link'}>Sign In</Link>
+                        <Link to={'/community-center'} className={'nav-link text-light display-6'}>Community Centers</Link>
+                        <Link to={'/partner-with-us'} className={'nav-link text-light display-6'}>Partner with Us</Link>
+                        <Link to={'/sign-in'} className={'nav-link text-light display-6'}>Sign In</Link>
 
                         {/*{auth ? (*/}
                         {/*    <SignOut />*/}

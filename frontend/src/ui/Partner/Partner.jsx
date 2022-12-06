@@ -5,22 +5,25 @@ import {SignUpModal} from "../Shared/Components/Navigation/Sign-up/SignUpModal.j
 export function Partner() {
     return(
         <>
-            <Container lg={3}>
-                <h1 className={'display-1 text-center mb-5'}>Partner with Us</h1>
-                    <Row className={'gx-md-1 gy-5'}>
-                        <Col md={5} className={'text-center'}>
-                            <Image fluid={true} src={'https://www.placecage.com/c/325/325'} alt={'Nick Cage doing Nick Cage things'}/>
-                        </Col>
-                        <Col md={7} className={'fs-5'}>
-                            <h3>What We Do</h3>
-                            <p>Bacon ipsum dolor amet frankfurter andouille ground round t-bone cupim pork chop. Tail pork cupim porchetta drumstick shoulder chuck salami burgdoggen beef ribs pork belly beef. Flank andouille pork chop, bresaola fatback prosciutto shankle ball tip.</p>
-                        </Col>
+                <section className={'bg-light'}>
+                    <h1 className={'text-center p-4 display-3'}><strong>Partner with us</strong></h1>
+                </section>
+                <Container className={'p-4'}>
+                    <Row>
+                        <Col><Image className={'img-fluid rounded'} src={'https://i.ibb.co/xYCyf6S/Adobe-Stock-220711353.jpg'} alt={'Serving Donations'}/></Col>
+                        <Col><Image className={'img-fluid rounded'} src={'https://i.ibb.co/CQYcDsh/Adobe-Stock-434293293.jpg'} alt={'Volunteers'}/></Col>
+                        <Col><Image className={'img-fluid rounded'} src={'https://i.ibb.co/bXsB6BJ/Adobe-Stock-176970757.jpg'} alt={'Serving meals'}/></Col>
                     </Row>
+                    <Container className={'gx-md-1 gy-5 p-4 mt-4 text-center justify-content-center'}>
+                            <h3 className={'display-6'}><strong>Why you should partner with us</strong></h3>
+                            <p>Bacon ipsum dolor amet frankfurter andouille ground round t-bone cupim pork chop. Tail pork cupim porchetta drumstick shoulder chuck salami burgdoggen beef ribs pork belly beef. Flank andouille pork chop, bresaola fatback prosciutto shankle ball tip.</p>
+
+                    </Container>
                     {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-               <Row>
-                <SignUpModal />
-               </Row>
-            </Container>
+                <Container className={'row justify-content-md-center'}>
+                    <Button className={'btn btn-lg'}><SignUpModal /></Button>
+                </Container>
+                </Container>
         </>
     )
 }

@@ -4,8 +4,10 @@ import styles from './center.module.css'
 export function CenterHeader () {
     return (
         <>
-        <h1 className={'text-center'}>Community Centers</h1>
-            <p className={'text-center'}>squiggle squiggle squiggle</p>
+            <section className={'bg-light'}>
+            <h1 className={'text-center pt-4 display-3'}><strong>Community Centers</strong></h1>
+            <p className={'text-center pb-4'}>squiggle squiggle squiggle</p>
+            </section>
         </>
     )
 }
