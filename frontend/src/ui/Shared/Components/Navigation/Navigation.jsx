@@ -25,7 +25,7 @@ export function Navigation () {
 
 
     return (
-        <Navbar className={'nav'} expand={'lg'} variant={'light shadow p-3'} sticky={'top'}>
+        <Navbar className={'nav'} expand={'lg'} variant={'light shadow p-3 navbar-dark'} sticky={'top'}>
             <Container fluid>
                 {/* PUT LOGO HERE WHEN READY */}
                 <Navbar.Brand><Link to={'/'}><Image width={'80'} src={'https://i.ibb.co/7SKwHPn/whiteplate-logo.png" alt="plateIt'}></Image></Link></Navbar.Brand>
