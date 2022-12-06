@@ -10,9 +10,9 @@ export function Partner() {
                 </section>
                 <Container className={'p-4'}>
                     <Row>
-                        <Col><Image className={'img-fluid rounded'} src={'https://i.ibb.co/xYCyf6S/Adobe-Stock-220711353.jpg'} alt={'Serving Donations'}/></Col>
-                        <Col><Image className={'img-fluid rounded'} src={'https://i.ibb.co/CQYcDsh/Adobe-Stock-434293293.jpg'} alt={'Volunteers'}/></Col>
-                        <Col><Image className={'img-fluid rounded'} src={'https://i.ibb.co/bXsB6BJ/Adobe-Stock-176970757.jpg'} alt={'Serving meals'}/></Col>
+                        <Col className={'lg-4 md-12 sm-12'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/xYCyf6S/Adobe-Stock-220711353.jpg'} alt={'Serving Donations'}/></Col>
+                        <Col className={'lg-4 md-12 sm-12'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/CQYcDsh/Adobe-Stock-434293293.jpg'} alt={'Volunteers'}/></Col>
+                        <Col className={'lg-4 md-12 sm-12'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/bXsB6BJ/Adobe-Stock-176970757.jpg'} alt={'Serving meals'}/></Col>
                     </Row>
                     <Container className={'gx-md-1 gy-5 p-4 mt-4 text-center justify-content-center'}>
                             <h3 className={'display-6'}><strong>Why you should partner with us</strong></h3>
@@ -20,7 +20,7 @@ export function Partner() {
 
                     </Container>
                     {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                <Container className={'row justify-content-sm-center'}>
+                <Container className={'row justify-content-md-center'}>
                     <SignUpModal />
                 </Container>
                 </Container>
