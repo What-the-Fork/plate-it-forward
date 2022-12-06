@@ -41,7 +41,7 @@ export async function insertCenter(center: Center): Promise<string> {
 
 export async function selectPartialCenterByCenterId(centerId: string): Promise<Center|null> {
     const result = <Center[]>await sql`SELECT center_id, center_address, center_contact_email, center_contact_name, center_contact_phone, center_directory_img_url, center_lat, center_lng, center_name, center_phone, center_profile_img_url, center_website_url FROM center WHERE center_id = ${centerId}`
-    // one to one relationship - must return 1 object or nothing
+    // one-to-one relationship - must return 1 object or nothing
     return result?.length === 1 ? result[0] : null
 }
 
@@ -92,3 +92,22 @@ export async function selectAllPartialCenters (): Promise<PartialCenter[]> {
 //     const result = await sql<Center[]>`SELECT center_id FROM center INNER JOIN partnership ON center.center_id = partnership.partnership_center_id WHERE partnership_restaurant_id = ${donationRestaurantId} AND partnership_approved = true`
 //     return result?.length === 1 ? result[0] : null
 // }
+
+export async function selectCenterByPartnershipRestaurantId (partnershipRestaurantId: string): Promise<Center[]> {
+    return sql <Center[]>`SELECT center_id, center_address,
+                                 center_contact_email,
+                                 center_contact_name,
+                                 center_contact_phone,
+                                 center_directory_img_url,
+                                 center_lat,
+                                 center_lng,
+                                 center_name,
+                                 center_phone,
+                                 center_profile_img_url,
+                                 center_website_url
+                          FROM center
+                                   INNER JOIN partnership on center.center_id = partnership.partnership_center_id
+                          WHERE partnership.partnership_restaurant_id = ${partnershipRestaurantId}
+                            AND partnership_approved = true`
+
+}
