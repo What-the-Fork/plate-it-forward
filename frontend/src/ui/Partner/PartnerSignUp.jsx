@@ -6,7 +6,6 @@ import {Container} from "react-bootstrap";
 export function PartnerSignup() {
     return (
         <>
-        <h1>henlo</h1>
             <Container className={'bg-secondary'}>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
