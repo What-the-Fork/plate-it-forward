@@ -14,17 +14,17 @@ export function SignInLanding() {
             </Container>
             <Container className={'xl-4 justify-content-center text-center bg-light rounded mt-3 mb-5'}>
                 <Container className={'text-center mb-5 p-5'}>
-                    <h1 className={'display-5'}>Sign In</h1>
+                    <h1 className={'display-2'}>Sign In</h1>
                 <p>Select an option to sign in:</p>
                 </Container>
             <Row sm={12} className={'pb-5 justify-content-center'}>
-                    <Col>
+                    <Col sm={5}>
                     <CenterSignInModal/>
                     </Col>
-                    <Col>
-                        <p className={'align-self-center'}>- OR -</p>
+                    <Col sm={2}>
+                        <p className={'align-middle mt-2'}>- OR -</p>
                     </Col>
-                    <Col>
+                    <Col sm={5}>
                         <RestaurantSignInModal/>
                     </Col>
                 </Row>
