@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../../store/auth.js";
 import {fetchPartnershipsByPartnershipCenterId} from "../../../store/partner.js";
 import {fetchPendingByPartnershipCenterId} from "../../../store/pendingPartnerships.js";
+import {StaticCenterDonationForm} from "./StaticCenterDonationForm";
 
 export function ProfileCenter() {
 
@@ -41,6 +42,7 @@ export function ProfileCenter() {
             <section className={'py-5'}>
                 {pendings.map(partner => <PartnershipAccept partner={partner}  key={partner.partnershipRestaurantId}/>)}
             </section>
+            <StaticCenterDonationForm/>
             {/*<Served/>*/}
         </>
     )

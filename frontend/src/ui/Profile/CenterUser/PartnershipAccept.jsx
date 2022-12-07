@@ -23,14 +23,14 @@ export const PartnershipAccept = (props) => {
                 }
             });
     }
-    // function submitPartnershipDeny() {
-    //     httpConfig.delete('/apis/partnership', {partnershipCenterId,partnershipRestaurantId,partnershipApproved:})
-    //         .then(reply => {
-    //             let {message, type} = reply;
-    //
-    //             if (reply.status === 200) {}
-    //         });
-    // }
+    function submitPartnershipDeny() {
+        httpConfig.delete('/apis/partnership/deletePartnership')
+            .then(reply => {
+                let {message, type} = reply;
+
+                if (reply.status === 200) {}
+            });
+    }
     return (
         <>
             <Container>
@@ -49,15 +49,15 @@ export const PartnershipAccept = (props) => {
                     <Col>
                         <Button
                             onClick={submitPartnershipAccept}
-                            className={'ms-auto d-flex justify-content-end'}>
+                            className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Accept Partnership
                         </Button>
 
-                        {/*<Button*/}
-                        {/*    onClick={submitPartnershipDeny}*/}
-                        {/*    className={'ms-auto d-flex justify-content-end'}>*/}
-                        {/*    Deny Partnership*/}
-                        {/*</Button>*/}
+                        <Button
+                            onClick={submitPartnershipDeny}
+                            className={'ms-auto mt-2 d-flex justify-content-end btn btn-dark'}>
+                            Deny Partnership
+                        </Button>
                     </Col>
                 </Row>
 
