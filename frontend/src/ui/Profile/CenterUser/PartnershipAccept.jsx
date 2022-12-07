@@ -37,7 +37,7 @@ export const PartnershipAccept = (props) => {
                  <Row className={'gx-md-5 gy-5'}>
                     <h3>You have a partnership request!</h3>
                     <Col md={5} className={'text-center'}>
-                        <Image className={'img-fluid'} src={'http://placekitten.com/250/250'} alt={'Cat Cage doing Cage things'}/>
+                        <Image className={'img-fluid rounded'} src={'https://i.ibb.co/6FTWLQx/empty-Restaurant-Profile-Image.png'} alt={'Cat Cage doing Cage things'}/>
                     </Col>
                     <Col md={7} className={'fs-5'}>
                         <h3>{partner.restaurantName}</h3>

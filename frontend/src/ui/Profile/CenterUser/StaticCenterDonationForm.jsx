@@ -11,7 +11,7 @@ export function StaticCenterDonationForm() {
                 <p className={'fst-italic'}>Confirm the numbers of meals you served from your restaurant partners</p>
                 <Form className={'mb-5'}>
                     <Row className="mb-3">
-                        <h5>Marty's Back Alley Meats</h5>
+                        <h5>Stripe’s Burrito Co.</h5>
                         <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
                             <Form.Label>Served</Form.Label>
                             <Form.Control type="input" placeholder="Meals served"/>
@@ -24,7 +24,7 @@ export function StaticCenterDonationForm() {
                     </Row>
 
                     <Row className="mb-3">
-                        <h5>Marty's Back Alley Meats</h5>
+                        <h5>Pad Thai Cafe</h5>
                         <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
                             <Form.Label>Served</Form.Label>
                             <Form.Control type="input" placeholder="Meals served"/>
@@ -36,9 +36,8 @@ export function StaticCenterDonationForm() {
                         </Form.Group>
                     </Row>
 
-
                     <Row className="mb-3">
-                        <h5>Marty's Back Alley Meats</h5>
+                        <h5>Frank’s Famous Chicken & Waffles</h5>
                         <Form.Group className={'mb-3'} as={Col} controlId="formGridServe" xs={12} md={6}>
                             <Form.Label>Served</Form.Label>
                             <Form.Control type="input" placeholder="Meals served"/>
