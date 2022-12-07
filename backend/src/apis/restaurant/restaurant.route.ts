@@ -24,8 +24,8 @@ RestaurantRoute.route('/:restaurantId')
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(restaurantValidator)), putRestaurantController)
 
-RestaurantRoute.route('/pendingPartnerships/:centerId')
+RestaurantRoute.route('/pendingPartnerships/:partnershipCenterId')
     .get(
-        isLoggedIn("center"), asyncValidatorController([check('centerId', 'Please provide a valid centerId').isUUID()
+        isLoggedIn("center"), asyncValidatorController([check('partnershipCenterId', 'Please provide a valid centerId').isUUID()
         ])
         , getRestaurantsByPendingPartnershipCenterId)

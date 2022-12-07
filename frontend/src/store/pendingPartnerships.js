@@ -1,16 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {httpConfig} from "../utils/http-config.js";
 
 
 const pendingPartnerSlice = createSlice({
     name: 'pending',
     initialState: [],
     reducers: {
-        setAllPending: (pending, action) => action.payload
+        addPending: (pending, action) => action.payload
     }
 })
 
-export const {setAllPending} = pendingPartnerSlice.actions
+export const {addPending} = pendingPartnerSlice.actions
+
+
+export const fetchPendingByPartnershipCenterId = (centerId) => async (dispatch) => {
+        const {data} = await httpConfig.get(`/apis/restaurant/pendingPartnerships/${centerId}`)
+        dispatch(addPending(data))
+}
 
 export default pendingPartnerSlice.reducer
-
-export function fetchAllPending

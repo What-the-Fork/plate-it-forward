@@ -14,6 +14,7 @@ import {restaurantSignOutRoute} from "./apis/restaurant-sign-out/restaurant-sign
 import donationRoute from "./apis/donation/donation.route";
 import partnershipRoute from "./apis/partnership/partnership.route";
 import {CenterRoute} from "./apis/center/center.route";
+import {RestaurantRoute} from "./apis/restaurant/restaurant.route";
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
@@ -56,6 +57,7 @@ export class App {
   private routes (): void {
     this.app.use('/apis', indexRoute)
     this.app.use("/apis/center-sign-up", centerSignUpRoute)
+    this.app.use("/apis/restaurant", RestaurantRoute)
     this.app.use("/apis/restaurant-sign-up", restaurantSignUpRoute)
     this.app.use("/apis/center-sign-in", centerSignInRouter)
     this.app.use("/apis/restaurant-sign-in", restaurantSignInRouter)
