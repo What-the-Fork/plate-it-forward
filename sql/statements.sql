@@ -72,10 +72,10 @@ VALUES(gen_random_uuid(), '', '5400 Sevilla Ave NW, Albuquerque, NM 87120', 'ale
 
 -- PARTNERSHIPS FOR CESAR CHAVEZ CC
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('bc64b659-3894-425c-9e89-758f447bb2fa', '747520be-de82-4a38-990b-9d6d6a6e64c0', true);
+VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', 'eef4d671-b06b-445f-abdc-5bbc2bdc6a4c', true);
 
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('bc64b659-3894-425c-9e89-758f447bb2fa', 'd04945d7-59e2-47bc-9bdd-742426ad420f', true);
+VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', '1963b4fd-1b43-4fb9-b0ad-726386cd7d95', true);
 
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('bc64b659-3894-425c-9e89-758f447bb2fa', 'f80d70f4-1522-47f1-beb1-3d7dadceb6d3', true);
+VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', 'f4a3f65d-7911-4c03-8bb9-931ee45bdd21', true);
