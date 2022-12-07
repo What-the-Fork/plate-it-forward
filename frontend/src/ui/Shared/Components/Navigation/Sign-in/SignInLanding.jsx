@@ -7,8 +7,8 @@ import {RestaurantSignInModal} from "./RestaurantSignInModal.jsx";
 export function SignInLanding() {
     return(
         <>
-            <div className={'row justify-content-md-center'}>
-                <Col xl={5}>
+            <Container className={'justify-content-center'}>
+                <Col>
             <Container className={'text-center'}>
             <Image fluid={true} className={'p-4'} width={200} src={'https://i.ibb.co/ZJNPsqq/plateit.png'} alt={'Plate Logo'}/>
             </Container>
@@ -30,7 +30,7 @@ export function SignInLanding() {
                 </Row>
             </Container>
                 </Col>
-            </div>
+            </Container>
         </>
     )
 }
