@@ -15,9 +15,9 @@ export const SignUpModal = () => {
 
     return (
         <>
-            <Row xl={4} className={'justify-content-center'}>
+            <Row xl={3} className={'justify-content-center'}>
                 <Button className={'modal-button btn btn-light btn-lg btn-outline-dark'} variant="primary btn-lg" onClick={handleShow} >
-                    Partner with us!
+                    Become a Restaurant Partner Today
                 </Button>
 
             </Row>
