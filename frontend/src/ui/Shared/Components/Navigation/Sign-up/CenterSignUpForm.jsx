@@ -319,7 +319,6 @@ function CenterSignUpFormContent(props) {
                             className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Submit
                         </Button>
-                        {' '}
                     </Form.Group>
                 </Form>
                 <DisplayStatus status={status} />

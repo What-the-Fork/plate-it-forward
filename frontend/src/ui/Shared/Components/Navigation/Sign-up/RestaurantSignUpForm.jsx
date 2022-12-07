@@ -311,9 +311,9 @@ function RestaurantSignUpFormContent(props) {
                             className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Sign Up
                         </Button>
-                        {' '}
                     </Form.Group>
                 </Form>
+                <DisplayStatus status={status} />
             </Container>
         </>
     );
