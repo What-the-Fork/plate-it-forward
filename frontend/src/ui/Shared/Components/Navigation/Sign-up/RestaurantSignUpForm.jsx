@@ -318,6 +318,7 @@ function RestaurantSignUpFormContent(props) {
                     <Form.Group>
                         <Button
                             type="submit"
+
                             className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Sign Up
                         </Button>

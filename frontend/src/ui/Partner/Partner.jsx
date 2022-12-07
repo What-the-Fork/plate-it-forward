@@ -18,7 +18,6 @@ export function Partner() {
                 <Container className={'gx-md-1 gy-5 p-4 mt-4 text-center justify-content-center'}>
                     <h3 className={'display-6'}><strong>Why you should partner with us</strong></h3>
                     <p>Bacon ipsum dolor amet frankfurter andouille ground round t-bone cupim pork chop. Tail pork cupim porchetta drumstick shoulder chuck salami burgdoggen beef ribs pork belly beef. Flank andouille pork chop, bresaola fatback prosciutto shankle ball tip.</p>
-
                 </Container>
                 {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
                 <Container className={'row justify-content-md-center'}>

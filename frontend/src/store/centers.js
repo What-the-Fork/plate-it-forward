@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { httpConfig } from '../utils/http-config.js'
-import {fetchRestaurantsByPartnershipCenterId} from "./partner.js";
+import {addPartners, fetchRestaurantsByPartnershipCenterId} from "./partner.js";
 
 const centersSlice = createSlice({
     name: "centers",
@@ -16,7 +16,7 @@ export default centersSlice.reducer
 
 export function fetchAllCenters () {
     return async function (dispatch) {
-        const {data} = await httpConfig('apis/center')
+        const {data} = await httpConfig('/apis/center')
         dispatch(setAllCenters(data))
         for(let center of data) {
             dispatch (fetchRestaurantsByPartnershipCenterId(center.centerId))

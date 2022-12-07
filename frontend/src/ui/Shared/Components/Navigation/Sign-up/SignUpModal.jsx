@@ -1,5 +1,7 @@
 import React, {useState} from "react";
+
 import {Button, Modal, Row} from "react-bootstrap";
+
 import {CenterSignUpForm} from "./CenterSignUpForm.jsx";
 import {RestaurantSignUpForm} from "./RestaurantSignUpForm";
 
@@ -17,6 +19,7 @@ export const SignUpModal = () => {
                 <Button className={'modal-button btn btn-light btn-lg btn-outline-dark'} variant="primary btn-lg" onClick={handleShow} >
                     Partner with us!
                 </Button>
+
             </Row>
             <Modal className={'modal-lg'} show={show} onHide={handleClose} backdrop="static"
                    keyboard={false}>

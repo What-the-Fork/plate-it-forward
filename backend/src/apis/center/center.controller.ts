@@ -4,9 +4,10 @@ import {
     Center,
     selectPartialCenterByCenterId,
     selectWholeCenterByCenterId,
-    updateCenter, selectAllPartialCenters
+    updateCenter, selectAllPartialCenters, selectCenterByPartnershipRestaurantId
 } from '../../utils/models/Center'
 import {Status} from '../../utils/interfaces/Status'
+import {Restaurant, selectRestaurantsByPartnershipCenterId} from "../../utils/models/Restaurant";
 
 // Controller for UPDATE of Community Center
 export async function putCenterController(request: Request, response: Response): Promise<Response> {
@@ -86,5 +87,24 @@ export async function getAllCenters(request: Request, response: Response): Promi
             message: '',
             data: []
         })
+    }
+}
+
+export async function getCenterByPartnershipRestaurantId (request: Request, response: Response): Promise<Response> {
+    try {
+        console.log('i made it here')
+        // 95-99 not letting the end user tell us who they are
+        const restaurant = request.session.restaurant as Restaurant
+        const restaurantIdFromSession = restaurant.restaurantId as string
+        if (!restaurantIdFromSession) {
+            return response.json({status: 400, data: null, message: "you are not signed in as a restaurant"})
+        }
+        const postgresResult = await
+            selectCenterByPartnershipRestaurantId(restaurantIdFromSession)
+        const data = postgresResult ?? null
+        const status: Status = { status: 200, data, message: null }
+        return response.json(status)
+    } catch (error: any) {
+        return (response.json({status: 400, data: null, message: error.message }))
     }
 }
