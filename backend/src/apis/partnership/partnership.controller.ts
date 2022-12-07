@@ -8,7 +8,7 @@ import {
     insertPartnership,
     Partnership,
     selectPartnershipByPrimaryKey,
-    updatePartnership
+    updatePartnership, deletePartnership
 } from "../../utils/models/Partnership"
 
 export async function postPartnership(request: Request, response: Response): Promise<Response<Status>> {
@@ -67,6 +67,28 @@ export async function putPartnership (request: Request, response: Response): Pro
         await updatePartnership(newPartnership)
         return response.json({status: 200, data: null, message: 'Partnership successfully approved'})
 
+    } catch (error: any) {
+        return response.json({status: 400, data: null, message: error.message})
+    }
+}
+
+export async function destroyPartnership (request: Request, response: Response): Promise<Response> {
+    try {
+        const {partnershipCenterId, partnershipRestaurantId} = request.params
+        const center = request.session.center as Center
+        const centerIdFromSession = center.centerId as string
+        const previousPartnership = await selectPartnershipByPrimaryKey(partnershipCenterId, partnershipRestaurantId)
+        if (previousPartnership === null) {
+            return response.json({status: 404, data: null, message: 'cannot deny, this partnership does not exist'})
+        }
+
+        if (previousPartnership.partnershipCenterId !== centerIdFromSession) {
+            return response.json({status: 400, data: null, message: 'you are not allowed to perform this action'})
+        }
+
+        const denyPartnership: Partnership = {...previousPartnership}
+        await deletePartnership(denyPartnership)
+        return response.json({status: 200, data: null, message: 'Partnership denied'})
     } catch (error: any) {
         return response.json({status: 400, data: null, message: error.message})
     }
