@@ -4,6 +4,7 @@ import {CenterSignUpForm} from "./CenterSignUpForm.jsx";
 import {RestaurantSignUpForm} from "./RestaurantSignUpForm";
 
 
+
 export const SignUpModal = () => {
     const [show, setShow] = useState(false);
 
@@ -13,7 +14,7 @@ export const SignUpModal = () => {
     return (
         <>
             <Row xl={4} className={'justify-content-center'}>
-                <Button variant="primary btn-lg" onClick={handleShow} >
+                <Button className={'modal-button'} variant="primary btn-lg" onClick={handleShow} >
                     Partner with us!
                 </Button>
             </Row>
