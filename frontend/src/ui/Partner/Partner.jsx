@@ -20,7 +20,7 @@ export function Partner() {
                     <p>Bacon ipsum dolor amet frankfurter andouille ground round t-bone cupim pork chop. Tail pork cupim porchetta drumstick shoulder chuck salami burgdoggen beef ribs pork belly beef. Flank andouille pork chop, bresaola fatback prosciutto shankle ball tip.</p>
                 </Container>
                 {/* NEEDS ALL (EXCEPT PADDING AND MB) TO BE CENTERED */}
-                <Container className={'row justify-content-md-center'}>
+                <Container className={''}>
                     <SignUpModal />
                 </Container>
             </Container>
