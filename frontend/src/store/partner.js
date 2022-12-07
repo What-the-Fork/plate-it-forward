@@ -13,7 +13,7 @@ const partnersSlice = createSlice({
 
 export const {addPartners} = partnersSlice.actions
 
-export const fetchRestaurantsByPartnershipCenterId = (centerId) => async (dispatch) => {
+export const fetchPartnershipsByPartnershipCenterId = (centerId) => async (dispatch) => {
     const {data} = await httpConfig.get(`/apis/partnership/partnershipCenterId/${centerId}`)
     const payload = {centerId, data}
     dispatch(addPartners(payload))
