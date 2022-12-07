@@ -24,9 +24,9 @@ export function Partner() {
                     <p>In addition to reducing your food waste and feeding those in need, our restaurants also receive a variety of tax benefits since your leftovers are considered donations. You can learn more about this with the following resources:</p>
                     <Container className={''}>
                     <ul>
-                        <li><Link to={'https://policyfinder.refed.org/federal-policy/federal-tax-incentives'}>Policy Finder</Link></li>
-                        <li><Link to={'https://www.nmrestaurants.org/donating-excess-food-waste-to-serve-the-hungry/'}>New Mexico Restaurant Association</Link></li>
-                        <li><Link to={'https://www.irs.gov/charities-non-profits/charitable-contributions'}>Charitable Contributions</Link></li>
+                        <li><Link className={'link-dark'} to={'https://policyfinder.refed.org/federal-policy/federal-tax-incentives'}>Policy Finder</Link></li>
+                        <li><Link className={'link-dark'} to={'https://www.nmrestaurants.org/donating-excess-food-waste-to-serve-the-hungry/'}>New Mexico Restaurant Association</Link></li>
+                        <li><Link className={'link-dark'} to={'https://www.irs.gov/charities-non-profits/charitable-contributions'}>Charitable Contributions</Link></li>
                     </ul>
                     </Container>
                 </Container>
