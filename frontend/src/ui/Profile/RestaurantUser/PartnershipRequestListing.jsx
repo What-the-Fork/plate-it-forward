@@ -32,7 +32,7 @@ export const PartnershipRequestListing = (props) => {
                         <h3>{centerName}</h3>
                         <p>{centerAddress}</p>
                         <p>{centerPhone}</p>
-                        <Link to={'#'}><p>{centerWebsiteUrl}</p></Link>
+                        <Link className={'link-dark'} to={'#'}><p>{centerWebsiteUrl}</p></Link>
                         <Col>
                             <Button
                                 onClick={submitPartnershipRequest}
