@@ -8,8 +8,8 @@ export interface Partnership {
 }
 
 export async function insertPartnership (partnership: Partnership): Promise<string> {
-    const {partnershipCenterId, partnershipRestaurantId, partnershipApproved} = partnership
-    await sql`INSERT INTO partnership (partnership_center_id, partnership_restaurant_id, partnership_approved) VALUES(${partnershipCenterId}, ${partnershipRestaurantId}, ${partnershipApproved})`
+    const {partnershipCenterId, partnershipRestaurantId} = partnership
+    await sql`INSERT INTO partnership (partnership_center_id, partnership_restaurant_id, partnership_approved) VALUES(${partnershipCenterId}, ${partnershipRestaurantId}, false)`
     return 'partnership requested'
 
 }
@@ -36,5 +36,6 @@ export async function selectPartnershipByPartnershipRestaurantId (partnershipRes
     // one to one relationship - must return 1 object or nothing
     return result?.length === 1 ? result[0] : null
 }
+
 
 

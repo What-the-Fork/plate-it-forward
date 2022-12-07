@@ -112,13 +112,6 @@ const partnerCenter = useSelector(state => state.partnerCenter.length === 1 ? st
                         </Form.Group>
                     </Row>
 
-                    {/* CHECKBOX */}
-                    <Row className="mb-5">
-                        <Form.Group className={'mb-3'} id="formGridCheckbox">
-                            <Form.Check type="checkbox" label="Did not receive donation"/>
-                        </Form.Group>
-                    </Row>
-
                     {/* SUBMIT BUTTON */}
                     <Form.Group>
                         <Button

@@ -115,14 +115,14 @@ function RestaurantSignUpFormContent(props) {
     return (
         <>
             <Container>
-                <h1 className={'display-5 text-center mb-5'}><strong>Become a Partner Today</strong></h1>
+                <h1 className={'display-3 text-center mb-5'}>Become a Partner Today</h1>
             </Container>
             <Container className={styles.formContainer}>
                 <Form onSubmit={handleSubmit} className={'border border-dark bg-light my-5 p-5 '}>
                     <h4 className={'mb-3'}>Your Information</h4>
                     <Row>
                         {/* EMAIL */}
-                        <Form.Group as={Col} xs={12} md={12} controlId="formRestaurantContactEmail" className={'mb-3'}>
+                        <Form.Group as={Col} xs={12} md={6} controlId="formRestaurantContactEmail" className={'mb-3'}>
                             <Form.Label>Email</Form.Label>
                             <InputGroup>
                                 <Form.Control
@@ -130,7 +130,7 @@ function RestaurantSignUpFormContent(props) {
                                     name={'restaurantContactEmail'}
                                     type="text"
                                     value={values.restaurantContactEmail}
-                                    placeholder="Enter Email"
+                                    placeholder="Enter email"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -147,7 +147,7 @@ function RestaurantSignUpFormContent(props) {
                                     name={'restaurantPassword'}
                                     type="password"
                                     value={values.restaurantPassword}
-                                    placeholder="Enter Password"
+                                    placeholder="Enter password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -183,7 +183,7 @@ function RestaurantSignUpFormContent(props) {
                                     name={'restaurantContactName'}
                                     type="text"
                                     value={values.restaurantContactName}
-                                    placeholder="Your Name"
+                                    placeholder="Jane Doe"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -200,7 +200,7 @@ function RestaurantSignUpFormContent(props) {
                                     name={'restaurantContactPhone'}
                                     type="phone"
                                     value={values.restaurantContactPhone}
-                                    placeholder="5055555555"
+                                    placeholder="505-555-5555"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -221,7 +221,7 @@ function RestaurantSignUpFormContent(props) {
                                     name={'restaurantName'}
                                     type="text"
                                     value={values.restaurantName}
-                                    placeholder="Restaurant Name"
+                                    placeholder="Community restaurant A"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -300,7 +300,7 @@ function RestaurantSignUpFormContent(props) {
                                     name={'restaurantZip'}
                                     type="text"
                                     value={values.restaurantZip}
-                                    placeholder="12345"
+                                    placeholder="xxxxx"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -317,14 +317,14 @@ function RestaurantSignUpFormContent(props) {
                     {/* SUBMIT BUTTON */}
                     <Form.Group>
                         <Button
+                            variant="primary"
                             type="submit"
-
                             className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Sign Up
                         </Button>
                         {' '}
                     </Form.Group>
-                    {/*<FormDebugger {...props} />*/}
+                    <FormDebugger {...props} />
                 </Form>
                 <DisplayStatus status={status} />
             </Container>

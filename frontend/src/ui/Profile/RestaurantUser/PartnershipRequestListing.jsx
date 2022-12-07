@@ -1,10 +1,25 @@
 import React from 'react'
 import {Col, Container, Image, Row} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import {httpConfig} from "../../../utils/http-config.js";
+import {useDispatch} from "react-redux";
+import {fetchCenterByPartnershipRestaurantId} from "../../../store/partnerCenter.js";
 
 export const PartnershipRequestListing = (props) => {
-    const {center} = props
+    const dispatch = useDispatch()
+    const {center, restaurantId} = props
     console.log(center)
-    const {centerName, centerAddress, centerPhone, centerWebsiteUrl} = center
+    const {centerId, centerName, centerAddress, centerPhone, centerWebsiteUrl} = center
+    function submitPartnershipRequest() {
+        httpConfig.post('/apis/partnership', {partnershipCenterId: centerId, partnershipRestaurantId: restaurantId})
+            .then(reply => {
+                let {message, type} = reply;
+
+                if (reply.status === 200) {
+                    dispatch(fetchCenterByPartnershipRestaurantId(restaurantId))
+                }
+            });
+    }
     return (
         <>
             <Container>
@@ -17,6 +32,13 @@ export const PartnershipRequestListing = (props) => {
                         <p>{centerAddress}</p>
                         <p>{centerPhone}</p>
                         <p>{centerWebsiteUrl}</p>
+                    </Col>
+                    <Col>
+                            <Button
+                                onClick={submitPartnershipRequest}
+                                className={'ms-auto d-flex justify-content-end'}>
+                                Request Partnership
+                            </Button>
                     </Col>
                 </Row>
             </Container>

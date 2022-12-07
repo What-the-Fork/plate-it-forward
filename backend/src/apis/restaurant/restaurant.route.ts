@@ -1,4 +1,8 @@
-import { getRestaurantByRestaurantId, putRestaurantController} from "./restaurant.controller";
+import {
+    getRestaurantByRestaurantId,
+    getRestaurantsByPendingPartnershipCenterId,
+    putRestaurantController
+} from "./restaurant.controller";
 import { Router } from 'express'
 import { asyncValidatorController} from "../../utils/controllers/async-validator.controller";
 import { check, checkSchema} from "express-validator";
@@ -19,3 +23,9 @@ RestaurantRoute.route('/:restaurantId')
         , getRestaurantByRestaurantId
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(restaurantValidator)), putRestaurantController)
+
+RestaurantRoute.route('/pendingPartnerships/:centerId')
+    .get(
+        isLoggedIn("center"), asyncValidatorController([check('centerId', 'Please provide a valid centerId').isUUID()
+        ])
+        , getRestaurantsByPendingPartnershipCenterId)

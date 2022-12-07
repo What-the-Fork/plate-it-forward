@@ -33,7 +33,7 @@ export function ProfileRestaurant() {
         <>
             {restaurant && <RestaurantInfo restaurant={restaurant}/>}
             {restaurant && <Donations restaurant={restaurant}/>}
-            {partnerCenter === null && <PartnershipRequest centers={centers}/>}
+            {partnerCenter === null && <PartnershipRequest centers={centers} restaurantId={restaurant.restaurantId}/>}
         </>
     )
 }

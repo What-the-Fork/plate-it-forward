@@ -14,6 +14,7 @@ export const partnershipValidator: Schema = {
     },
     partnershipApproved: {
         // boolean is either true or false, error spit out if invalid
+        optional: true,
         isBoolean: true,
         errorMessage: 'partnership not valid',
     }
