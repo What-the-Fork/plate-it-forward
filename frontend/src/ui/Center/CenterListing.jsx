@@ -23,17 +23,18 @@ export const CenterListing = (props) => {
         <>
             <Container className={'bg-light p-4 justify-content-center border'}>
                 <Row className={'gx-md-5 gy-5 align-items-center'}>
-                    <Col md={5} className={'text-center'}>
+                    <Col md={4} className={'text-center'}>
                         <Image className={'img-fluid rounded'} src={'http://placekitten.com/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
                     </Col>
-                    <Col md={7} className={'fs-5'}>
+                    <Col md={8} className={'fs-5'}>
                         <h3 className={'display-6'}><strong>{centerName}</strong></h3>
                         <p>{centerAddress}</p>
                         <p>{centerPhone}</p>
                         <Link to={'#'}>{centerWebsiteUrl}</Link>
-                    </Col>
-                    <Col md={12} className={'d-flex justify-content-evenly fs-5'}>
-                        {partnerRestaurants.map(partnerRestaurant =>  <p className={' p-2 bg-light text white'}>{partnerRestaurant.restaurantName}</p>)}
+                        <h5 className={'mt-4'}>Partnering Restaurants</h5>
+                        <p id={'partner-map'} className={'gx-sm-5 d-flex align-items-start justify-content-between'}>
+                        {partnerRestaurants.map(partnerRestaurant =><p>{partnerRestaurant.restaurantName}</p>)}
+                        </p>
                     </Col>
                 </Row>
             </Container>
