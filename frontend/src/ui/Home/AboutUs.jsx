@@ -12,8 +12,8 @@ export function AboutUs() {
                         </Col>
                         <Col md={6} className={'fs-5'}>
                             <h3 className={'display-6 strong'}><strong>What We Do</strong></h3>
-                            <p>Bacon ipsum dolor amet frankfurter andouille ground round t-bone cupim pork chop. Tail pork cupim porchetta drumstick shoulder chuck salami burgdoggen beef ribs pork belly beef. Flank andouille pork chop, bresaola fatback prosciutto shankle ball tip. Pig frankfurter tongue, spare ribs jerky corned beef short loin ham chicken boudin. Bacon brisket sirloin, tongue pig shoulder filet mignon.</p>
-                            <p>Ribeye jowl rump, swine shoulder ball tip picanha fatback chuck filet mignon sirloin kevin porchetta. Capicola short ribs sirloin, filet mignon corned beef ham rump hamburger. Tail t-bone leberkas shankle buffalo swine ball tip bresaola drumstick sirloin pastrami porchetta.</p>
+                            <p>Plate it Forward is Albuquerque’s newest fighter against hunger. Created in 2022 in response to rising grocery prices and noticeable restaurant food waste, we wanted to give New Mexicans safe and reliable access to quality meals without the limitations of city programs or soup kitchens.</p>
+                            <p>Embracing the Duke City’s sense of community, we partner with local restaurants and community centers around town to provide free meals to those in need. Our program is for anyone experiencing hunger regardless of their situation – no explanation, identification, or proof of income required. Life is difficult enough, and finding and enjoying a meal shouldn’t be.</p>
                         </Col>
                     </Row>
                 </Container>

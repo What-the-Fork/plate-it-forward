@@ -11,7 +11,7 @@ export function Header() {
                         <Col className={'col-12 text-center '}>
                             <Image width={'350'} className={'mb-3'} src={'https://i.ibb.co/7SKwHPn/whiteplate-logo.png'} alt={'plateIt'}></Image>
                             {/*<h1 className={'display-1'}>Plate it Forward</h1>*/}
-                            <p className={'lead text-light mt-1'}>Chislic venison cupim, drumstick alcatra hamburger spare ribs pancetta ham.</p>
+                            <p className={'lead text-light mt-1'}>Doing good has never tasted so good.</p>
                         </Col>
                     </Row>
                 </Container>
