@@ -8,10 +8,11 @@ import {useSelector} from "react-redux";
 
 
 export const PartnershipAccept = (props) => {
+    console.log("im on")
     // const dispatch = useDispatch()
     const {partner} = props
     const {partnershipRestaurantId, partnershipCenterId, partnershipApproved} = partner
-    const restaurant = useSelector(state => state.restaurants ? state.restaurants.filter(restaurant => restaurant.restaurantId === partnershipRestaurantId && !partnershipApproved)[0] : null)
+    // const restaurant = useSelector(state => state.restaurants ? state.restaurants.filter(restaurant => restaurant.restaurantId === partnershipRestaurantId && !partnershipApproved)[0] : null)
     function submitPartnershipAccept() {
         httpConfig.put('/apis/partnership', {partnershipCenterId, partnershipRestaurantId, partnershipApproved: true})
             .then(reply => {
@@ -22,19 +23,28 @@ export const PartnershipAccept = (props) => {
                 }
             });
     }
+    // function submitPartnershipDeny() {
+    //     httpConfig.delete('/apis/partnership', {partnershipCenterId,partnershipRestaurantId,partnershipApproved:})
+    //         .then(reply => {
+    //             let {message, type} = reply;
+    //
+    //             if (reply.status === 200) {}
+    //         });
+    // }
     return (
         <>
             <Container>
-                {restaurant && <Row className={'gx-md-5 gy-5'}>
+                 <Row className={'gx-md-5 gy-5'}>
+                    <h3>You have a partnership request!</h3>
                     <Col md={5} className={'text-center'}>
                         <Image className={'img-fluid'} src={'http://placekitten.com/250/250'} alt={'Cat Cage doing Cage things'}/>
                     </Col>
                     <Col md={7} className={'fs-5'}>
-                        <h3>{restaurant.restaurantName}</h3>
-                        <p>{restaurant.restaurantAddress}</p>
-                        <p>{restaurant.restaurantContactName}</p>
-                        <p>{restaurant.restaurantContactPhone}</p>
-                        <p>{restaurant.restaurantNameUrl}</p>
+                        <h3>{partner.restaurantName}</h3>
+                        <p>{partner.restaurantAddress}</p>
+                        <p>{partner.restaurantContactName}</p>
+                        <p>{partner.restaurantContactPhone}</p>
+                        <p>{partner.restaurantNameUrl}</p>
                     </Col>
                     <Col>
                         <Button
@@ -42,9 +52,15 @@ export const PartnershipAccept = (props) => {
                             className={'ms-auto d-flex justify-content-end'}>
                             Accept Partnership
                         </Button>
+
+                        {/*<Button*/}
+                        {/*    onClick={submitPartnershipDeny}*/}
+                        {/*    className={'ms-auto d-flex justify-content-end'}>*/}
+                        {/*    Deny Partnership*/}
+                        {/*</Button>*/}
                     </Col>
                 </Row>
-                }
+
             </Container>
         </>
     )

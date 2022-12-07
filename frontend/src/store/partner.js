@@ -7,6 +7,12 @@ const partnersSlice = createSlice({
     reducers: {
         addPartners: (partners, action) => {
             partners[action.payload.centerId] = action.payload.data
+        },
+        removePartners: (partners, action) => {
+            const index = partners[action.payload.centerId].findIndex(partner => action.payload.centerId === partner.partnershipCenterId)
+            if (index) {
+                delete partners[action.payload.centerId][index]
+            }
         }
     }
 })

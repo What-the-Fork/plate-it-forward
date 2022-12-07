@@ -5,27 +5,41 @@ import { Served } from "./Served.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../../store/auth.js";
 import {fetchPartnershipsByPartnershipCenterId} from "../../../store/partner.js";
+import {fetchPendingByPartnershipCenterId} from "../../../store/pendingPartnerships.js";
 
 export function ProfileCenter() {
 
     const center = useSelector(state => state.auth ? state.auth : null)
-console.log(center)
+    const pendings = useSelector(state => state.pending)
+    console.log(pendings)
+    const partners = useSelector( state => {
+        if (center !== null){
 
-    const partners = useSelector( state => state.partners ? state.partners [center.centerId] : [])
+
+            return  state.partners [center.centerId] ?? []
+            }
+        return []
+    })
     const dispatch = useDispatch()
 
     const initialEffects = () => {
         dispatch(fetchAuth())
-        dispatch(fetchPartnershipsByPartnershipCenterId(center.centerId))
+
     }
+    const secondaryEffects = () => {
+        if(center !== null) {
+        dispatch(fetchPartnershipsByPartnershipCenterId(center.centerId))
+            dispatch(fetchPendingByPartnershipCenterId(center.centerId))
+    }}
     useEffect(initialEffects, [dispatch])
+    useEffect(secondaryEffects, [dispatch, center])
 
     return (
         <>
             {/*conditional render to prevent undefine, will crash page*/}
             {center && <CenterInfo center={center}/>}
             <section className={'py-5'}>
-                {partners.map(partner => <PartnershipAccept partner={partner}  key={partner.partnershipRestaurantId}/>)}
+                {pendings.map(partner => <PartnershipAccept partner={partner}  key={partner.partnershipRestaurantId}/>)}
             </section>
             {/*<Served/>*/}
         </>
