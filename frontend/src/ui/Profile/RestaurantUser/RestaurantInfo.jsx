@@ -13,7 +13,7 @@ export const RestaurantInfo = (props) => {
                 <Container className={''}>
                     <Row className={'justify-content-center'}>
                         <Col md={2} className={'order-lg-2'}>
-                            <Image fluid={true} className={'rounded-circle'} src={'http://placekitten.com/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
+                            <Image fluid={true} className={'rounded-circle'} src={'https://i.ibb.co/6FTWLQx/empty-Restaurant-Profile-Image.png'} alt={'restaurant profile img'}/>
                         </Col>
                         <Col md={6} className={'order-lg-1'}>
                             <h3>{restaurantName}</h3>

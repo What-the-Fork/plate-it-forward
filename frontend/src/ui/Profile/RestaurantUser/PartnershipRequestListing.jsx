@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import {httpConfig} from "../../../utils/http-config.js";
 import {useDispatch} from "react-redux";
 import {fetchCenterByPartnershipRestaurantId} from "../../../store/partnerCenter.js";
+import {Link} from "react-router-dom";
 
 export const PartnershipRequestListing = (props) => {
     const dispatch = useDispatch()
@@ -22,24 +23,25 @@ export const PartnershipRequestListing = (props) => {
     }
     return (
         <>
-            <Container>
+            <Container className={'bg-light p-4 justify-content-center border'}>
                 <Row className={'gx-md-5 gy-5'}>
                     <Col md={5} className={'text-center'}>
-                        <Image className={'img-fluid'} src={'http://placekitten.com/250/250'} alt={'Nick Cage doing Nick Cage things'}/>
+                        <Image className={'img-fluid rounded'} width={200} src={'https://i.ibb.co/jWjShTx/empty-Center-Profile-Image.png'} alt={'community center profile img'}/>
                     </Col>
                     <Col md={7} className={'fs-5'}>
                         <h3>{centerName}</h3>
                         <p>{centerAddress}</p>
                         <p>{centerPhone}</p>
-                        <p>{centerWebsiteUrl}</p>
-                    </Col>
-                    <Col>
+                        <Link to={'#'}><p>{centerWebsiteUrl}</p></Link>
+                        <Col>
                             <Button
                                 onClick={submitPartnershipRequest}
-                                className={'ms-auto d-flex justify-content-end'}>
+                                className={'btn btn-dark'}>
                                 Request Partnership
                             </Button>
+                        </Col>
                     </Col>
+
                 </Row>
             </Container>
         </>

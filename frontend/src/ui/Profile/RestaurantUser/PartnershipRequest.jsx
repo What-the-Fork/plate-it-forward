@@ -6,6 +6,7 @@ export const PartnershipRequest = (props) => {
 
         return (
             <>
+                <h1 className={'display-6 text-center mt-4'}>Choose a community center to partner with</h1>
                 <section className={'py-5'}>
                     {centers.map(center => <PartnershipRequestListing center={center} restaurantId={restaurantId} key={center.centerId}/>)}
                 </section>
