@@ -118,7 +118,7 @@ function RestaurantSignUpFormContent(props) {
                 <h1 className={'display-5 text-center mb-5'}><strong>Become a Partner Today</strong></h1>
             </Container>
             <Container className={styles.formContainer}>
-                <Form onSubmit={handleSubmit} className={'border border-dark bg-light my-5 p-5'}>
+                <Form onSubmit={handleSubmit} className={'border border-dark bg-light my-5 p-5 '}>
 
                     <h4 className={'mb-3'}>Your Information</h4>
                     <Row>
@@ -319,7 +319,7 @@ function RestaurantSignUpFormContent(props) {
                     <Form.Group>
                         <Button
                             type="submit"
-                            className={'ms-auto d-flex justify-content-end'}>
+                            className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Sign Up
                         </Button>
                         {' '}

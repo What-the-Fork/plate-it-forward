@@ -12,21 +12,21 @@ export function Stats() {
                     <Col md={6} lg={3}>
                         <Image className={'rounded-circle'} width={'200'} fluid={true} src={'https://i.ibb.co/9br9DkY/1.png'}
                                alt={'Nick Cage doing Nick Cage things'}/>
-                        <p className={'mt-4 p-3 rounded bg-light'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
+                        <p className={'mt-4 p-3 rounded bg-light border'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
                     </Col>
                     <Col md={6} lg={3} className={'text-center'}>
                         <Image className={'rounded-circle'} width={'200'} fluid={true} src={'https://i.ibb.co/mNQ2qzF/Head-Executive-Polero-Builders-Inc-11-Olive-Rd-Huntington-Station-NY.png'} alt={'Nick Cage doing Nick Cage things'}/>
-                        <p className={'mt-4 p-3 rounded bg-light'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
+                        <p className={'mt-4 p-3 rounded bg-light border'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
                     </Col>
                     <Col md={6} lg={3} className={'text-center'}>
                         <Image className={'rounded-circle'} width={'200'} fluid={true} src={'https://i.ibb.co/3SLGwYS/2.png'}
                                alt={'Nick Cage doing Nick Cage things'}/>
-                        <p className={'mt-4 p-3 rounded bg-light'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
+                        <p className={'mt-4 p-3 rounded bg-light border'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
                     </Col>
                     <Col md={6} lg={3} className={'text-center'}>
                         <Image className={'rounded-circle'} width={'200'} fluid={true} src={'https://i.ibb.co/mNQ2qzF/Head-Executive-Polero-Builders-Inc-11-Olive-Rd-Huntington-Station-NY.png'}
                                alt={'Nick Cage doing Nick Cage things'}/>
-                        <p className={'mt-4 p-3 rounded bg-light'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
+                        <p className={'mt-4 p-3 rounded bg-light border'}>Shoulder fatback meatloaf, porchetta drumstick pastrami pork. Pig tenderloin jerky frankfurter, beef burgdoggen meatball cow.</p>
                     </Col>
                 </Row>
             </Container>

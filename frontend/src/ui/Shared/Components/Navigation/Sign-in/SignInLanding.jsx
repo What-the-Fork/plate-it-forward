@@ -12,7 +12,7 @@ export function SignInLanding() {
             <Container className={'text-center'}>
             <Image fluid={true} className={'p-4'} width={200} src={'https://i.ibb.co/ZJNPsqq/plateit.png'} alt={'Plate Logo'}/>
             </Container>
-            <Container className={'xl-4 justify-content-center text-center bg-light rounded mt-3 mb-5'}>
+            <Container className={'xl-4 justify-content-center text-center bg-light rounded mt-3 mb-5 border'}>
                 <Container className={'text-center mb-5 p-5'}>
                     <h1 className={'display-2'}>Sign In</h1>
                 <p>Select an option to sign in:</p>

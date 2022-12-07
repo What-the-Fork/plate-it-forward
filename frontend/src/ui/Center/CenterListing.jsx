@@ -21,7 +21,7 @@ export const CenterListing = (props) => {
 
     return (
         <>
-            <Container className={'bg-light p-4 justify-content-center'}>
+            <Container className={'bg-light p-4 justify-content-center border'}>
                 <Row className={'gx-md-5 gy-5 align-items-center'}>
                     <Col md={5} className={'text-center'}>
                         <Image className={'img-fluid rounded'} src={'http://placekitten.com/250/250'} alt={'Nick Cage doing Nick Cage things'}/>

@@ -6,7 +6,7 @@ export function Partner() {
     return(
         <>
             <section className={'bg-light'}>
-                <h1 className={'text-center p-4 display-3'}><strong>Partner with us</strong></h1>
+                <h1 className={'text-center p-4 display-3 border-bottom'}><strong>Partner with us</strong></h1>
             </section>
             <Container className={'p-4'}>
                 <Row>
