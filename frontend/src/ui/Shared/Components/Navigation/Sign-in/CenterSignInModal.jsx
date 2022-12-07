@@ -11,8 +11,8 @@ export const CenterSignInModal = () => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow} size='sm' >
-                Community Center Sign In
+            <Button className={'btn btn-light btn-lg btn-outline-dark'} onClick={handleShow} size='lg' >
+                Community Center
             </Button>
 
             <Modal show={show} onHide={handleClose} backdrop="static"
@@ -23,11 +23,6 @@ export const CenterSignInModal = () => {
                 <Modal.Body>
                     <CenterSignInForm/>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </>
     );

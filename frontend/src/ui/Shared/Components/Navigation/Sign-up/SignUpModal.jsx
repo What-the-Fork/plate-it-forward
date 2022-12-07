@@ -14,7 +14,7 @@ export const SignUpModal = () => {
     return (
         <>
             <Row xl={4} className={'justify-content-center'}>
-                <Button className={'modal-button'} variant="primary btn-lg" onClick={handleShow} >
+                <Button className={'modal-button btn btn-light btn-lg btn-outline-dark'} variant="primary btn-lg" onClick={handleShow} >
                     Partner with us!
                 </Button>
             </Row>

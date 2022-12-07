@@ -120,11 +120,10 @@ function RestaurantSignInFormContent(props) {
 
                 {/* SUBMIT BUTTON */}
                 <Form.Group>
-                    <Button variant="primary" type="submit" className={'ms-auto d-flex justify-content-end'}>
-                        Submit
+                    <Button variant="primary" type="submit" className={'ms-auto d-flex justify-content-end btn btn-dark'}>
+                        Sign In
                     </Button>
                 </Form.Group>
-                <FormDebugger/>
             </Form>
             <div>
                 <DisplayStatus status={status} />

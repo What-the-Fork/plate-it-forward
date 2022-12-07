@@ -11,8 +11,8 @@ export const RestaurantSignInModal = () => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow} size='sm'>
-                Restaurant Sign In
+            <Button className={'btn btn-light btn-lg btn-outline-dark'} onClick={handleShow} size='lg'>
+                         Restaurant
             </Button>
             <Modal show={show} onHide={handleClose} backdrop="static"
                    keyboard={false}>
@@ -22,11 +22,6 @@ export const RestaurantSignInModal = () => {
                 <Modal.Body>
                     <RestaurantSignInForm/>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </>
     );
