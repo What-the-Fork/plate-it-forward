@@ -119,7 +119,6 @@ function RestaurantSignUpFormContent(props) {
             </Container>
             <Container className={styles.formContainer}>
                 <Form onSubmit={handleSubmit} className={'border border-dark bg-light my-5 p-5 '}>
-
                     <h4 className={'mb-3'}>Your Information</h4>
                     <Row>
                         {/* EMAIL */}

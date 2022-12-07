@@ -115,7 +115,7 @@ function CenterSignUpFormContent(props) {
     return (
         <>
             <Container>
-                <h1 className={'display-3 text-center mb-5'}>Become a Partner Today</h1>
+                <h1 className={'display-3 text-center p-4'}>Become a Partner Today</h1>
             </Container>
             <Container className={styles.formContainer}>
                 <Form onSubmit={handleSubmit} className={'border border-dark bg-light my-5 p-5'}>
@@ -123,7 +123,7 @@ function CenterSignUpFormContent(props) {
                     <h4 className={'mb-3'}>Your Information</h4>
                     <Row>
                         {/* EMAIL */}
-                        <Form.Group as={Col} xs={12} md={6} controlId="formCenterContactEmail" className={'mb-3'}>
+                        <Form.Group as={Col} xs={12} controlId="formCenterContactEmail" className={'mb-3'}>
                             <Form.Label>Email</Form.Label>
                             <InputGroup>
                                 <Form.Control
@@ -131,7 +131,7 @@ function CenterSignUpFormContent(props) {
                                     name={'centerContactEmail'}
                                     type="text"
                                     value={values.centerContactEmail}
-                                    placeholder="Enter email"
+                                    placeholder="Enter Email"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -148,7 +148,7 @@ function CenterSignUpFormContent(props) {
                                     name={'centerPassword'}
                                     type="password"
                                     value={values.centerPassword}
-                                    placeholder="Enter password"
+                                    placeholder="Enter Password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -184,7 +184,7 @@ function CenterSignUpFormContent(props) {
                                     name={'centerContactName'}
                                     type="text"
                                     value={values.centerContactName}
-                                    placeholder="Jane Doe"
+                                    placeholder="Your Name"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -201,7 +201,7 @@ function CenterSignUpFormContent(props) {
                                     name={'centerContactPhone'}
                                     type="phone"
                                     value={values.centerContactPhone}
-                                    placeholder="505-555-5555"
+                                    placeholder="5055555555"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -222,7 +222,7 @@ function CenterSignUpFormContent(props) {
                                     name={'centerName'}
                                     type="text"
                                     value={values.centerName}
-                                    placeholder="Community Center A"
+                                    placeholder="Community Center Name"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -284,10 +284,6 @@ function CenterSignUpFormContent(props) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
-                                {/*<Form.Select defaultValue='NM'>*/}
-                                {/*    /!*<option>Choose...</option>*!/*/}
-                                {/*    <option>NM</option>*/}
-                                {/*</Form.Select>*/}
                             </InputGroup>
                             <DisplayError errors={errors} touched={touched} field={'formCenterState'} />
                         </Form.Group>
@@ -301,7 +297,7 @@ function CenterSignUpFormContent(props) {
                                     name={'centerZip'}
                                     type="text"
                                     value={values.centerZip}
-                                    placeholder="xxxxx"
+                                    placeholder="12345"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -320,12 +316,11 @@ function CenterSignUpFormContent(props) {
                         <Button
                             variant="primary"
                             type="submit"
-                            className={'ms-auto d-flex justify-content-end'}>
+                            className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                             Submit
                         </Button>
                         {' '}
                     </Form.Group>
-                    <FormDebugger {...props} />
                 </Form>
                 <DisplayStatus status={status} />
             </Container>
