@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import {httpConfig} from "../../../utils/http-config.js";
 import {Formik} from "formik";
 import {DisplayError} from "../../Shared/Components/display-error/DisplayError.jsx";
-import {FormDebugger} from "../../Shared/Components/FormDebugger.jsx";
+// import {FormDebugger} from "../../Shared/Components/FormDebugger.jsx";
 import {DisplayStatus} from "../../Shared/Components/display-status/DisplayStatus.jsx";
 import {useSelector} from "react-redux";
 
@@ -122,7 +122,7 @@ const partnerCenter = useSelector(state => state.partnerCenter.length === 1 ? st
                         </Button>
                         {' '}
                     </Form.Group>
-                    <FormDebugger {...props} />
+                    {/*<FormDebugger {...props} />*/}
                 </Form>
                 <DisplayStatus status={status} />
             </Container>

@@ -15,7 +15,7 @@ async function main (): Promise<void> {
     const app = new App(4200)
     await app.listen()
   } catch (e) {
-    console.log(e)
+    // console.log(e)
   }
 }
 

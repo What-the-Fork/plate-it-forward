@@ -11,7 +11,7 @@ import Col from "react-bootstrap/Col";
 import {DisplayError} from "../../display-error/DisplayError.jsx";
 import Button from "react-bootstrap/Button";
 import {DisplayStatus} from "../../display-status/DisplayStatus.jsx";
-import {FormDebugger} from "../../FormDebugger";
+// import {FormDebugger} from "../../FormDebugger";
 
 export const RestaurantSignUpForm = () => {
     const restaurantSignUp = {

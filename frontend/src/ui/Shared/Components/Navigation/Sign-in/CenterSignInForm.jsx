@@ -12,7 +12,7 @@ import {DisplayError} from "../../display-error/DisplayError.jsx";
 import Button from "react-bootstrap/Button";
 import {DisplayStatus} from "../../display-status/DisplayStatus.jsx";
 import React from "react";
-import {FormDebugger} from "../../FormDebugger";
+// import {FormDebugger} from "../../FormDebugger";
 import {useNavigate} from "react-router-dom";
 
 export const CenterSignInForm = () => {

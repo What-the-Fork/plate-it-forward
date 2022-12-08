@@ -92,7 +92,7 @@ export async function getAllCenters(request: Request, response: Response): Promi
 
 export async function getCenterByPartnershipRestaurantId (request: Request, response: Response): Promise<Response> {
     try {
-        console.log('i made it here')
+        // console.log('i made it here')
         // 95-99 not letting the end user tell us who they are
         const restaurant = request.session.restaurant as Restaurant
         const restaurantIdFromSession = restaurant.restaurantId as string
