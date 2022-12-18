@@ -20,12 +20,12 @@ services:
       - ./project.env
 
   app:
-      build: frontend
-      depends_on:
-        - node
-      #    For deploying to server use ports: - 80:80
-      ports:
-        - 80:80
+    build: frontend
+    depends_on:
+      - node
+    #    For deploying to server use ports: - 80:80
+    ports:
+      - 80:80
 
   node:
     build: backend

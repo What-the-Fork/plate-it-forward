@@ -38,7 +38,7 @@ export const CenterSignInForm = () => {
             .then(reply => {
                 let {message, type} = reply;
                 setStatus({message, type});
-                if(reply.status === 200 && reply.headers['authorization']) {
+                if (reply.status === 200 && reply.headers['authorization']) {
                     window.localStorage.removeItem('authorization');
                     window.localStorage.setItem('authorization', reply.headers['authorization']);
                     resetForm();
@@ -46,20 +46,20 @@ export const CenterSignInForm = () => {
                     dispatch(setAuth(jwtToken))
                     navigate(`/profile-center/${jwtToken.centerId}`)
                 }
-                    setStatus({message, type});
+                setStatus({message, type});
             });
     };
 
     return (
-            <>
+        <>
             <Formik
                 initialValues={centerSignIn}
                 onSubmit={centerSubmitSignIn}
                 validationSchema={validator}
-                >
+            >
                 {CenterSignInFormContent}
             </Formik>
-            </>
+        </>
     )
 }
 
@@ -97,7 +97,7 @@ function CenterSignInFormContent(props) {
                                 onBlur={handleBlur}
                             />
                         </InputGroup>
-                        <DisplayError errors={errors} touched={touched} field={'centerContactEmail'} />
+                        <DisplayError errors={errors} touched={touched} field={'centerContactEmail'}/>
                     </Form.Group>
 
                     {/* PASSWORD */}
@@ -114,19 +114,20 @@ function CenterSignInFormContent(props) {
                                 onBlur={handleBlur}
                             />
                         </InputGroup>
-                        <DisplayError errors={errors} touched={touched} field={'centerPassword'} />
+                        <DisplayError errors={errors} touched={touched} field={'centerPassword'}/>
                     </Form.Group>
                 </Row>
 
                 {/* SUBMIT BUTTON */}
                 <Form.Group>
-                    <Button variant="primary" type="submit" className={'ms-auto d-flex justify-content-end btn btn-dark'}>
+                    <Button variant="primary" type="submit"
+                            className={'ms-auto d-flex justify-content-end btn btn-dark'}>
                         Sign In
                     </Button>
                 </Form.Group>
             </Form>
             <div>
-                <DisplayStatus status={status} />
+                <DisplayStatus status={status}/>
             </div>
         </>
     )

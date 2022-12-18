@@ -24,7 +24,9 @@ export const CenterListing = (props) => {
             <Container className={'bg-light p-4 justify-content-center border'}>
                 <Row className={'gx-md-5 gy-5 align-items-center'}>
                     <Col md={4} className={'text-center'}>
-                        <Image className={'img-fluid rounded'} width={200} src={'https://i.ibb.co/jWjShTx/empty-Center-Profile-Image.png'} alt={'community center profile img'}/>
+                        <Image className={'img-fluid rounded'} width={200}
+                               src={'https://i.ibb.co/jWjShTx/empty-Center-Profile-Image.png'}
+                               alt={'community center profile img'}/>
                     </Col>
                     <Col md={8} className={'fs-5'}>
                         <h3 className={'display-6'}><strong>{centerName}</strong></h3>
@@ -33,7 +35,7 @@ export const CenterListing = (props) => {
                         <Link to={'#'}>{centerWebsiteUrl}</Link>
                         <h5 className={'mt-4'}>Partnering Restaurants</h5>
                         <p id={'partner-map'} className={'gx-sm-5 d-flex align-items-start justify-content-between'}>
-                        {partnerRestaurants.map(partnerRestaurant =><p>{partnerRestaurant.restaurantName}</p>)}
+                            {partnerRestaurants.map(partnerRestaurant => <p>{partnerRestaurant.restaurantName}</p>)}
                         </p>
                     </Col>
                 </Row>
