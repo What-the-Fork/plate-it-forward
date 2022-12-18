@@ -1,7 +1,8 @@
-import {Marker} from 'react-map-gl'
+import {Marker, Popup} from 'react-map-gl'
+import {useState} from "react";
 
 export function Pin(props) {
-    const {lat, lng, index} = props
+    const {centerAddress, centerName, centerPhone, lat, lng, index} = props
 
     const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
   c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
@@ -9,8 +10,14 @@ export function Pin(props) {
 
     const SIZE = 20;
 
+    const [showPopup, setShowPopup] = useState(false)
+
     return (
-        <Marker key={`marker-${index}`} longitude={lng} latitude={lat}>
+        <>
+        <Marker key={`marker-${index}`} longitude={lng} latitude={lat} onClick={(e )   => {
+            setShowPopup(!showPopup)
+            e.originalEvent.stopPropagation()
+        }}>
             <svg
                 height={SIZE}
                 viewBox='0 0 24 24'
@@ -24,5 +31,17 @@ export function Pin(props) {
                 <path d={ICON}/>
             </svg>
         </Marker>
+
+    {showPopup && (
+        <Popup longitude={lng} latitude={lat} key={index} onClose={() => setShowPopup(false)} offset={1}>
+            <div>
+                <h6>{centerName}</h6>
+                <p>{centerAddress}</p>
+                <p>{centerPhone}</p>
+            </div>
+        </Popup>
+
+    )}
+        </>
     )
 }
