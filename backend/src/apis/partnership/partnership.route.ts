@@ -3,6 +3,7 @@ import {asyncValidatorController} from "../../utils/controllers/async-validator.
 import {check, checkSchema} from "express-validator";
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 import {
+    deletePartnership,
     getPartnershipByPartnershipCenterId,
     getPartnershipByPartnershipRestaurantId,
     postPartnership,
@@ -11,7 +12,6 @@ import {
 import {partnershipValidator} from "./partnership.validator";
 import {getRestaurantsByPartnershipCenterId} from "../restaurant/restaurant.controller";
 import {getCenterByPartnershipRestaurantId} from "../center/center.controller";
-import {deletePartnership} from "../../utils/models/Partnership";
 
 // restaurant sending partnership request
 const router = Router()

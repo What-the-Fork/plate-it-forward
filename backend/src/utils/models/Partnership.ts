@@ -21,7 +21,7 @@ export async function updatePartnership (partnership: Partnership): Promise<stri
     return 'partnership approved'
 }
 
-export async function deletePartnership (partnership: Partnership): Promise<string> {
+export async function destroyPartnership (partnership: Partnership): Promise<string> {
     const {partnershipCenterId, partnershipRestaurantId} = partnership
     await sql`DELETE FROM partnership WHERE partnership_center_id = ${partnershipCenterId} AND partnership_restaurant_id = ${partnershipRestaurantId}`
     return 'partnership denied'

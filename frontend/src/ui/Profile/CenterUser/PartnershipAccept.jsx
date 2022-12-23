@@ -4,12 +4,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {httpConfig} from "../../../utils/http-config.js";
 import {fetchPartnershipsByPartnershipCenterId} from "../../../store/partner.js";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export const PartnershipAccept = (props) => {
     console.log("im on")
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const {partner} = props
     const {partnershipRestaurantId, partnershipCenterId, partnershipApproved} = partner
     // const restaurant = useSelector(state => state.restaurants ? state.restaurants.filter(restaurant => restaurant.restaurantId === partnershipRestaurantId && !partnershipApproved)[0] : null)
@@ -19,7 +19,7 @@ export const PartnershipAccept = (props) => {
                 let {message, type} = reply;
 
                 if (reply.status === 200) {
-                    // dispatch(fetchPartnershipsByPartnershipCenterId(centerId))
+                    dispatch(fetchPartnershipsByPartnershipCenterId(partnershipCenterId))
                 }
             });
     }
@@ -28,7 +28,9 @@ export const PartnershipAccept = (props) => {
             .then(reply => {
                 let {message, type} = reply;
 
-                if (reply.status === 200) {}
+                if (reply.status === 200) {
+                    dispatch(fetchPartnershipsByPartnershipCenterId(partnershipCenterId))
+                }
             });
     }
     return (

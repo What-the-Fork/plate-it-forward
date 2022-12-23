@@ -8,7 +8,7 @@ import {
     insertPartnership,
     Partnership,
     selectPartnershipByPrimaryKey,
-    updatePartnership, deletePartnership
+    updatePartnership, destroyPartnership
 } from "../../utils/models/Partnership"
 
 export async function postPartnership(request: Request, response: Response): Promise<Response<Status>> {
@@ -55,6 +55,7 @@ export async function putPartnership (request: Request, response: Response): Pro
         const center = request.session.center as Center
         const centerIdFromSession = center.centerId as string
         const previousPartnership = await selectPartnershipByPrimaryKey(partnershipCenterId, partnershipRestaurantId)
+
         if (previousPartnership === null) {
             return response.json({status: 404, data: null, message: 'this partnership does not exist'})
         }
@@ -62,8 +63,13 @@ export async function putPartnership (request: Request, response: Response): Pro
         if (previousPartnership.partnershipCenterId !== centerIdFromSession) {
             return response.json({status: 400, data: null, message: 'you are not allowed to perform this action'})
         }
+
+        // following Brewer 101 example. updatedValues didn't break anything but didn't fix anything either...
+        const updatedValues = { partnershipCenterId, partnershipRestaurantId, partnershipApproved }
+
         // updates partnership approve entity/ says a ok thumbs up
-        const newPartnership: Partnership = {...previousPartnership, partnershipApproved}
+        // updatedValues in lieu of partnershipApproved (no spread operator)
+        const newPartnership: Partnership = {...previousPartnership, ...updatedValues}
         await updatePartnership(newPartnership)
         return response.json({status: 200, data: null, message: 'Partnership successfully approved'})
 
@@ -72,7 +78,7 @@ export async function putPartnership (request: Request, response: Response): Pro
     }
 }
 
-export async function destroyPartnership (request: Request, response: Response): Promise<Response> {
+export async function deletePartnership (request: Request, response: Response): Promise<Response> {
     try {
         const {partnershipCenterId, partnershipRestaurantId} = request.params
         const center = request.session.center as Center
@@ -87,7 +93,7 @@ export async function destroyPartnership (request: Request, response: Response):
         }
 
         const denyPartnership: Partnership = {...previousPartnership}
-        await deletePartnership(denyPartnership)
+        await destroyPartnership(denyPartnership)
         return response.json({status: 200, data: null, message: 'Partnership denied'})
     } catch (error: any) {
         return response.json({status: 400, data: null, message: error.message})
