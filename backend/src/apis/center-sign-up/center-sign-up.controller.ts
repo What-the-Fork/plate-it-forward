@@ -43,7 +43,7 @@ Please click the link to verify your account.
         // success message awaits successful sign up/activation token
         const successMessage = await insertCenter(center)
         await mailGunClient.messages.create(process.env.MAILGUN_DOMAIN as string,mailgunMessage)
-        return response.json({status:200, message: successMessage})
+        return response.json({status:200, message: 'Profile successfully created. Please check your email to verify your account.', data:null})
     } catch(error: any) {
         return (response.json({status:500, message:error.message, data:null}))
     }

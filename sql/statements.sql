@@ -72,10 +72,50 @@ VALUES(gen_random_uuid(), '', '5400 Sevilla Ave NW, Albuquerque, NM 87120', 'ale
 
 -- PARTNERSHIPS FOR CESAR CHAVEZ CC
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', 'eef4d671-b06b-445f-abdc-5bbc2bdc6a4c', true);
+VALUES('0e1dae01-21d7-4913-928f-2e2b576be069', 'dedd523f-2bba-4989-ab80-1c7b9daab37b', true);
 
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', '1963b4fd-1b43-4fb9-b0ad-726386cd7d95', true);
+VALUES('0e1dae01-21d7-4913-928f-2e2b576be069', 'eeac97c7-fe12-4601-9191-94f6f7effa93', true);
 
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', 'f4a3f65d-7911-4c03-8bb9-931ee45bdd21', true);
+VALUES('0e1dae01-21d7-4913-928f-2e2b576be069', '15548e57-a0d5-4fe4-a4c7-160470c59c1b', true);
+
+-- PARTNERSHIPS FOR WESTGATE CC
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('01bd7684-b8e9-455f-a109-b49f81becd1d', '0cf8d07d-b5dc-4e51-af21-82055891a9bc', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('01bd7684-b8e9-455f-a109-b49f81becd1d', 'ccfe97ed-f954-4a13-9c2c-84a196e1a3a4', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('01bd7684-b8e9-455f-a109-b49f81becd1d', '8f1550e4-66e6-4959-b813-18b30f2bace7', true);
+
+-- PARTNERSHIPS FOR MCKINLEY CC
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('766a6375-7452-4929-84ce-f2734934aae3', '9a2b5e86-7e7f-4fa0-9a2f-eef318b55364', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('766a6375-7452-4929-84ce-f2734934aae3', '86065d71-784d-42aa-8c67-d20cb65cbf08', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('766a6375-7452-4929-84ce-f2734934aae3', 'a9c418d2-b852-4a33-9bbe-66904e977214', true);
+
+-- PARTNERSHIPS FOR PARADISE HILLS CC
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('85d2849a-02a9-4920-a5e0-a45a28b2a5a5', '9000ca13-daaa-434f-aa8e-7ec1fe6b0905', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('85d2849a-02a9-4920-a5e0-a45a28b2a5a5', 'b0c52af5-60b1-412f-bec6-8d377cd5e9f2', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('85d2849a-02a9-4920-a5e0-a45a28b2a5a5', 'b9b44732-e3c0-4544-8db3-d4189dbb2067', true);
+
+-- PARTNERSHIPS FOR DON NEWTON CC
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('219e2492-45df-470b-a7c5-18c035636934', '9fe730fd-19ac-413b-8e4e-f8466216fed0', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('219e2492-45df-470b-a7c5-18c035636934', '43fcda19-8422-4e9b-8707-0b0b15b9be14', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('219e2492-45df-470b-a7c5-18c035636934', '50cd673a-af53-4a9c-9f41-a8776f6184ef', true);
