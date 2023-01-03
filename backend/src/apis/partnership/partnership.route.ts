@@ -25,7 +25,7 @@ router.route('/')
     .post(isLoggedIn("restaurant"), asyncValidatorController(checkSchema(partnershipValidator)), postPartnership)
     .put(isLoggedIn("center"), asyncValidatorController(checkSchema(partnershipValidator)), putPartnership)
 
-router.route('/centerId/:centerId/restaurantId/:restaurantId')
+router.route('/centerId/:partnershipCenterId/restaurantId/:partnershipRestaurantId')
     .delete(isLoggedIn("center"), asyncValidatorController(checkSchema(partnershipValidator)), deletePartnership)
 
 // restaurant seeing center partnership
