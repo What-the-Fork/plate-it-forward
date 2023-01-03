@@ -4,6 +4,7 @@ import partners from "./partner"
 import auth from "./auth.js";
 import partnerCenter from "./partnerCenter.js";
 import pending from "./pendingPartnerships"
+// import donations from "./donations.js";
 // import restaurants from "./restaurants.js";
 
 const reducer = combineReducers({centers, partners, pending, partnerCenter, auth})

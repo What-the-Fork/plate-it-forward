@@ -9,7 +9,7 @@ import {
 import {asyncValidatorController} from '../../utils/controllers/async-validator.controller'
 import {check, checkSchema} from 'express-validator'
 import {isLoggedIn} from '../../utils/controllers/isLoggedIn.controller'
-import {donationValidator} from './donation.validator'
+import {createDonationValidator, editDonationValidator} from "./donation.validator";
 
 const router = Router()
 // (/:) directs to specific donation when donationId is provided
@@ -19,9 +19,9 @@ router.route('/:donationId').get(asyncValidatorController([
 
 router.route('/')
     .get(getAllDonationsController)
-    .post(isLoggedIn("restaurant"), asyncValidatorController(checkSchema(donationValidator)), postDonation)
+    .post(isLoggedIn("restaurant"), asyncValidatorController(checkSchema(createDonationValidator)), postDonation)
     // .get(putDonation)
-    .put(isLoggedIn("center"), asyncValidatorController(checkSchema(donationValidator)), putDonation)
+    .put(isLoggedIn("center"), asyncValidatorController(checkSchema(editDonationValidator)), putDonation)
 
 // restaurant seeing their own donations
 router.route('/donationRestaurantId/:donationRestaurantId').get(asyncValidatorController([

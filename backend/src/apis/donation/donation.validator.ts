@@ -1,7 +1,7 @@
 import { Schema } from 'express-validator'
 
 // blueprint for donation entity
-export const donationValidator: Schema = {
+export const createDonationValidator: Schema = {
     donationCenterId: {
         isUUID: {
             errorMessage: 'please provide a valid donationCenterId'
@@ -31,6 +31,9 @@ export const donationValidator: Schema = {
         // escape - prevents smiley face of doom/ any malicious code being inserted
         escape: true
     },
+}
+export const editDonationValidator: Schema = {
+    ...createDonationValidator,
     donationNumberOfMealsServed: {
         isLength: {
             errorMessage: 'Please provide number of meals served',

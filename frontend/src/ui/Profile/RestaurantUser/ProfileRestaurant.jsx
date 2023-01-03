@@ -12,8 +12,6 @@ export function ProfileRestaurant() {
     const restaurant = useSelector(state => state.auth ? state.auth : null)
     const centers = useSelector(state => state.centers ? state.centers: [])
     const partnerCenter = useSelector(state => state.partnerCenter.length === 1 ? state.partnerCenter[0] : null)
-    console.log(centers)
-    console.log(restaurant)
     console.log(partnerCenter)
     const dispatch = useDispatch()
 
@@ -32,7 +30,7 @@ export function ProfileRestaurant() {
     return (
         <>
             {restaurant && <RestaurantInfo restaurant={restaurant}/>}
-            {restaurant && <Donations restaurant={restaurant}/>}
+            {restaurant && partnerCenter && <Donations center={partnerCenter} restaurant={restaurant}/>}
             {restaurant && partnerCenter === null && <PartnershipRequest centers={centers} restaurantId={restaurant.restaurantId}/>}
         </>
     )

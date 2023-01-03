@@ -9,7 +9,6 @@ import {Link} from "react-router-dom";
 export const PartnershipRequestListing = (props) => {
     const dispatch = useDispatch()
     const {center, restaurantId} = props
-    console.log(center)
     const {centerId, centerName, centerAddress, centerPhone, centerWebsiteUrl} = center
     function submitPartnershipRequest() {
         httpConfig.post('/apis/partnership', {partnershipCenterId: centerId, partnershipRestaurantId: restaurantId})

@@ -9,25 +9,33 @@ import {FormDebugger} from "../../Shared/Components/FormDebugger.jsx";
 import {DisplayStatus} from "../../Shared/Components/display-status/DisplayStatus.jsx";
 import {useSelector} from "react-redux";
 
-export const Donations = () => {
+export const Donations = (props) => {
+    const {restaurant, center} = props
+    console.log(center)
+    const donationRestaurantId = restaurant.restaurantId
+    const donationCenterId = center.centerId
     const donation = {
         donationNumberOfMealsDonated: '',
         donationDate: ''
     }
-
+    const date = new Date()
+    const yesterday = new Date(date)
+    yesterday.setDate(date.getDate() - 1)
     const donationValidator = Yup.object().shape({
         donationNumberOfMealsDonated: Yup.number()
             .required('A valid number is required')
             .min(1, 'Please provide number of meals donated')
             .max(999, 'Please provide a number between 0 - 999'),
         donationDate: Yup.date()
-            .min(new Date(), 'Date cannot precede current date')
+            .min((yesterday), 'Date cannot precede current date')
             .required('A valid date is required')
 
     })
 
     const submitDonation = (values, {resetForm, setStatus}) => {
-        httpConfig.post('/apis/donation/', values)
+        const donationDate = values.donationDate.split("/").reverse().join("/");
+        console.log(donationDate)
+        httpConfig.post('/apis/donation/', {donationNumberOfMealsDonated: values.donationNumberOfMealsDonated, donationRestaurantId, donationCenterId, donationDate})
             .then(reply => {
                 let {message, type} = reply;
 
