@@ -40,7 +40,7 @@ export function ProfileCenter() {
             {/*conditional render to prevent undefine, will crash page*/}
             {center && <CenterInfo center={center}/>}
             <section className={'py-5'}>
-                {center && pendings.map(partner => <PartnershipAccept partner={partners}  key={partner.partnershipRestaurantId}/>)}
+                {center && pendings.map(partner => <PartnershipAccept partner={partner} centerId={center.centerId} key={partner.partnershipRestaurantId}/>)}
             </section>
             <StaticCenterDonationForm/>
             {/*<Served/>*/}

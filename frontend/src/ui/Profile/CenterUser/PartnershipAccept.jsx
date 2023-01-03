@@ -3,33 +3,34 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {httpConfig} from "../../../utils/http-config.js";
-import {fetchPartnershipsByPartnershipCenterId} from "../../../store/partner.js";
+// import {fetchPartnershipsByPartnershipCenterId} from "../../../store/partner.js";
 import {useDispatch, useSelector} from "react-redux";
+import {fetchPendingByPartnershipCenterId} from "../../../store/pendingPartnerships.js";
 
 
 export const PartnershipAccept = (props) => {
-    console.log("im on")
+    console.log(props)
     const dispatch = useDispatch()
-    const {partner} = props
-    const {partnershipRestaurantId, partnershipCenterId, partnershipApproved} = partner
+    const {partner, centerId} = props
+    const {restaurantId} = partner
     // const restaurant = useSelector(state => state.restaurants ? state.restaurants.filter(restaurant => restaurant.restaurantId === partnershipRestaurantId && !partnershipApproved)[0] : null)
     function submitPartnershipAccept() {
-        httpConfig.put('/apis/partnership', {partnershipCenterId, partnershipRestaurantId, partnershipApproved: true})
+        httpConfig.put('/apis/partnership', {partnershipCenterId: centerId, partnershipRestaurantId: restaurantId, partnershipApproved: true})
             .then(reply => {
                 let {message, type} = reply;
 
                 if (reply.status === 200) {
-                    dispatch(fetchPartnershipsByPartnershipCenterId(partnershipCenterId))
+                    dispatch(fetchPendingByPartnershipCenterId(centerId))
                 }
             });
     }
     function submitPartnershipDeny() {
-        httpConfig.delete('/apis/partnership/deletePartnership')
+        httpConfig.delete(`/apis/partnership/centerId/${centerId}/restaurantId/${restaurantId}`)
             .then(reply => {
                 let {message, type} = reply;
 
                 if (reply.status === 200) {
-                    dispatch(fetchPartnershipsByPartnershipCenterId(partnershipCenterId))
+                    dispatch(fetchPendingByPartnershipCenterId(centerId))
                 }
             });
     }
