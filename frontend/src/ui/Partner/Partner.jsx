@@ -12,9 +12,9 @@ export function Partner() {
             </section>
             <Container className={'p-4'}>
                 <Row xl={12}>
-                    <Col className={'d-block img-fluid col-xl-4 m-0'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/xYCyf6S/Adobe-Stock-220711353.jpg'} alt={'Serving Donations'}/></Col>
-                    <Col className={'d-block img-fluid col-xl-4 m-0'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/CQYcDsh/Adobe-Stock-434293293.jpg'} alt={'Volunteers'}/></Col>
-                    <Col className={'d-block img-fluid col-xl-4 m-0'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/bXsB6BJ/Adobe-Stock-176970757.jpg'} alt={'Serving meals'}/></Col>
+                    <Col className={'d-block img-fluid col-xl-4 col-l-8 col-md-10 col-sm-12 m-0 mt-sm-3'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/xYCyf6S/Adobe-Stock-220711353.jpg'} alt={'Serving Donations'}/></Col>
+                    <Col className={'d-block img-fluid col-xl-4 col-l-8 col-md-10 col-sm-12 m-0 mt-sm-3'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/CQYcDsh/Adobe-Stock-434293293.jpg'} alt={'Volunteers'}/></Col>
+                    <Col className={'d-block img-fluid col-xl-4 col-l-8 col-md-10 col-sm-12 m-0 mt-sm-3'}><Image className={'img-fluid rounded'} src={'https://i.ibb.co/bXsB6BJ/Adobe-Stock-176970757.jpg'} alt={'Serving meals'}/></Col>
                 </Row>
                 <Container className={'gx-md-1 gy-5 p-4 mt-4 justify-content-center'}>
                     <h3 className={'display-6 text-center'}><strong>Become a Restaurant Partner</strong></h3>
