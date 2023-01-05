@@ -70,12 +70,55 @@ VALUES(gen_random_uuid(), '', '6001 Winter Haven Rd NW M, Albuquerque, NM 87120'
 INSERT INTO restaurant(restaurant_id, restaurant_activation_token, restaurant_address, restaurant_contact_email, restaurant_contact_name, restaurant_contact_phone, restaurant_hash, restaurant_name, restaurant_name_url, restaurant_profile_img_url)
 VALUES(gen_random_uuid(), '', '5400 Sevilla Ave NW, Albuquerque, NM 87120', 'alex@jinja.com', 'Alex Jinja', '(505)753-1161', '', 'Jinja Bar & Bistro', 'https://jinjabistro.com/', '');
 
--- PARTNERSHIPS FOR CESAR CHAVEZ CC
+-- INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+-- VALUES('', '', true);
+
+-- PARTNERSHIPS FOR Westgate Community Center
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', 'eef4d671-b06b-445f-abdc-5bbc2bdc6a4c', true);
+VALUES('29bd76d6-86b4-43d2-8fab-b09766d82efa', '7db16d32-9591-491c-8a2d-e35ad44acfc2', true);
 
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', '1963b4fd-1b43-4fb9-b0ad-726386cd7d95', true);
+VALUES('29bd76d6-86b4-43d2-8fab-b09766d82efa', 'c52d853e-6386-4464-8d09-d197fe0f0ce2', true);
 
 INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
-VALUES('a2e4d356-3a40-463f-b115-585f127b48f6', 'f4a3f65d-7911-4c03-8bb9-931ee45bdd21', true);
+VALUES('29bd76d6-86b4-43d2-8fab-b09766d82efa', '51dd114d-a0dc-4118-8207-d1bdda1f11d5', true);
+
+-- PARTNERSHIPS FOR Cesar Chavez Community Center
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('38001736-49e9-4548-87e2-d1667d3b8148', 'f34f042b-8d86-4bee-a90f-2222561c83c2', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('38001736-49e9-4548-87e2-d1667d3b8148', '26e9b45d-33a4-4c43-9034-ec85a9b47fab', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('38001736-49e9-4548-87e2-d1667d3b8148', '8e7756c4-a7dd-4f29-a750-92c311df8b61', true);
+
+-- PARTNERSHIPS FOR McKinley Community Center
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('ae99b694-9e6b-4e21-b534-a32b04fa65fe', '0d466a05-4e60-4a8c-89b5-5bd70b569518', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('ae99b694-9e6b-4e21-b534-a32b04fa65fe', '2805b933-f0eb-4124-ad3a-cec5215444cd', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('ae99b694-9e6b-4e21-b534-a32b04fa65fe', 'afe8c2ff-b4d9-4ca1-bdaa-98cacf1fc3b0', true);
+
+-- PARTNERSHIPS FOR Paradise Hills Community Center
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('499280ee-1be7-4dc6-b05e-5d01ae8c7d54', 'd50f7b77-41e1-4a09-83ea-84b6cd4e5d75', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('499280ee-1be7-4dc6-b05e-5d01ae8c7d54', '45ebeea4-be65-4abd-81f5-1a76da130d6c', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('499280ee-1be7-4dc6-b05e-5d01ae8c7d54', 'cabee40e-f77b-447f-b024-d94f2c24ba35', true);
+
+-- PARTNERSHIPS FOR Don Newton-Taylor Ranch Community Center
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('a5e60faa-8e4f-4329-8122-14d77526297f', 'f34f042b-8d86-4bee-a90f-2222561c83c2', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('a5e60faa-8e4f-4329-8122-14d77526297f', '26e9b45d-33a4-4c43-9034-ec85a9b47fab', true);
+
+INSERT INTO partnership(partnership_center_id, partnership_restaurant_id, partnership_approved)
+VALUES('a5e60faa-8e4f-4329-8122-14d77526297f', '8e7756c4-a7dd-4f29-a750-92c311df8b61', true);
