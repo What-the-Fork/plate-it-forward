@@ -32,10 +32,12 @@ export const CenterListing = (props) => {
                         <h3 className={'display-6'}><strong>{centerName}</strong></h3>
                         <p>{centerAddress}</p>
                         <p>{centerPhone}</p>
+                        <div className={'container-sm-10'}>
                         <Link to={'#'}>{centerWebsiteUrl}</Link>
+                        </div>
                         <h5 className={'mt-4'}>Partnering Restaurants</h5>
-                        <p id={'partner-map'} className={'gx-sm-5 d-flex align-items-start justify-content-between'}>
-                            {partnerRestaurants.map(partnerRestaurant => <p>{partnerRestaurant.restaurantName}</p>)}
+                        <p id={'partner-map'} className={'gx-sm-5 col-sm-12 align-items-start justify-content-between'}>
+                            {partnerRestaurants.map(partnerRestaurant =><p>{partnerRestaurant.restaurantName}</p>)}
                         </p>
                     </Col>
                 </Row>
