@@ -7,7 +7,7 @@ import {httpConfig} from "../../../utils/http-config.js";
 import {Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {DisplayError} from "../../Shared/Components/display-error/DisplayError.jsx";
-import {FormDebugger} from "../../Shared/Components/FormDebugger.jsx";
+// import {FormDebugger} from "../../Shared/Components/FormDebugger.jsx";
 import {DisplayStatus} from "../../Shared/Components/display-status/DisplayStatus.jsx";
 import {fetchPendingDonationsByDonationCenterId} from "../../../store/donations.js";
 
@@ -127,7 +127,7 @@ export const Served = (props) => {
                                     </Button>
                                     {' '}
                                 </Form.Group>
-                                <FormDebugger {...props} />
+                                {/*<FormDebugger {...props} />*/}
                             </Form>
                             <DisplayStatus status={status} />
                         </Container>
