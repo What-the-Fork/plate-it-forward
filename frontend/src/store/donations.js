@@ -13,10 +13,9 @@ const donationsSlice = createSlice({
 
 export const {setAllDonations} = donationsSlice.actions
 
-export const fetchDonationsByDonationRestaurantId = () => async (dispatch) => {
-    const {data} = await httpConfig.get(`/apis/donation/`)
+export const fetchPendingDonationsByDonationCenterId = (centerId) => async (dispatch) => {
+    const {data} = await httpConfig.get(`/apis/donation/pending/donationCenterId/${centerId}`)
     dispatch(setAllDonations(data))
-    let
 }
 
 export default donationsSlice.reducer

@@ -11,15 +11,14 @@ export function ProfileRestaurant() {
 
     const restaurant = useSelector(state => state.auth ? state.auth : null)
     const centers = useSelector(state => state.centers ? state.centers: [])
-    const partnerCenter = useSelector(state => state.partnerCenter.length === 1 ? state.partnerCenter[0] : null)
+    const partnerCenter = useSelector(state => state.partnerCenters.length === 1 ? state.partnerCenters[0] : null)
     console.log(partnerCenter)
     const dispatch = useDispatch()
 
     const initialEffects = () => {
         dispatch(fetchAuth())
-        if(restaurant !== null) {
-            dispatch(fetchCenterByPartnershipRestaurantId(restaurant.restaurantId))
-        }
+            dispatch(fetchCenterByPartnershipRestaurantId())
+
 
         dispatch(fetchAllCenters())
 

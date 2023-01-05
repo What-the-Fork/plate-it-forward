@@ -4,23 +4,25 @@ import {PartnershipAccept} from "./PartnershipAccept.jsx";
 import { Served } from "./Served.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../../store/auth.js";
-import {fetchPartnershipsByPartnershipCenterId} from "../../../store/partner.js";
 import {fetchPendingByPartnershipCenterId} from "../../../store/pendingPartnerships.js";
 import {StaticCenterDonationForm} from "./StaticCenterDonationForm";
+import {fetchRestaurantsByPartnershipCenterId} from "../../../store/partnerRestaurant.js";
+import {fetchAllRestaurants} from "../../../store/restaurants.js";
+import {fetchPendingDonationsByDonationCenterId} from "../../../store/donations.js";
 
 export function ProfileCenter() {
 
     const center = useSelector(state => state.auth ? state.auth : null)
     const pendings = useSelector(state => state.pending)
-    console.log(pendings)
-    const partners = useSelector( state => {
-        if (center !== null){
-
-
-            return  state.partners [center.centerId] ?? []
-            }
-        return []
-    })
+    const donations = useSelector(state => state.donations)
+    const partnerRestaurants = useSelector(state => {
+        if(state?.partnerRestaurants.constructor.name === "Object"){
+            return Object.values(state.partnerRestaurants)
+        } else {
+            return []
+        }
+    });
+console.log(donations)
     const dispatch = useDispatch()
 
     const initialEffects = () => {
@@ -29,7 +31,8 @@ export function ProfileCenter() {
     }
     const secondaryEffects = () => {
         if(center !== null) {
-        dispatch(fetchPartnershipsByPartnershipCenterId(center.centerId))
+            dispatch(fetchPendingDonationsByDonationCenterId(center.centerId))
+        dispatch(fetchRestaurantsByPartnershipCenterId(center.centerId))
             dispatch(fetchPendingByPartnershipCenterId(center.centerId))
     }}
     useEffect(initialEffects, [dispatch])
@@ -42,8 +45,8 @@ export function ProfileCenter() {
             <section className={'py-5'}>
                 {center && pendings.map(partner => <PartnershipAccept partner={partner} centerId={center.centerId} key={partner.partnershipRestaurantId}/>)}
             </section>
-            <StaticCenterDonationForm/>
-            {/*<Served/>*/}
+            {/*<StaticCenterDonationForm/>*/}
+            {donations.map(donation => <Served key={donation.donationId} donation = {donation} centerId = {center.centerId}/>)}
         </>
     )
 }

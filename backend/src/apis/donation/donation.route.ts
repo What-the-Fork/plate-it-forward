@@ -2,7 +2,7 @@ import {Router} from 'express'
 import {
     getAllDonationsController,
     getDonationsByCenterId,
-    getDonationsByRestaurantId,
+    getDonationsByRestaurantId, getPendingDonationsByCenterId,
     postDonation,
     putDonation
 } from './donation.controller'
@@ -31,6 +31,9 @@ router.route('/donationRestaurantId/:donationRestaurantId').get(asyncValidatorCo
 // all donations by centerId
 router.route('/donationCenterId/:donationCenterId').get(asyncValidatorController([check('donationCenterId', 'please provide a valid centerId ').isUUID()
 ]), getDonationsByCenterId)
+
+router.route('/pending/donationCenterId/:donationCenterId').get(asyncValidatorController([check('donationCenterId', 'please provide a valid centerId ').isUUID()
+]), getPendingDonationsByCenterId)
 
 export default router
 

@@ -78,5 +78,11 @@ export async function selectDonationsByRestaurantId(donationRestaurantId: string
                                          WHERE donation_restaurant_id = ${donationRestaurantId}`
 }
 
+// get all donations by centerId that haven't been served yet -- added null from stackoverflow
+export async function selectNotServedDonationsByCenterId(donationCenterId: string): Promise<Donation[]> {
+    return sql <Donation[]>`SELECT donation_id, donation_center_id, donation_restaurant_id, donation_date, donation_number_of_meals_donated, donation_number_of_meals_served, donation_serve_date FROM donation WHERE donation_center_id=${donationCenterId} AND donation_number_of_meals_served is null AND donation.donation_serve_date is null`
+}
+
+
 
 

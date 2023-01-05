@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { httpConfig } from '../utils/http-config.js'
-import {fetchCenterByPartnershipRestaurantId, setAllCenters} from "./centers.js";
+import {fetchCenterByPartnershipRestaurantId} from "./partnerCenter.js";
 
 const restaurantsSlice = createSlice({
     name: "restaurants",

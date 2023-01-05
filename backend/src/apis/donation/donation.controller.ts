@@ -4,7 +4,7 @@ import {
     insertDonation,
     updateDonation,
     selectDonationByDonationId,
-    Donation, selectDonationsByRestaurantId, selectDonationsByCenterId
+    Donation, selectDonationsByRestaurantId, selectDonationsByCenterId, selectNotServedDonationsByCenterId
 } from '../../utils/models/Donation'
 
 import {Status} from '../../utils/interfaces/Status'
@@ -119,6 +119,21 @@ export async function getDonationsByCenterId (request:Request, response: Respons
     try {
         const { donationCenterId } = request.params
         const data = await selectDonationsByCenterId(donationCenterId)
+        return response.json({ status: 200, message: null, data })
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+// all donations by center id
+export async function getPendingDonationsByCenterId (request:Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+    try {
+        const { donationCenterId } = request.params
+        const data = await selectNotServedDonationsByCenterId(donationCenterId)
         return response.json({ status: 200, message: null, data })
     } catch (error) {
         return response.json({

@@ -44,11 +44,14 @@ export const editDonationValidator: Schema = {
     },
     donationServeDate: {
         isDate: true,
-        errorMessage: 'Donation date format is not supported. Please try YYYY/MM/DD',
+        errorMessage: 'Donation serve date format is not supported. Please try YYYY/MM/DD',
         optional: {
             options: {
                 nullable: true
             },
         },
     },
+    donationDate: {
+        isISO8601: true, errorMessage: 'please provide a valid ISO date for validation date'
+    }
 }

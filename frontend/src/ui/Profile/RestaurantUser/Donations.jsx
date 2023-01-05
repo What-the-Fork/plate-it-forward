@@ -72,8 +72,8 @@ function DonationFormContent(props) {
         handleSubmit
         // handleReset
     } = props
-
-const partnerCenter = useSelector(state => state.partnerCenter.length === 1 ? state.partnerCenter[0] : null)
+const {partners} = props
+const partnerCenter = useSelector(state => state.partnerCenters.length === 1 ? state.partnerCenters[0] : null)
     console.log(partnerCenter)
     if (partnerCenter === null) {
         return (<></>)

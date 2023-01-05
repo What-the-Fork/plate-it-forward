@@ -57,7 +57,7 @@ export async function getRestaurantsByPartnershipCenterId (request: Request, res
         const { partnershipCenterId } = request.params
         const postgresResult = await
             selectRestaurantsByPartnershipCenterId(partnershipCenterId)
-        const data = postgresResult ?? null
+        const data = postgresResult
         const status: Status = { status: 200, data, message: null }
         return response.json(status)
     } catch (error: any) {
