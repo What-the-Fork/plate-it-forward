@@ -6,13 +6,6 @@ import Map from 'react-map-gl'
 
 export function DirectoryMap (props) {
     const {centers} = props
-    // const [centers] = React.useState([
-    //     { centerLat: 35.332, centerLng: -106.652 },
-    //     { centerLat: 35.339, centerLng: -106.656 },
-    //     { centerLat: 35.40, centerLng: -106.666 },
-    //     { centerLat: 35.23, centerLng: -106.4444 }
-    // ])
-
 
     return (
         <>
@@ -29,7 +22,7 @@ export function DirectoryMap (props) {
                         mapStyle='mapbox://styles/mapbox/streets-v12'
                     >
                         {centers.map((centers, index) =>
-                            <Pin lat={centers.centerLat} lng={centers.centerLng} index={index} key={index} />)}
+                            <Pin centerName={centers.centerName} centerAddress={centers.centerAddress} centerPhone={centers.centerPhone} lat={centers.centerLat} lng={centers.centerLng} index={index} key={index} />)}
                     </Map>
                 </Row>
             </Container>
